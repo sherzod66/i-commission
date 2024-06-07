@@ -1,0 +1,38 @@
+.balance {
+	@apply w-full mt-[130px] pk:px-4;
+	.balance__container {
+		& h2 {
+			@apply text-sub-title text-black-900 mb-[33px] mobile:text-text-24;
+		}
+		.balance__money {
+			@apply flex bg-white px-6 py-4 rounded-8xl justify-between flex-wrap mobile:p-4;
+			.money__info {
+				@apply flex items-center table-min:flex-wrap;
+				& h1 {
+					@apply text-title mr-2 table-min:flex-full table-min:mb-2;
+				}
+				.money__active {
+					display: block;
+					& a {
+						@apply block w-full p-2 rounded-12xl text-text-default  bg-orange-900 text-white;
+					}
+					&.second {
+						& a {
+							@apply bg-f4f4 text-black-900 ml-2 mobile-sm:ml-0 mobile-sm:mt-2;
+						}
+					}
+				}
+			}
+		}
+		.balance__conclusion {
+			flex: 0 1 33%;
+			font-size: 14px;
+			color: #707070;
+			line-height: 18px;
+			@media (max-width: 768px) {
+				flex: 1 1 100%;
+				margin-top: 20px;
+			}
+		}
+	}
+}

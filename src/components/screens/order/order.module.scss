@@ -1,0 +1,17 @@
+.order {
+	margin-top: 130px;
+	.order__container {
+		.order__row {
+			max-width: 1299px;
+			@apply flex laptop:flex-wrap;
+			.order__column {
+				@apply p-8 border-solid border-[2px] border-line rounded-2xl;
+				flex: 0 1 58%;
+				&.second {
+					@apply border-solid border-[0px] border-transparent ml-8;
+					flex: 0 1 38%;
+				}
+			}
+		}
+	}
+}

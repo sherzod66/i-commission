@@ -1,0 +1,9 @@
+.input_wrapper {
+	@apply mb-4 last:mb-0;
+	.input_default {
+		@apply input-default block;
+	}
+	.error {
+		@apply text-orange-900 my-1 animate-fade;
+	}
+}

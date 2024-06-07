@@ -1,0 +1,6 @@
+.edit {
+	@apply animate-scaleIn max-w-[1216px] mt-4;
+	.edit__main {
+		@apply bg-white rounded-6xl p-6;
+	}
+}

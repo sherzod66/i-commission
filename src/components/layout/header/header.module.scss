@@ -1,0 +1,105 @@
+.header {
+	@apply w-full py-4 absolute left-0 top-0 z-1 pk:px-4 pk:overflow-hidden;
+	&.bg {
+		background-color: #ffffff;
+		border-radius: 0px 0px 30px 30px;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		display: block;
+		width: 100%;
+		height: 1px;
+		background: #e5e5e5;
+	}
+	.header__container {
+		.header__row {
+			@apply w-full flex justify-between items-center;
+			.header__first {
+				@apply flex justify-between items-center;
+				.header__logo {
+					@apply text-text-24 font-bold mr-[60px] pk:mr-6;
+				}
+				.header__social {
+					@apply ml-6 pk:hidden;
+					& a {
+						@apply text-black-300 font-normal transition-colors hover:text-black-800;
+					}
+					& svg {
+						display: inline-block;
+						margin-right: 7px;
+					}
+				}
+			}
+			.header__second {
+				@apply flex items-center;
+				.header__open {
+					@apply bg-f4f4 py-2 px-3 text-black-800 text-text-default rounded-12xl mr-2 tablet:hidden;
+				}
+				.header__auth {
+					@apply bg-orange-900 py-2 px-3 text-text-default text-white rounded-12xl;
+				}
+				.burger {
+					display: none;
+					@media (max-width: 1440px) {
+						display: block;
+						position: relative;
+						z-index: 3;
+						width: 20px;
+						height: 20px;
+						&::before,
+						&::after {
+							content: '';
+							display: block;
+							position: absolute;
+							width: 100%;
+							height: 2px;
+							left: 0;
+							background-color: #707070;
+							border-radius: 10px;
+							transition: all 0.5s ease 0s;
+						}
+						& span {
+							display: block;
+							position: absolute;
+							width: 100%;
+							height: 2px;
+							left: 0;
+							top: 9px;
+							background-color: #707070;
+							border-radius: 10px;
+							transition: all 0.5s ease 0s;
+						}
+						&::before {
+							top: 0;
+						}
+						&::after {
+							bottom: 0;
+						}
+
+						&.active::before {
+							top: 9px;
+							-webkit-transform: rotate(135deg);
+							-moz-transform: rotate(135deg);
+							-o-transform: rotate(135deg);
+							transform: rotate(135deg);
+						}
+						&.active::after {
+							top: 9px;
+							-webkit-transform: rotate(-135deg);
+							-moz-transform: rotate(-135deg);
+							-o-transform: rotate(-135deg);
+							transform: rotate(-135deg);
+						}
+						&.active span {
+							opacity: 0;
+							left: 60px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

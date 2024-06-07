@@ -1,0 +1,12 @@
+.social {
+	@apply w-full flex flex-col items-center mt-6;
+	.is_social {
+		@apply text-text-default;
+	}
+	.socials {
+		@apply flex mt-4;
+		.social_item {
+			@apply p-[12px] bg-dark-white mr-4 last:mr-0 rounded-circle;
+		}
+	}
+}

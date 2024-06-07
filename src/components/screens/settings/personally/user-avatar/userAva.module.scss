@@ -1,0 +1,23 @@
+.row {
+	@apply flex;
+	.image {
+		@apply w-[50px] h-[50px] mr-2 rounded-circle overflow-hidden;
+		& img {
+			@apply image-min;
+		}
+	}
+	.row__column {
+		& h4 {
+			@apply text-text-default mb-2;
+		}
+		.bg_header_active {
+			@apply flex;
+			& button:first-child {
+				@apply mr-2 text-black-300 text-text-sm transition-colors hover:text-orange-900;
+			}
+			& button:last-child {
+				@apply text-orange-900 text-text-sm;
+			}
+		}
+	}
+}

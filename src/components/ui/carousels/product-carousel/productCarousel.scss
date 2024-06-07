@@ -1,0 +1,32 @@
+.product__carousel {
+	min-width: 0;
+	.mySwiper {
+		width: 100%;
+		overflow: hidden;
+		z-index: 0;
+		.swiper-slide {
+			&:last-child {
+				margin-right: 0px;
+			}
+			.category__link {
+				@apply block bg-dark-white h-full w-full flex flex-col items-center justify-center rounded-6xl
+			overflow-hidden transition-colors cursor-pointer;
+				&:hover {
+					@apply bg-orange-300 text-white;
+					& path {
+						@apply fill-white;
+					}
+				}
+				&.sel {
+					@apply bg-orange-900 text-white;
+					& path {
+						@apply fill-white;
+					}
+				}
+				& p {
+					@apply text-[17px];
+				}
+			}
+		}
+	}
+}

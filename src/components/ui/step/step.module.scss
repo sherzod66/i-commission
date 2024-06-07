@@ -1,0 +1,7 @@
+.title {
+	@apply text-black-900 font-medium text-sub-title
+	w-full leading-normal tablet:text-text-xl;
+}
+.description {
+	@apply text-text-default text-black-300 mb-6 tablet:text-text-sm;
+}

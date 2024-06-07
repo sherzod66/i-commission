@@ -1,0 +1,36 @@
+.not_found {
+	@apply w-full min-h-screen p-4 flex;
+	.not_found__body {
+		max-width: 398px;
+		margin: 0px auto;
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		& h1 {
+			font-style: normal;
+			font-weight: 900;
+			font-size: 186px;
+			line-height: 225px;
+			color: #ffffff;
+			text-shadow: 2px 2px 0px #fc5a40, 4px 4px 0px #fc5a40, 6px 6px 0px #fc5a40,
+				8px 8px 0px #fc5a40, 10px 10px 0px #fc5a40, 12px 12px 0px #fc5a40, 14px 14px 0px #fc5a40,
+				16px 16px 0px #fc5a40;
+			@media (max-width: 440px) {
+				font-size: 128px;
+			}
+		}
+		& p {
+			@apply text-text-24 text-black-300 text-center;
+		}
+		& a {
+			@apply mt-[43px] rounded-12xl border border-orange-900 border-solid py-2 px-4
+			text-orange-900 text-text-24 block self-center transition-colors;
+			&:hover {
+				background-color: #fc5a40;
+				color: #ffffff;
+			}
+		}
+	}
+}

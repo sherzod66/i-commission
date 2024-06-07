@@ -1,0 +1,103 @@
+.loader {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	z-index: 5;
+
+	.animate {
+		position: relative;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 128px;
+		line-height: 170px;
+		color: #ffffff;
+		text-shadow: 1px 1px 0px #fc5a40, 2px 2px 0px #fc5a40, 4px 4px 0px #fc5a40, 5px 5px 0px #fc5a40,
+			6px 6px 0px #fc5a40, 7px 7px 0px #fc5a40, 8px 8px 0px #fc5a40, 9px 9px 0px #fc5a40;
+		@media (max-width: 440px) {
+			font-size: 55px;
+			line-height: 73px;
+			text-shadow: 0.431247px 0.431247px 0px #fc5a40, 0.862494px 0.862494px 0px #fc5a40,
+				1.72499px 1.72499px 0px #fc5a40, 2.15624px 2.15624px 0px #fc5a40,
+				2.58748px 2.58748px 0px #fc5a40, 3.01873px 3.01873px 0px #fc5a40,
+				3.44998px 3.44998px 0px #fc5a40, 3.88123px 3.88123px 0px #fc5a40;
+		}
+		.letter:nth-child(1) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 1);
+		}
+		.letter:nth-child(3) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 2);
+		}
+		.letter:nth-child(4) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 3);
+		}
+		.letter:nth-child(5) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 4);
+		}
+		.letter:nth-child(6) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 5);
+		}
+		.letter:nth-child(7) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 6);
+		}
+		.letter:nth-child(8) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 7);
+		}
+		.letter:nth-child(9) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 8);
+		}
+		.letter:nth-child(10) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 9);
+		}
+		.letter:nth-child(11) {
+			display: inline-block;
+			animation: waviy 1s infinite;
+			animation-delay: calc(0.1s * 10);
+		}
+	}
+	& p {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 24px;
+		line-height: 31px;
+		text-align: center;
+		color: #949494;
+		@media (max-width: 440px) {
+			font-size: 15px;
+		}
+	}
+}
+
+@keyframes waviy {
+	0%,
+	40%,
+	100% {
+		transform: translateY(0);
+	}
+	20% {
+		transform: translateY(-30px);
+	}
+}

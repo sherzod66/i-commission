@@ -1,0 +1,42 @@
+.second {
+	@apply flex border border-orange-900 border-solid rounded-12xl relative
+	transition-colors tablet:mt-2 tablet:flex-full tablet:justify-between mobile:flex-nowrap;
+	.filter__button {
+		position: relative;
+
+		padding: 9px 16px;
+		font-size: 16px;
+		color: #fc5a40;
+		&.white {
+			color: #ffffff;
+		}
+		&:first-child {
+			margin-right: 16px;
+		}
+		&.fixed {
+			width: 231px;
+			&:first-child {
+				margin-right: 0px;
+			}
+			@media (max-width: 440px) {
+				width: auto;
+				max-width: 231px;
+			}
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 50%;
+		height: 100%;
+		background-color: #fc5a40;
+		border-radius: 60px;
+		transition: all 0.3s ease-in-out 0s;
+	}
+	&.orange::before {
+		right: 50%;
+	}
+}

@@ -1,0 +1,89 @@
+.back_image {
+	@apply w-full h-[427px] bg-white absolute left-0
+	top-0 z-0 rounded-b-10xl overflow-hidden tablet:h-[280px];
+	&.shop {
+		@apply tablet:h-[458px];
+	}
+	& img {
+		@apply w-full h-full object-contain object-left-top tablet:object-cover
+		tablet:object-left;
+	}
+}
+.tittle {
+	@apply relative mt-[130px] pk:px-4;
+	.title__container {
+		.title__row {
+			@apply flex justify-between laptop:flex-wrap;
+			.tittle__column {
+				@apply flex items-center laptop:flex-full;
+				.title__image {
+					@apply w-[100px] h-[100px] tablet:w-[70px] tablet:h-[70px] mr-4
+					tablet:mr-2 rounded-circle overflow-hidden;
+					& img {
+						@apply w-full h-full object-cover object-center;
+					}
+				}
+				.title_title {
+					& h1 {
+						@apply text-title font-semibold tablet:text-text-24;
+						& svg {
+							@apply inline-block ml-8 tablet:ml-4;
+						}
+					}
+					& p {
+						@apply text-text-default tablet:text-text-12 text-black-300 mt-[6px];
+					}
+				}
+			}
+			.title__column2 {
+				@apply flex items-center laptop:my-6 laptop:flex-wrap;
+				.title__item_catalog {
+					@apply bg-f4f4 p-4 rounded-6xl mr-6 tablet:flex-full tablet:mr-0;
+					.catalog__title {
+						@apply flex justify-between;
+						& h3 {
+							@apply text-text-24 font-medium tablet:text-text-lg;
+						}
+						& a {
+							@apply p-2 bg-white rounded-circle block;
+						}
+					}
+					& p {
+						@apply text-text-sm text-black-300 font-light mt-2 tablet:text-text-12;
+					}
+				}
+				.title__itemSh {
+					@apply pr-[37px] border-r-2 border-line2 border-solid
+					tablet:flex-50% tablet:mt-6 mobile:pr-[20px];
+					&:last-child {
+						@apply pr-0 pl-[37px] border-r-0 mobile:pl-[20px];
+					}
+					& p {
+						@apply text-text-sm text-black-300 font-light;
+					}
+					& h5 {
+						@apply text-text-default font-medium my-2;
+					}
+					.rate {
+						@apply flex items-center;
+						& p {
+							@apply ml-1 text-black-900 border-black-900 border-[2px] border-solid font-semibold px-2 rounded-xl;
+						}
+					}
+				}
+				.title__item {
+					@apply pr-[37px] border-r-2 border-line2 border-solid mobile:pr-[20px];
+					&:last-child {
+						@apply pr-0 pl-[37px] border-r-0 mobile:pl-[20px];
+					}
+					& p {
+						@apply text-text-sm text-black-300 font-light;
+					}
+					& h5 {
+						@apply text-text-default font-medium my-2 text-right mobile:text-left;
+					}
+				}
+			}
+		}
+	}
+}

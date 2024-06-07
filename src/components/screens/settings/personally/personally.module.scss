@@ -1,0 +1,106 @@
+.personally__wrapper {
+	@apply max-w-[1216px] mt-4 animate-scaleIn;
+	.personally__row {
+		@apply flex items-start flex-wrap;
+		.personally__first_column {
+			flex: 0 1 62%;
+			margin-right: 30px;
+			@media (max-width: 1024px) {
+				margin-right: 0px;
+				flex: 1 1 100%;
+				margin-bottom: 30px;
+			}
+			.personally__info {
+				@apply p-6 bg-white rounded-6xl;
+				.personally__info_row {
+					@apply flex flex-wrap -mx-4 -my-[7px] items-end;
+					.personally_input {
+						@apply flex-50% px-4 py-[7px] tablet:flex-full;
+						& label {
+							@apply text-text-sm text-black-300 block mb-2;
+						}
+						.personally_input_wrapper {
+							@apply relative pl-[16px] pr-7 py-2 rounded-12xl border-[2px] border-line border-solid transition-colors;
+
+							&.focus {
+								@apply border-orange-900;
+							}
+							&.domain {
+								@apply flex items-center p-0 overflow-hidden;
+								.domain_name {
+									@apply bg-dark-white text-black-300 text-text-default px-3 py-2 mr-4 border-r border-line border-solid;
+								}
+							}
+							& input {
+								@apply block w-full h-full text-text-default text-black-300;
+							}
+							& span {
+								@apply absolute right-[16px] top-2;
+							}
+						}
+						.personally__button {
+							@apply w-full px-4 py-2 text-orange-900 text-text-default font-light border-[2px] border-solid border-orange-900 bg-white rounded-12xl;
+						}
+					}
+				}
+			}
+		}
+		.personally__second_column {
+			flex: 0 1 35%;
+			@media (max-width: 1024px) {
+				flex: 1 1 100%;
+			}
+			@apply p-4 bg-white rounded-6xl;
+		}
+		.personally__bg_image {
+			flex: 0 1 62%;
+			@apply p-4 bg-white rounded-6xl mt-4 laptop:flex-full target:mt-6;
+			.bg__header {
+				@apply flex justify-between mb-2;
+				& h4 {
+					@apply text-text-default text-black-900;
+				}
+				.bg_header_active {
+					@apply flex;
+					& button:first-child {
+						@apply mr-2 text-black-300 text-text-sm transition-colors hover:text-orange-900;
+					}
+					& button:last-child {
+						@apply text-orange-900 text-text-sm;
+					}
+				}
+			}
+			.bg_image_image {
+				@apply w-full relative h-[160px] rounded-b-2xl overflow-hidden tablet:h-[78px];
+				.bg_salesman_info {
+					@apply absolute w-[609px] justify-between flex top-[60px] left-[72px] tablet:top-6 tablet:left-7;
+					& h5 {
+						@apply text-text-12 font-semibold;
+					}
+					.market_info {
+						@apply flex;
+						.market__column {
+							& p {
+								@apply text-[8px] text-black-300;
+								&:last-child {
+									@apply text-[6px] text-black-900 font-medium text-right mt-1;
+								}
+							}
+
+							&:first-child {
+								padding-right: 10px;
+								border-right: 1px solid #e5e5e5;
+							}
+							&:last-child {
+								padding-left: 10px;
+							}
+						}
+					}
+				}
+				& img {
+					@apply image-min;
+				}
+			}
+		}
+	}
+}

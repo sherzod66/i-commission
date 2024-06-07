@@ -1,0 +1,11 @@
+.settings {
+	@apply w-full mt-[130px] pk:px-4;
+	.settings__container {
+		& h1 {
+			@apply text-sub-title mb-4;
+		}
+		.settings__switch {
+			@apply flex;
+		}
+	}
+}

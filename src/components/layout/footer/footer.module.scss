@@ -1,0 +1,101 @@
+.footer {
+	@apply w-full bg-white py-6 pk:px-4 mt-[130px];
+	.footer__container {
+		.footer__row {
+			@apply flex w-full justify-between flex-wrap;
+			.footer__column {
+				@apply mr-2;
+				.logo {
+					@apply text-mob-title font-bold text-black-900 mb-6 block;
+				}
+				& h3 {
+					@apply text-text-lg font-medium mb-6;
+				}
+				.footer__list {
+					& li {
+						margin-bottom: 10px;
+						&:last-child {
+							margin-bottom: 0px;
+						}
+					}
+					& a {
+						@apply text-text-default text-black-300 font-normal hover:text-black-800 transition-colors;
+					}
+				}
+				.header__open {
+					@apply block bg-f4f4 py-2 px-3 text-black-800 text-text-default rounded-12xl mr-2;
+				}
+				.header__auth {
+					@apply block bg-orange-900 py-2 px-3 text-text-default text-white rounded-12xl;
+				}
+				.search {
+					@apply w-[300px] overflow-hidden flex py-2 px-3 bg-f4f4 border-solid border border-[transparent] rounded-10xl transition-colors;
+					&.show {
+						display: flex;
+					}
+					&.full {
+						width: 100%;
+					}
+					& input {
+						@apply bg-[transparent] w-full block ml-[14px];
+					}
+				}
+
+				@media (max-width: 768px) {
+					margin-top: 30px;
+					&:nth-child(1) {
+						order: 1;
+						margin-top: 0px;
+						flex: 1 1 100%;
+					}
+					&:nth-child(2) {
+						order: 3;
+						flex: 0 1 50%;
+						margin-right: 0px;
+						padding-right: 10px;
+					}
+					&:nth-child(3) {
+						order: 4;
+						flex: 0 1 50%;
+						margin-right: 0px;
+						padding-left: 10px;
+					}
+					&:nth-child(4) {
+						order: 2;
+						flex: 1 1 100%;
+					}
+				}
+
+				&:last-child {
+					@apply flex items-start justify-end mr-0 tablet:justify-start;
+				}
+			}
+		}
+		.row2 {
+			@apply flex w-full justify-between mt-[70px] items-end tablet:flex-wrap;
+			.row2__column {
+				@apply text-black-300 text-text-sm tablet:flex-full;
+				& a {
+					@apply text-black-300 text-text-sm hover:text-black-800 transition-colors ml-4;
+				}
+				.header__social {
+					& a {
+						@apply flex flex-col items-end text-black-300 hover:text-black-800 transition-colors tablet:flex-row tablet:items-center tablet:ml-0;
+					}
+					& span {
+						@apply inline-block mt-2 tablet:mt-0 tablet:ml-2;
+					}
+				}
+				@media (max-width: 768px) {
+					&:first-child {
+						order: 2;
+						margin-top: 30px;
+					}
+					&:last-child {
+						order: 1;
+					}
+				}
+			}
+		}
+	}
+}

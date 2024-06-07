@@ -1,0 +1,62 @@
+.verticalSwiper {
+	margin-top: 30px;
+	height: 192px;
+	z-index: 0;
+	.swiper-slide {
+		.vertical__column {
+			@apply flex w-full items-center;
+			.vertical__image {
+				@apply w-10 h-10 mr-4 rounded-circle overflow-hidden;
+				& img {
+					@apply w-full h-full object-cover object-center;
+				}
+			}
+			.vertical__shop {
+				& h3 {
+					@apply text-text-lg font-semibold;
+				}
+				& p {
+					@apply text-text-sm text-black-300 mt-[6px];
+				}
+			}
+		}
+	}
+	.swiper-pagination {
+		.swiper-pagination-bullet {
+			&.swiper-pagination-bullet-active {
+				background-color: #fc5a40;
+			}
+		}
+	}
+	.swiper-button-prev {
+		background-color: #f4f4f4;
+		border-radius: 50%;
+		width: 26px;
+		height: 26px;
+		left: inherit;
+		right: 0px;
+		top: 30px;
+		transform: rotate(90deg);
+		&::after {
+			color: #131313;
+			font-size: 12px;
+			font-weight: 700;
+		}
+	}
+	.swiper-button-next {
+		background-color: #f4f4f4;
+		border-radius: 50%;
+		width: 26px;
+		height: 26px;
+		left: inherit;
+		top: inherit;
+		right: 0px;
+		bottom: 0px;
+		transform: rotate(90deg);
+		&::after {
+			color: #131313;
+			font-size: 12px;
+			font-weight: 700;
+		}
+	}
+}

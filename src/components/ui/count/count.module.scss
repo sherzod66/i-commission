@@ -1,0 +1,27 @@
+@import '/src/assets/styles/variable';
+.count__wrapper {
+	width: 105px;
+	@media (max-width: 768px) {
+		width: 100%;
+		grid-column-start: span 2;
+		margin-top: 20px;
+		padding: 0px 10px;
+	}
+	.card__quantity_input {
+		display: flex;
+		width: 100%;
+		transition: border 0.5s ease-in-out 0s;
+		&.error {
+			& input {
+				@apply text-error;
+			}
+		}
+		& input {
+			@apply inline-block w-full h-[26px]
+		text-black-900 font-semibold text-center text-text-sm bg-transparent;
+		}
+		& button {
+			@apply p-2 bg-f4f4 rounded-circle block;
+		}
+	}
+}

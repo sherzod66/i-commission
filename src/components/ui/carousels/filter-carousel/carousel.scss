@@ -1,0 +1,69 @@
+.verticalSW {
+	margin-top: 6px;
+	.mySwiper {
+		width: 100%;
+		height: 136px;
+		overflow: hidden;
+		z-index: 0;
+		.swiper-slide {
+			&:last-child {
+				margin-right: 0px;
+			}
+			.category__link {
+				@apply block bg-dark-white h-full w-full flex flex-col items-center justify-center rounded-6xl
+			overflow-hidden transition-colors cursor-pointer;
+				&:hover {
+					@apply bg-orange-300 text-white;
+					& path {
+						@apply fill-white;
+					}
+				}
+				&.sel {
+					@apply bg-orange-900 text-white;
+					& path {
+						@apply fill-white;
+					}
+				}
+				& p {
+					@apply text-[17px];
+				}
+			}
+		}
+	}
+	.swiper-button-prev {
+		background-color: #f4f4f4;
+		border-radius: 50%;
+		width: 26px;
+		height: 26px;
+		opacity: 0;
+		left: 2px;
+		visibility: hidden;
+		@media (max-width: 440px) {
+			opacity: 1;
+			visibility: visible;
+		}
+		&::after {
+			color: #131313;
+			font-size: 12px;
+			font-weight: 700;
+		}
+	}
+	.swiper-button-next {
+		background-color: #f4f4f4;
+		border-radius: 50%;
+		width: 26px;
+		height: 26px;
+		right: 2px;
+		opacity: 0;
+		visibility: hidden;
+		@media (max-width: 440px) {
+			opacity: 1;
+			visibility: visible;
+		}
+		&::after {
+			color: #131313;
+			font-size: 12px;
+			font-weight: 700;
+		}
+	}
+}

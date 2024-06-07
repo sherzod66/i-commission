@@ -1,0 +1,18 @@
+.dragger {
+	@apply py-4 px-4 border-dashed border-line border-[2px] mt-2 rounded-2xl relative transition-colors;
+	&.drag {
+		@apply border-orange-900;
+	}
+	.dragger__label {
+		@apply absolute w-full h-full top-0 left-0 block cursor-pointer;
+	}
+	.dragger__download {
+		@apply flex flex-col items-center justify-center mt-6;
+		& p {
+			@apply mb-4 text-text-default text-black-900 font-light text-center;
+			&:last-child {
+				@apply mb-0;
+			}
+		}
+	}
+}

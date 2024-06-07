@@ -1,0 +1,197 @@
+.basket {
+	margin-top: 130px;
+	@media (max-width: 1024px) {
+		padding: 0px 20px;
+	}
+	.basket__container {
+		.basket__row {
+			max-width: 1299px;
+			@apply flex laptop:flex-wrap;
+			.basket__column {
+				flex: 0 1 58%;
+				&:first-child {
+					padding: 40px;
+					margin-right: 39px;
+					border: 2px solid #e3e3e3;
+					border-radius: 10px;
+				}
+				.basket__title {
+					@apply flex;
+					& h1 {
+						@apply text-mob-title mobile:text-text-24 mobile:font-light;
+					}
+					& p {
+						@apply text-text-default text-black-300 ml-1;
+					}
+				}
+
+				&.second {
+					flex: 0 1 38%;
+					@apply bg-transparent;
+				}
+				@media (max-width: 1024px) {
+					flex: 1 1 100%;
+					&:first-child {
+						margin-right: 0px;
+						padding: 20px;
+					}
+					&.second {
+						flex: 1 1 100%;
+						margin-top: 30px;
+					}
+				}
+				.basket__item {
+					.basket__bar {
+						@apply mt-6 bg-white p-2 rounded-2xl flex justify-between;
+						.bar__column {
+							@apply text-black-900 font-medium text-text-12;
+							& span {
+								line-height: 8px;
+							}
+						}
+						.bar__remove {
+							@apply text-orange-900 text-text-12;
+						}
+					}
+					.basket__products_list {
+						@apply mt-4;
+						.basket__product {
+							@apply bg-dark-white transition-colors flex
+							justify-between rounded-2xl mb-2 p-2 tablet:flex-wrap;
+							&:last-child {
+								@apply mb-0;
+							}
+							&.selected {
+								@apply bg-white;
+							}
+							.basket__product_product {
+								flex: 1 1 auto;
+								margin-left: 20px;
+								display: flex;
+								align-items: center;
+								.basket__product_image {
+									@apply w-[50px] h-[50px] mr-4;
+									& img {
+										@apply image-min;
+									}
+								}
+								.basket__product_info {
+									& h4 {
+										@apply text-text-lg font-semibold mb-1;
+									}
+									& p {
+										@apply text-text-12 text-black-300;
+									}
+								}
+							}
+							.basket__product_price {
+								flex: 0 1 18%;
+								margin-right: 121px;
+								& h5 {
+									@apply text-text-lg font-semibold mb-1;
+								}
+								@media (max-width: 768px) {
+									flex: 0 1 50%;
+									margin-right: 0px;
+									padding-right: 10px;
+									padding-left: 36px;
+									margin-top: 20px;
+								}
+							}
+							.basket__product_count {
+								@media (max-width: 768px) {
+									flex: 0 1 50%;
+								}
+							}
+						}
+					}
+				}
+				.decor__item {
+					@apply w-full bg-dark-white p-6;
+					.decor__bottom {
+						@apply bg-orange-900 block
+						text-center p-3 rounded-8xl w-full text-white text-text-default font-semibold mb-6;
+					}
+					.decor__info {
+						@apply flex justify-between mb-6;
+						& p:first-child {
+							@apply text-text-default font-medium;
+						}
+						& p:last-child {
+							@apply text-text-sm font-normal text-black-300;
+						}
+					}
+					.decor__sellers {
+						.decor__seller {
+							@apply flex justify-between w-full p-2 border-basket-round border-solid border rounded-2xl
+							mb-2;
+							.salesman_info {
+								@apply flex items-center flex-auto;
+								.salesman__image {
+									@apply w-[30px] h-[30px] mr-2 rounded-circle overflow-hidden;
+									& img {
+										@apply image-min;
+									}
+								}
+								& h6 {
+									@apply text-text-default w-[80px] text-black-300 whitespace-nowrap overflow-hidden text-ellipsis;
+								}
+							}
+							.salesman__rate {
+								@apply flex flex-wrap w-[40%] mobile:w-[50%] laptop:justify-end;
+								.salesman__reviews {
+									@apply border-solid border-[1px] rounded-2xl px-2 py-[2px] text-text-12 font-semibold ml-1;
+								}
+								& p {
+									flex: 1 1 100%;
+									@apply text-black-300 text-text-12 text-right;
+								}
+							}
+						}
+					}
+				}
+				.decor__check {
+					width: 100%;
+					height: 30px;
+					background: #f6f6f6;
+					position: relative;
+					& p {
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translate(0px, -50%);
+						width: 100%;
+						height: 1px;
+						border: 1px dashed #e5e5e5;
+						z-index: 0;
+					}
+					&::before,
+					&::after {
+						content: '';
+						position: absolute;
+						top: 0;
+						width: 50px;
+						height: 30px;
+						background-color: #f0f0f0;
+
+						z-index: 1;
+					}
+					&::before {
+						left: -30px;
+						border-radius: 0px 100% 100% 0px;
+					}
+					&::after {
+						right: -30px;
+						border-radius: 100% 0px 0px 100%;
+					}
+				}
+				.decor__price {
+					@apply bg-dark-white px-6 pt-1 pb-6 flex justify-between;
+					& h3 {
+						@apply text-text-24;
+					}
+				}
+			}
+		}
+	}
+}

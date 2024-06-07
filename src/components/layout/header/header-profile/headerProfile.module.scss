@@ -1,0 +1,48 @@
+.user__info {
+	@apply flex items-center pk:hidden;
+	.money {
+		@apply border border-f4f4 rounded-8xl pl-4 pr-2 ml-2 py-1 border-solid text-text-default font-medium;
+		& span {
+			@apply inline-block bg-f4f4 rounded-circle text-[20px]
+			text-black-300 font-light ml-1 px-1 py-[3px];
+		}
+	}
+	.header__icon {
+		&:hover {
+			@apply animate-fade;
+		}
+		@apply mr-3 block relative;
+		& span {
+			@apply block absolute -right-1 top-[2px] text-[11px]
+			bg-orange-900 text-white py-[2px] px-[3px] rounded-circle font-semibold;
+		}
+	}
+	.avatar {
+		@apply cursor-pointer relative w-8 h-8 rounded-circle;
+		&:hover .menu {
+			@apply opacity-100 visible scale-100;
+		}
+		& img {
+			@apply w-full h-full object-cover object-center;
+		}
+		.menu {
+			@apply absolute top-8 -left-40 bg-white z-2 shadow-xl px-2 pt-4 pb-2 rounded-2xl w-[190px] scale-0 opacity-0 invisible transition-all;
+			.list {
+				.list_el {
+					& a {
+						@apply py-2 rounded-[6px] flex text-text-default font-normal transition-colors hover:text-black-900 text-black-300 hover:bg-f4f4 px-[14px];
+					}
+					& span {
+						margin-right: 10px;
+					}
+				}
+				.list_ex {
+					@apply py-2 rounded-[6px] flex text-text-default font-normal transition-colors hover:text-black-900 text-black-300 hover:bg-f4f4 px-[14px];
+					& span {
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
+}

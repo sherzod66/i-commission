@@ -1,0 +1,6 @@
+.auth {
+	@apply w-full min-h-[100vh] flex flex-col justify-center items-center tablet:px-4 overflow-y-auto py-4;
+	.auth__content {
+		@apply bg-white w-auth-con rounded-8xl px-110 py-8 tablet:w-full tablet:p-4 animate-scaleIn;
+	}
+}

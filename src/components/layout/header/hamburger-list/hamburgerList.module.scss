@@ -1,0 +1,63 @@
+.aside {
+	@apply fixed left-[100%] top-0 flex w-full h-full bg-black-0.5 justify-end z-2;
+	&.active {
+		@apply left-0;
+	}
+	.aside__content {
+		@apply bg-dark-white flex-hamburger px-4 translate-x-full transition-all py-[70px] overflow-y-auto;
+		&.active {
+			@apply translate-x-0;
+		}
+		.avatar {
+			@apply mt-[60px] flex justify-between;
+			.avatar__first {
+				@apply flex items-center;
+				& p {
+					@apply text-text-default text-black-900 ml-2;
+				}
+				.avatar__image {
+					@apply w-8 h-8;
+					& img {
+						@apply w-full h-full object-cover object-center;
+					}
+				}
+			}
+			.money {
+				@apply border border-line rounded-8xl pl-4 pr-2 ml-2 py-1 border-solid text-text-default font-medium;
+				& span {
+					@apply inline-block bg-line rounded-circle text-[20px]
+			text-black-300 font-light ml-1 px-[7px] py-[3px];
+				}
+			}
+		}
+		.aside__list {
+			@apply mt-4;
+			.list_el {
+				& a {
+					@apply py-2 rounded-[6px] flex text-text-default font-normal transition-colors hover:text-black-900 text-black-300 hover:bg-f4f4;
+				}
+				& span {
+					margin-right: 10px;
+				}
+			}
+			.list_ex {
+				@apply py-2 rounded-[6px] flex text-text-default font-normal transition-colors hover:text-black-900 text-black-300 hover:bg-f4f4;
+				& span {
+					margin-right: 10px;
+				}
+			}
+		}
+		.header__open {
+			@apply inline-block bg-white py-2 px-3 text-black-800 text-text-default rounded-12xl mt-6 mb-[60px];
+		}
+		.header__social {
+			& a {
+				@apply text-black-300 font-normal transition-colors hover:text-black-800;
+			}
+			& svg {
+				display: inline-block;
+				margin-right: 7px;
+			}
+		}
+	}
+}
