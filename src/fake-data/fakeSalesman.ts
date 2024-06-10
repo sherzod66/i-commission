@@ -15,7 +15,11 @@ export const fakeSalesman: ISalesman[] = [
 				imagePath: '/image/imagePMin.png',
 				name: 'Chat Gpt',
 				price: 2500,
-				quantity: 5
+				quantity: 5,
+				description: 'fdsfas',
+				login: 'fdsafasd',
+				password: 'dfsfasfdas',
+				type: 'fdsfsd'
 			},
 			{
 				category: 'Аккаунт',
@@ -23,7 +27,11 @@ export const fakeSalesman: ISalesman[] = [
 				imagePath: '/image/imagePMin.png',
 				name: 'Chat Gpt',
 				price: 2500,
-				quantity: 4
+				quantity: 4,
+				description: 'fdsfas',
+				login: 'fdsafasd',
+				password: 'dfsfasfdas',
+				type: 'fdsfsd'
 			},
 			{
 				category: 'Аккаунт',
@@ -31,7 +39,11 @@ export const fakeSalesman: ISalesman[] = [
 				imagePath: '/image/imagePMin.png',
 				name: 'Chat Gpt',
 				price: 2500,
-				quantity: 7
+				quantity: 7,
+				description: 'fdsfas',
+				login: 'fdsafasd',
+				password: 'dfsfasfdas',
+				type: 'fdsfsd'
 			},
 			{
 				category: 'Аккаунт 55',
@@ -39,7 +51,11 @@ export const fakeSalesman: ISalesman[] = [
 				imagePath: '/image/imagePMin.png',
 				name: 'Chat Gpt',
 				price: 2500,
-				quantity: 55
+				quantity: 55,
+				description: 'fdsfas',
+				login: 'fdsafasd',
+				password: 'dfsfasfdas',
+				type: 'fdsfsd'
 			}
 		]
 	},

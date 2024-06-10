@@ -2,6 +2,7 @@ import Layout from '@/components/layout/Layout'
 import Card from '@/components/screens/home/card/Card'
 import { defaultProducts } from '@/components/screens/home/card/defaultProducts'
 import Filter from '@/components/screens/home/filter/Filter'
+import { fakeSalesman } from '@/fake-data/fakeSalesman'
 
 export default function HomePage() {
 	return (

@@ -1,0 +1,19 @@
+.footer {
+	@apply absolute left-0 bottom-0 p-6 w-full bg-white;
+	.footer__row {
+		@apply flex w-full;
+		.footer__first {
+			flex: 0 1 86%;
+			margin-right: 30px;
+			& input {
+				@apply block w-full px-3 py-2 border-[2px] border-solid bg-dark-white border-line rounded-10xl
+				text-text-default text-black-300;
+			}
+		}
+		.footer__second {
+			.footer__button {
+				@apply bg-orange-900 text-white py-2 px-3 text-text-default font-medium rounded-12xl;
+			}
+		}
+	}
+}

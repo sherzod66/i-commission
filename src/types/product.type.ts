@@ -2,7 +2,7 @@ import { ISalesman } from './shop.type'
 
 export interface IProduct {
 	id: string
-	price: string
+	price: number
 	category: string
 	description: string
 	type: string
@@ -10,7 +10,7 @@ export interface IProduct {
 	imagePath: string
 	login: string
 	password: string
-	quantity: string
+	quantity: number
 }
 
 export interface IAddProduct extends Omit<IProduct, 'id'> {}
@@ -22,8 +22,8 @@ export const defProduct: IAddProduct = {
 	login: '',
 	name: '',
 	password: '',
-	price: '',
-	quantity: '',
+	price: 0,
+	quantity: 0,
 	type: ''
 }
 
@@ -35,7 +35,7 @@ export const defEdit: IProduct = {
 	login: '',
 	name: '',
 	password: '',
-	price: '',
-	quantity: '',
+	price: 0,
+	quantity: 0,
 	type: ''
 }

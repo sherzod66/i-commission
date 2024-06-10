@@ -104,6 +104,16 @@
 								}
 							}
 						}
+						.basket__empty {
+							@apply flex flex-col w-full h-[230px] justify-center items-center;
+							.empty_svg {
+								@apply mb-2;
+							}
+							.empty_home {
+								@apply inline-block mt-6 border-[2px] border-solid bg-white px-4 py-2
+								text-orange-900 rounded-12xl border-orange-900 text-text-default;
+							}
+						}
 					}
 				}
 				.decor__item {
@@ -111,6 +121,9 @@
 					.decor__bottom {
 						@apply bg-orange-900 block
 						text-center p-3 rounded-8xl w-full text-white text-text-default font-semibold mb-6;
+						&.disabled {
+							@apply bg-orange-300;
+						}
 					}
 					.decor__info {
 						@apply flex justify-between mb-6;

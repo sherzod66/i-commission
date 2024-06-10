@@ -1,0 +1,46 @@
+.room__header {
+	@apply w-full bg-dark-white px-6 py-3;
+	.room__row {
+		@apply flex justify-between items-center;
+		.room__column {
+			@apply flex items-center;
+			.room__image {
+				flex: 0 0 50px;
+				height: 50px;
+				margin-right: 20px;
+				border-radius: 50%;
+				overflow: hidden;
+				& img {
+					@apply image-min;
+				}
+				@media (max-width: 760px) {
+					flex: 0 0 42px;
+					height: 42px;
+					margin-right: 10px;
+				}
+			}
+			.room__user_info {
+				& h5 {
+					@apply text-text-default text-black-950 font-medium;
+					& span {
+						@apply text-text-sm text-black-300 font-normal ml-2;
+					}
+				}
+				& p {
+					@apply text-black-900 text-text-sm font-medium mt-1;
+				}
+			}
+			.room__after_order {
+				@apply px-3 py-2 border-[2px] border-solid rounded-12xl mr-4 border-line text-text-default
+				text-black-300;
+			}
+			.room__search {
+				@apply mr-4 cursor-pointer;
+			}
+			.room__arbitration {
+				@apply px-3 py-2 border-[2px] border-solid rounded-12xl border-x-orange-900 text-text-default
+				text-orange-900;
+			}
+		}
+	}
+}

@@ -47,7 +47,7 @@ const HamburgerList: FC<THamburgerListProps> = ({ active, setBurger }) => {
 						</Link>
 					</li>
 					<li className={styles.list_el}>
-						<Link href='/help'>
+						<Link href='/faq'>
 							<span>{<HelpIcon />}</span> Помощь
 						</Link>
 					</li>

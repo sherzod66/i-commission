@@ -1,4 +1,3 @@
-'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
@@ -7,11 +6,13 @@ import 'swiper/css/scrollbar'
 import './productCarousel.scss'
 import { IProduct } from '@/types/product.type'
 import ProductItem from '../../product-item/ProductItem'
+import BasketSvg from '@/assets/icon/basketSm.svg'
 
 type ProductSwProps = {
 	products: IProduct[]
 }
 export default function ProductCarousel({ products }: ProductSwProps) {
+	const onAddBasket = () => console.log('add')
 	return (
 		<div className='product__carousel'>
 			<Swiper
@@ -35,7 +36,10 @@ export default function ProductCarousel({ products }: ProductSwProps) {
 			>
 				{products.length > 0
 					? products.map(item => (
-							<SwiperSlide key={item.id}>
+							<SwiperSlide className='pr-slide' key={item.id}>
+								<button onClick={onAddBasket} className='add__basket'>
+									<BasketSvg />
+								</button>
 								<ProductItem product={item} />
 							</SwiperSlide>
 					  ))

@@ -9,7 +9,7 @@ export const antTheme: ThemeConfig = {
 			optionSelectedColor: '#ffffff',
 			borderRadius: 60,
 			controlHeight: 40,
-			colorBorder: '#07070707',
+			colorBorder: '#E3E3E3',
 			colorBgContainer: 'transparent',
 			lineWidth: 2,
 			optionSelectedFontWeight: 600
@@ -22,6 +22,12 @@ export const antTheme: ThemeConfig = {
 		Button: {
 			colorPrimary: '#FC5A40',
 			colorPrimaryHover: '#FF8E7C'
+		},
+		Collapse: {
+			headerBg: '#ffffff',
+			headerPadding: '20px 16px',
+			fontSize: 18,
+			fontFamily: 'var(--var-onest-sans)'
 		}
 	}
 }

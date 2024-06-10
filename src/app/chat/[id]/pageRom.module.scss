@@ -1,0 +1,6 @@
+.chat__second {
+	@apply bg-white animate-scaleIn rounded-6xl overflow-hidden relative h-full laptop:absolute laptop:right-full laptop:top-0 laptop:w-full z-0;
+	&.show {
+		@apply laptop:right-0;
+	}
+}

@@ -1,0 +1,18 @@
+.chat {
+	@apply mt-[130px] pk:px-4 laptop:px-0 relative laptop:mt-[75px];
+	.chat__container {
+		.chat__row {
+			display: grid;
+			grid-template-columns: minmax(300px, 380px) 1fr;
+			grid-template-rows: 100%;
+			gap: 40px;
+			min-height: 90vh;
+			@media (max-width: 1024px) {
+				display: block;
+			}
+			.chat__firs {
+				@apply bg-white rounded-6xl overflow-hidden animate-scaleIn;
+			}
+		}
+	}
+}

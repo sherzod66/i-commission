@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { defaultChangeBasket, defaultChangeChoice } from './defaultChangeBasket'
 import { PopconfirmProps, message } from 'antd'
 import { changeBoolean } from '@/components/ui/count/changeIvent'
+import { useRouter } from 'next/navigation'
 
 export interface IBasketHook extends IBasket {
 	count: string
@@ -18,7 +19,7 @@ export const useBasket = () => {
 		isRadioClick: false,
 		isSelect: false
 	})
-
+	const navigate = useRouter()
 	useEffect(() => {
 		console.log(selectAll)
 		if (selectAll.isSelect) setBasket([...defaultChangeChoice(basket, true)])
@@ -49,7 +50,16 @@ export const useBasket = () => {
 	}
 
 	return useMemo(
-		() => ({ basket, setBasket, setSelectAll, selectAll, confirm, confirmSelect, changeCheckBox }),
+		() => ({
+			basket,
+			setBasket,
+			setSelectAll,
+			selectAll,
+			confirm,
+			confirmSelect,
+			changeCheckBox,
+			navigate
+		}),
 		[basket, selectAll]
 	)
 }

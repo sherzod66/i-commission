@@ -13,10 +13,10 @@ const EditFilter: FC<TEditFilterProps> = ({ setIsAdd }) => {
 	return (
 		<div className={styles.sort}>
 			<div className={styles.first__column}>
-				<Select value={'popular'} style={{ width: '100%' }} options={options} />
+				<Select value={'popular'} style={{ width: '100%', height: '45px' }} options={options} />
 			</div>
 			<div className={styles.second__column}>
-				<Select value={'popular'} style={{ width: '100%' }} options={options} />
+				<Select value={'popular'} style={{ width: '100%', height: '45px' }} options={options} />
 			</div>
 			<div className={styles.third__column}>
 				<button onClick={() => setIsWrite(!isWrite)} type='button' className={styles.third__plus}>

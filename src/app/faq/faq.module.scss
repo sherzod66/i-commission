@@ -1,0 +1,13 @@
+.faq {
+	margin-top: 130px;
+	@media (max-width: 768px) {
+		padding: 0px 20px;
+	}
+	.faq__min {
+		max-width: 760px;
+		margin: 0px auto;
+		.content_text {
+			@apply text-text-default text-black-950 font-light py-6;
+		}
+	}
+}

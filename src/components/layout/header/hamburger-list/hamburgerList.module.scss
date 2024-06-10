@@ -1,10 +1,10 @@
 .aside {
-	@apply fixed left-[100%] top-0 flex w-full h-full bg-black-0.5 justify-end z-2;
+	@apply fixed left-0 opacity-0 invisible top-0 flex w-full h-full transition-all bg-black-0.5 justify-end z-2;
 	&.active {
-		@apply left-0;
+		@apply opacity-100 visible;
 	}
 	.aside__content {
-		@apply bg-dark-white flex-hamburger px-4 translate-x-full transition-all py-[70px] overflow-y-auto;
+		@apply bg-dark-white flex-hamburger px-4 translate-x-full transition-transform py-[70px] overflow-y-auto;
 		&.active {
 			@apply translate-x-0;
 		}

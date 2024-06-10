@@ -14,6 +14,6 @@ export const footerList: TFooterList = {
 		{ name: 'Контакты', path: '/contacts' },
 		{ name: 'Собственный магазина', path: '/my-shop' },
 		{ name: 'Покупка товара', path: '/buy-product' },
-		{ name: 'Вопросы и ответы', path: '/questions-and-answers' }
+		{ name: 'Вопросы и ответы', path: '/faq' }
 	]
 }

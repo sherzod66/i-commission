@@ -1,4 +1,3 @@
-'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
@@ -35,7 +34,7 @@ export default function SalesmanCarousel({ sellers }: ProductSwProps) {
 			>
 				{sellers.length > 0
 					? sellers.map(item => (
-							<SwiperSlide>
+							<SwiperSlide key={item.id}>
 								<SalesmanItem salesman={item} />
 							</SwiperSlide>
 					  ))

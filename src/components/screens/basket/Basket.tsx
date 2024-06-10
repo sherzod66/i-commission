@@ -7,10 +7,20 @@ import { IBasketHook, useBasket } from './useBasket'
 import { changeBoolean } from '@/components/ui/count/changeIvent'
 import CountQuantityBasket from '@/components/ui/count/CountQuantityBasket'
 import Link from 'next/link'
+import { countBasketPrice } from '@/utils/countBasketPrie'
+import BasketBig from '@/assets/icon/basketBig.svg'
 
 const Basket: FC = () => {
-	const { basket, setBasket, selectAll, setSelectAll, confirm, confirmSelect, changeCheckBox } =
-		useBasket()
+	const {
+		basket,
+		setBasket,
+		selectAll,
+		setSelectAll,
+		confirm,
+		confirmSelect,
+		changeCheckBox,
+		navigate
+	} = useBasket()
 	return (
 		<section className={styles.basket}>
 			<div className={styles.basket__container}>
@@ -59,55 +69,68 @@ const Basket: FC = () => {
 							</div>
 
 							<ul className={styles.basket__products_list}>
-								{basket.length > 0
-									? basket.map((el, index) => (
-											<li
-												className={cn(styles.basket__product, {
-													[styles.selected]: basket[index].selected
-												})}
-												key={el.id}
-											>
-												<Checkbox
-													onChange={() => changeCheckBox(index)}
-													checked={basket[index].selected}
-												/>
-												<div className={styles.basket__product_product}>
-													<div className={styles.basket__product_image}>
-														<img src={el.imagePath} alt='image' />
-													</div>
-													<div className={styles.basket__product_info}>
-														<h4>{el.name}</h4>
-														<p>Подписка на 1 год</p>
-													</div>
+								{basket.length > 0 ? (
+									basket.map((el, index) => (
+										<li
+											className={cn(styles.basket__product, {
+												[styles.selected]: basket[index].selected
+											})}
+											key={el.id}
+										>
+											<Checkbox
+												onChange={() => changeCheckBox(index)}
+												checked={basket[index].selected}
+											/>
+											<div className={styles.basket__product_product}>
+												<div className={styles.basket__product_image}>
+													<img src={el.imagePath} alt='image' />
 												</div>
-												<div className={styles.basket__product_price}>
-													<h5>{el.price * +basket[index].count} ₽</h5>
-													<p>
-														Цена за {basket[index].count} штук
-														{+basket[index].count > 1 ? (+basket[index].count > 4 ? '' : 'и') : 'у'}
-													</p>
+												<div className={styles.basket__product_info}>
+													<h4>{el.name}</h4>
+													<p>Подписка на 1 год</p>
 												</div>
-												<div className={styles.basket__product_count}>
-													<CountQuantityBasket count={basket} index={index} setCount={setBasket} />
-												</div>
-											</li>
-									  ))
-									: 'Корзина пуста'}
+											</div>
+											<div className={styles.basket__product_price}>
+												<h5>{el.price * +basket[index].count} ₽</h5>
+												<p>
+													Цена за {basket[index].count} штук
+													{+basket[index].count > 1 ? (+basket[index].count > 4 ? '' : 'и') : 'у'}
+												</p>
+											</div>
+											<div className={styles.basket__product_count}>
+												<CountQuantityBasket count={basket} index={index} setCount={setBasket} />
+											</div>
+										</li>
+									))
+								) : (
+									<div className={styles.basket__empty}>
+										<div className={styles.empty_svg}>
+											<BasketBig />
+										</div>
+										<h6 className='text-text-lg text-black-300'>Корзина пуста</h6>
+										<Link className={styles.empty_home} href={'/'}>
+											В магазин
+										</Link>
+									</div>
+								)}
 							</ul>
 						</div>
 					</div>
 					<div className={cn(styles.basket__column, styles.second)}>
 						<div className={styles.decor__item}>
-							<Link href={'/order'} className={styles.decor__bottom}>
+							<button
+								onClick={() => basket.length > 0 && navigate.push('/order')}
+								className={cn(styles.decor__bottom, { [styles.disabled]: basket.length < 1 })}
+							>
 								Перейти к оформлению
-							</Link>
+							</button>
 							<div className={styles.decor__info}>
 								<p>Ваша корзина</p>
-								<p>13 товаров</p>
+								<p>{basket.length}</p>
 							</div>
 							<div className={styles.decor__info}>
 								<p>Продавцы</p>
-								<p>4 продавца</p>
+								<p>{basket.length}</p>
 							</div>
 							<ul className={styles.decor__sellers}>
 								{basket.map(item => (
@@ -137,7 +160,7 @@ const Basket: FC = () => {
 						</div>
 						<div className={styles.decor__price}>
 							<h3>Итого:</h3>
-							<h3>10, 000 ₽</h3>
+							<h3>{countBasketPrice(basket)} ₽</h3>
 						</div>
 					</div>
 				</div>

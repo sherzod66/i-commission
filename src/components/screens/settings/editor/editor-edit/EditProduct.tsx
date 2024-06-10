@@ -1,6 +1,6 @@
 'use client'
 import { ChangeEvent, Dispatch, DragEvent, FC, SetStateAction, useState } from 'react'
-import styles from './editProduct.module.scss'
+import styles from '../add-product/addProduct.module.scss'
 import { LeftOutlined } from '@ant-design/icons'
 import cn from 'clsx'
 import { Select } from 'antd'

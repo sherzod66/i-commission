@@ -10,9 +10,9 @@ import Exit from '@/assets/icon/exit.svg'
 const HeaderProfile: FC = () => {
 	return (
 		<div className={styles.user__info}>
-			<p className={styles.money}>
+			<Link href={'/balance'} className={styles.money}>
 				1700 <span>₽</span>
-			</p>
+			</Link>
 			<Link className={styles.header__icon} href={'/basket'}>
 				<Basket /> <span>10</span>
 			</Link>
@@ -33,7 +33,7 @@ const HeaderProfile: FC = () => {
 						))}
 						<li className='w-full h-[2px] bg-f4f4 my-1'></li>
 						<li className={styles.list_el}>
-							<Link href='/help'>
+							<Link href='/faq'>
 								<span>{<HelpIcon />}</span> Помощь
 							</Link>
 						</li>

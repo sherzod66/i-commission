@@ -56,7 +56,7 @@ export const defaultProducts: IProduct[] = [
 		category: 'ffff',
 		id: '567654',
 		imagePath:
-			'https://yt3.googleusercontent.com/05lhMeAH6tZrPIUsp2yHNz3DwzhKbDUQcxcY0_qeXVyZttR_pktBzw0FcLUSR6D4fVqsEgL3ZO0=s900-c-k-c0x00ffffff-no-rj',
+			'https://img.goodfon.ru/original/2048x1203/3/a1/rossiya-moskva-krasnaya-ploschad.jpg',
 		name: 'Apple gifts',
 		price: 350,
 		quantity: 5,
@@ -68,8 +68,7 @@ export const defaultProducts: IProduct[] = [
 	{
 		category: 'ffff',
 		id: '56432',
-		imagePath:
-			'https://yt3.googleusercontent.com/05lhMeAH6tZrPIUsp2yHNz3DwzhKbDUQcxcY0_qeXVyZttR_pktBzw0FcLUSR6D4fVqsEgL3ZO0=s900-c-k-c0x00ffffff-no-rj',
+		imagePath: 'https://www.geograftour.com/media/uploads/portfolio/photo-rus/moskva.jpg',
 		name: 'Apple gifts',
 		price: 4576,
 		quantity: 5,
@@ -81,8 +80,7 @@ export const defaultProducts: IProduct[] = [
 	{
 		category: 'ffff',
 		id: '42345',
-		imagePath:
-			'https://yt3.googleusercontent.com/05lhMeAH6tZrPIUsp2yHNz3DwzhKbDUQcxcY0_qeXVyZttR_pktBzw0FcLUSR6D4fVqsEgL3ZO0=s900-c-k-c0x00ffffff-no-rj',
+		imagePath: '/image/text.jpg',
 		name: 'Apple gifts',
 		price: 8796,
 		quantity: 11,

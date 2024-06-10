@@ -43,7 +43,8 @@ const config: Config = {
 				'0.5': 'rgba(25, 27, 29, 0.4)',
 				300: '#707070',
 				800: '#21222A',
-				900: '#131313'
+				900: '#131313',
+				950: '#000000'
 			},
 			orange: {
 				100: '#FFEFEC',
@@ -182,6 +183,11 @@ const config: Config = {
 					height: '100%',
 					objectFit: 'cover',
 					objectPosition: 'center'
+				},
+				'.text-min': {
+					whiteSpace: 'nowrap',
+					overflow: 'hidden',
+					textOverflow: 'ellipsis'
 				}
 			})
 		})

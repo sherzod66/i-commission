@@ -3,11 +3,8 @@
 	&:hover {
 		box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
 	}
-	&:hover .item__image {
-		transform: scale(1.05);
-	}
 	.item__top {
-		@apply bg-white px-11 py-[37px] rounded-6xl relative;
+		@apply px-11 py-[37px] rounded-6xl relative;
 		.item__image {
 			@apply w-full h-[163px] rounded-xl overflow-hidden relative transition-transform;
 			& img {
@@ -15,10 +12,10 @@
 			}
 
 			.item__price {
-				@apply absolute left-3 top-3 text-white text-text-lg font-medium;
+				@apply absolute left-3 top-3 text-text-lg font-medium;
 			}
 			.item__category {
-				@apply absolute bottom-3 right-3 text-white text-[13.26px] font-medium;
+				@apply absolute bottom-3 right-3 text-[13.26px] font-medium;
 			}
 		}
 		.blur {

@@ -1,7 +1,7 @@
 .user__info {
 	@apply flex items-center pk:hidden;
 	.money {
-		@apply border border-f4f4 rounded-8xl pl-4 pr-2 ml-2 py-1 border-solid text-text-default font-medium;
+		@apply block border border-f4f4 rounded-8xl pl-4 pr-2 ml-2 py-1 border-solid text-text-default font-medium;
 		& span {
 			@apply inline-block bg-f4f4 rounded-circle text-[20px]
 			text-black-300 font-light ml-1 px-1 py-[3px];

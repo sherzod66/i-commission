@@ -14,7 +14,7 @@ export const headerList: THeaderList[] = [
 		icon: User,
 		name: 'Профиль',
 		id: 'user',
-		path: '/profile'
+		path: '/settings'
 	},
 	{
 		icon: MyBasket,
@@ -35,18 +35,18 @@ export const headerHamburgerList: THeaderList[] = [
 		icon: User,
 		name: 'Профиль',
 		id: 'user',
-		path: '/profile'
+		path: '/settings'
 	},
 	{
 		icon: MessageBg,
 		id: 'message',
 		name: 'Сообщения',
-		path: '/messages'
+		path: '/chat'
 	},
 	{
 		icon: Setting,
 		id: 'setting',
 		name: 'Настройки',
-		path: 'settings'
+		path: '/settings'
 	}
 ]
