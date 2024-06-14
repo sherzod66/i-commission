@@ -28,9 +28,9 @@ const HamburgerList: FC<THamburgerListProps> = ({ active, setBurger }) => {
 						</div>
 						<p>ShopV</p>
 					</div>
-					<div className={styles.money}>
+					<Link href={'/balance'} className={styles.money}>
 						1700 <span>₽</span>
-					</div>
+					</Link>
 				</div>
 				<ul className={styles.aside__list}>
 					{headerHamburgerList.map(el => (

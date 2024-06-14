@@ -34,7 +34,7 @@
 				.reviews__detail {
 					@apply flex items-center tablet:mt-6 tablet:flex-auto;
 					& p {
-						@apply text-text-sm text-black-300 mr-4 order-2 mobile:mr-0 mobile:text-right mobile:flex-50%;
+						@apply text-text-sm text-black-300 ml-4 order-2 mobile:mr-0 mobile:text-right mobile:flex-50%;
 					}
 					& button {
 						@apply bg-white py-2 px-[26px] mobile:mr-1 text-text-default font-light rounded-12xl order-1;
@@ -45,7 +45,7 @@
 				@apply flex justify-between pt-4 border-t-2 border-solid border-line2 mobile:flex-wrap;
 				& button {
 					@apply py-2 px-3 bg-transparent border-solid border-[2px]
-					border-line2 rounded-12xl text-black-800 text-text-default ml-2 mobile-sm:ml-0 mobile-sm:mt-2;
+					border-line2 rounded-12xl text-black-800 text-text-default mobile-sm:ml-0 mobile-sm:mt-2;
 					& svg {
 						display: inline-block;
 					}

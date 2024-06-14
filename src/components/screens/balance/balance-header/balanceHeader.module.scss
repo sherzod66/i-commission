@@ -13,12 +13,16 @@
 				}
 				.money__active {
 					display: block;
+					padding-right: 10px;
+					padding-bottom: 10px;
 					& a {
 						@apply block w-full p-2 rounded-12xl text-text-default  bg-orange-900 text-white;
 					}
 					&.second {
+						padding-right: 0px;
+						padding-bottom: 0px;
 						& a {
-							@apply bg-f4f4 text-black-900 ml-2 mobile-sm:ml-0 mobile-sm:mt-2;
+							@apply bg-f4f4 text-black-900 mobile-sm:ml-0 mobile-sm:mt-2;
 						}
 					}
 				}

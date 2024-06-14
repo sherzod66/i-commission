@@ -20,7 +20,7 @@ export const headerList: THeaderList[] = [
 		icon: MyBasket,
 		id: 'myBasket',
 		name: 'Мои покупки',
-		path: 'orders'
+		path: '/basket'
 	},
 	{
 		icon: Setting,
