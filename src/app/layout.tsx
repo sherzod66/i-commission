@@ -3,6 +3,7 @@ import { Onest, Inter } from 'next/font/google'
 import './globals.scss'
 import { ConfigProvider } from 'antd'
 import { antTheme } from '@/assets/theme/antTheme'
+import { Providers } from './Providers'
 
 const onest = Onest({
 	subsets: ['latin', 'cyrillic'],
@@ -24,7 +25,9 @@ export default function RootLayout({
 		<html lang='ru'>
 			<body className={onest.variable}>
 				<ConfigProvider theme={antTheme}>
-					<div className='wrapper'>{children}</div>
+					<Providers>
+						<div className='wrapper'>{children}</div>
+					</Providers>
 				</ConfigProvider>
 			</body>
 		</html>

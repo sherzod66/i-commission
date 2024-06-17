@@ -1,3 +1,5 @@
+import { authService } from '@/services/auth/auth.service'
+import { keycloackUrl } from '@/utils/constans'
 import { useMemo, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
@@ -14,9 +16,17 @@ export const useLogin = () => {
 		formState: { errors }
 	} = useForm<TLoginInput>()
 	const [page, setPage] = useState<number>(0)
-	const onSubmit: SubmitHandler<TLoginInput> = data => {
-		console.log(data)
-		setPage(prev => prev + 1)
+	const onSubmit: SubmitHandler<TLoginInput> = async data => {
+		try {
+			await authService.main('login', {
+				email: data.email,
+				password: data.password
+			})
+			reset({ email: '', password: '' })
+			setPage(prev => prev + 1)
+		} catch (e) {
+			console.error('Error:', e)
+		}
 	}
 
 	return {

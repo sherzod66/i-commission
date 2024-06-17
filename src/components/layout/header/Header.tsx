@@ -1,5 +1,5 @@
 'use client'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import styles from './header.module.scss'
 import Link from 'next/link'
 import TgOpacity from '@/assets/icon/tg-opacity.svg'
@@ -8,9 +8,19 @@ import HeaderProfile from './header-profile/HeaderProfile'
 import { useAuth } from '@/hooks/useAuth'
 import cn from 'clsx'
 import HamburgerList from './hamburger-list/HamburgerList'
+import { usePathname } from 'next/navigation'
+import { useQuery } from '@tanstack/react-query'
+import { userService } from '@/services/user/user.service'
 
 const Header: FC<{ background: boolean }> = ({ background }) => {
 	const { auth } = useAuth()
+	const pathname = usePathname()
+	const { data } = useQuery({
+		queryKey: ['user'],
+		queryFn: userService.me,
+		select: data => data
+	})
+	console.log(data)
 	const [burger, setBurger] = useState(false)
 	return (
 		<header className={cn(styles.header, { [styles.bg]: background })}>

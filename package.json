@@ -13,7 +13,10 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@tanstack/react-query": "^5.45.1",
+		"@tanstack/react-query-devtools": "^5.45.1",
 		"antd": "^5.17.3",
+		"axios": "^1.7.2",
 		"clsx": "^2.1.1",
 		"dayjs": "^1.11.11",
 		"fast-average-color": "^9.4.0",
