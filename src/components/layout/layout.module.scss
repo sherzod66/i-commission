@@ -38,7 +38,7 @@
 			.title__column2 {
 				@apply flex items-center laptop:my-6 laptop:flex-wrap;
 				.title__item_catalog {
-					@apply bg-f4f4 p-4 rounded-6xl mr-6 tablet:flex-full tablet:mr-0;
+					@apply bg-f4f4 p-4 rounded-6xl tablet:flex-full tablet:mr-0;
 					.catalog__title {
 						@apply flex justify-between;
 						& h3 {
@@ -53,10 +53,10 @@
 					}
 				}
 				.title__itemSh {
-					@apply pr-[37px] border-r-2 border-line2 border-solid
+					@apply pl-[37px] pr-[37px] border-l-2 border-line2 border-solid
 					tablet:flex-50% tablet:mt-6 mobile:pr-[20px];
-					&:last-child {
-						@apply pr-0 pl-[37px] border-r-0 mobile:pl-[20px];
+					&:first-child {
+						@apply pl-0 pr-[37px] border-l-0 mobile:pl-[20px];
 					}
 					& p {
 						@apply text-text-sm text-black-300 font-light;

@@ -1,0 +1,18 @@
+{
+  "format": "apollo-persisted-query-manifest",
+  "version": 1,
+  "operations": [
+    {
+      "id": "e2a96cf15a46f66f3911f74a48f89d8c48b26a83665c134fcc0a7da043668fe5",
+      "name": "GetCategoryAndProducts",
+      "type": "query",
+      "body": "query GetCategoryAndProducts {\n  categories {\n    edges {\n      node {\n        displayName\n        id\n        products(first: 50) {\n          edges {\n            node {\n              id\n              displayName\n              image {\n                url\n                imageMin: resize(size: 512)\n                __typename\n              }\n              price\n              description\n              __typename\n            }\n            __typename\n          }\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n"
+    },
+    {
+      "id": "9930acd5aa3457566f86f56100553197e02e87528606193a3c3822b88af18cec",
+      "name": "getCategories",
+      "type": "query",
+      "body": "query getCategories {\n  categories {\n    edges {\n      node {\n        id\n        code\n        displayName\n        parent {\n          id\n          displayName\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n"
+    }
+  ]
+}

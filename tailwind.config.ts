@@ -11,7 +11,7 @@ const config: Config = {
 	],
 	theme: {
 		screens: {
-			pk: { max: '1440px' },
+			pk: { max: '1441px' },
 			laptop: { max: '1024px' },
 			tablet: { max: '768px' },
 			'table-min': { max: '576px' },
@@ -22,27 +22,41 @@ const config: Config = {
 			title: '46px',
 			'mob-title': '36px',
 			'sub-title': '32px',
+			'20px': '20px',
+			'22px': '22px',
 			'text-xl': '26px',
 			'text-lg': '18px',
 			'text-default': '16px',
 			'text-sm': '14px',
 			'text-12': '12px',
-			'text-24': '24px'
+			'text-24': '24px',
+			'64px': '64px'
 		},
 		colors: {
 			transparent: 'transparent',
 			primary,
 			white: '#FFFFFF',
+			blue: {
+				'200': '#49A3F2'
+			},
 			error: '#FF0000',
 			'dark-white': '#F6F6F6',
 			f4f4: '#F4F4F4F4',
 			line: '#E3E3E3',
 			line2: '#E5E5E5',
+			line3: '#cecece',
 			'basket-round': '#EBEBEC',
 			black: {
 				'0.5': 'rgba(25, 27, 29, 0.4)',
+				100: '#969696',
+				150: '#F5F5F5',
+				200: '#767676',
 				300: '#707070',
+				400: '#e8e8e8',
+				450: '#898989',
+				500: '#454545',
 				800: '#21222A',
+				850: '#3B3B3B',
 				900: '#131313',
 				950: '#000000'
 			},
@@ -50,7 +64,14 @@ const config: Config = {
 				100: '#FFEFEC',
 				200: '#D2B4AF',
 				300: '#FF8E7C',
-				900: '#FC5A40'
+				350: '#fc5540',
+				400: '#ff5d5d',
+				700: '#fc5a40',
+				800: '#ff5353',
+				900: '#FF5151'
+			},
+			yellow: {
+				500: '#ffb800'
 			}
 		},
 		extend: {
@@ -75,6 +96,10 @@ const config: Config = {
 				'9': '45px',
 				'10': '50px',
 				'11': '55px',
+				'12': '60px',
+				'13': '65px',
+				'14': '70px',
+				'15': '55px',
 				'110': '110px'
 			},
 			zIndex: {
@@ -88,9 +113,12 @@ const config: Config = {
 				'100vh': '100vh'
 			},
 			width: {
-				'auth-con': '761px'
+				'auth-con': '580px'
 			},
-			boxShadow: { 'box-default': '0px 2px 10px rgba(0, 0, 0, 0.06)' },
+			boxShadow: {
+				'box-default': '0px 2px 10px rgba(0, 0, 0, 0.06)',
+				message: '0px 4px 20px rgba(0, 0, 0, 0.05)'
+			},
 			keyframes: {
 				fade: {
 					from: { opacity: '0' },
@@ -108,11 +136,40 @@ const config: Config = {
 						opacity: '1',
 						transform: 'scale(1)'
 					}
+				},
+				message: {
+					'0%': {
+						transform: 'translateY(-100%)',
+						opacity: '0'
+					},
+
+					'100%': {
+						transform: 'translateY(0)',
+						opacity: '1'
+					}
+				},
+				messageOut: {
+					'0%': {
+						opacity: '1'
+					},
+					'50%': {
+						opacity: '0'
+					},
+					'100%': {
+						opacity: '0',
+						height: '0px',
+						fontSize: '0px',
+						margin: '0px auto',
+						padding: '0px',
+						transform: 'translateY(-100%)'
+					}
 				}
 			},
 			animation: {
 				fade: 'fade .5s ease-in-out',
-				scaleIn: 'scaleIn .35s ease-in-out'
+				scaleIn: 'scaleIn .35s ease-in-out',
+				message: 'message .35s ease-in-out',
+				messageOut: 'messageOut 0.350s ease-in-out forwards'
 			},
 			transitionDuration: {
 				DEFAULT: '300ms'
@@ -124,6 +181,7 @@ const config: Config = {
 			borderRadius: {
 				'2xl': '10px',
 				'4xl': '12.48px',
+				'5xl': '16px',
 				'6xl': '20px',
 				'8xl': '30px',
 				circle: '50%',
@@ -169,7 +227,7 @@ const config: Config = {
 					width: '100%',
 					color: theme('colors.black.300'),
 					backgroundColor: theme('colors.dark-white'),
-					borderRadius: '30px',
+					borderRadius: '16px',
 					padding: '14px 20px',
 					fontSize: '16px',
 					border: '2px solid transparent',
@@ -188,6 +246,17 @@ const config: Config = {
 					whiteSpace: 'nowrap',
 					overflow: 'hidden',
 					textOverflow: 'ellipsis'
+				},
+				'.bright-button': {
+					width: '100%',
+					fontSize: '20px',
+					borderRadius: '16px',
+					backgroundColor: theme('colors.orange.800'),
+					display: 'block',
+					textAlign: 'center',
+					padding: '16px 0px',
+					fontWeight: '600',
+					color: '#ffffff'
 				}
 			})
 		})

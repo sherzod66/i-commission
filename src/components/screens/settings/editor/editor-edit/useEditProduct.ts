@@ -1,4 +1,4 @@
-import { IAddProduct, IProduct, defEdit, defProduct } from '@/types/product.type'
+import { IAddProduct, IProduct, IProductTest, defEdit, defProduct } from '@/types/product.type'
 import { message } from 'antd'
 import { ChangeEvent, DragEvent, useEffect, useMemo, useState } from 'react'
 import { TIsEdit } from '../useEditor'
@@ -6,7 +6,7 @@ import { TIsEdit } from '../useEditor'
 export const useEditProduct = (editProduct: TIsEdit) => {
 	const [isDragger, setIsDragger] = useState<boolean>(false)
 	const [avatar, setAvatar] = useState<File | null>(null)
-	const [product, setProduct] = useState<IProduct>(defEdit)
+	const [product, setProduct] = useState<IProductTest>(defEdit)
 	useEffect(() => {
 		if (editProduct.product) setProduct({ ...editProduct.product })
 	}, [])
@@ -56,7 +56,7 @@ export const useEditProduct = (editProduct: TIsEdit) => {
 		setAvatar(null)
 	}
 
-	const handleChange = <T>(key: keyof IProduct, value: T) => {
+	const handleChange = <T>(key: keyof IProductTest, value: T) => {
 		setProduct(prev => ({ ...prev, [key]: value }))
 	}
 	return useMemo(

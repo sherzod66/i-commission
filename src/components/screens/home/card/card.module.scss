@@ -3,8 +3,22 @@
 	.card__container {
 		.title__row {
 			@apply flex justify-between mb-6 tablet:flex-wrap;
-			& h2 {
-				@apply text-sub-title text-black-800 font-medium tablet:flex-auto tablet:mb-4;
+			.title {
+				@apply flex;
+				& h2 {
+					@apply text-sub-title text-black-800 font-medium tablet:flex-auto tablet:mb-4 mr-2;
+				}
+				& a {
+					@apply block text-text-default text-black-300 border-[2px] border-solid rounded-12xl border-line3 py-2 px-3;
+				}
+			}
+		}
+		.product__row {
+			/* @apply flex flex-wrap w-full; */
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 26px;
+			.product__column {
 			}
 		}
 	}

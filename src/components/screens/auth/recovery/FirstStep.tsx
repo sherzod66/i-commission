@@ -15,7 +15,6 @@ const FirstStep: FC<TResetProps> = ({ setStep, step }) => {
 	} = useForm<{ email: string }>()
 	const navigate = useRouter()
 	const onSubmit: SubmitHandler<{ email: string }> = data => {
-		console.log(data)
 		setStep(prev => prev + 1)
 	}
 	return (
@@ -35,11 +34,11 @@ const FirstStep: FC<TResetProps> = ({ setStep, step }) => {
 						</p>
 					)}
 				</div>
-				<button className='btn-primary rounded-12xl mt-6 transition-colors' type='submit'>
+				<button className='btn-primary rounded-5xl mt-6 transition-colors' type='submit'>
 					Далее
 				</button>
 				<button
-					className='btn-primary-opacity rounded-12xl mt-2 transition-colors'
+					className='btn-primary-opacity rounded-5xl mt-2 transition-colors'
 					type='button'
 					onClick={() => navigate.back()}
 				>

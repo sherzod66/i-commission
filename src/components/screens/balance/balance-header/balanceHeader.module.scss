@@ -14,7 +14,7 @@
 				.money__active {
 					display: block;
 					padding-right: 10px;
-					padding-bottom: 10px;
+					padding-bottom: 0px;
 					& a {
 						@apply block w-full p-2 rounded-12xl text-text-default  bg-orange-900 text-white;
 					}

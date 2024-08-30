@@ -10,8 +10,9 @@ export const metadata: Metadata = {
 export default function BalancePage() {
 	return (
 		<Layout isShop={null}>
-			<BalanceHeader />
-			<BalanceTable />
+			<h1>hi</h1>
+			{/* <BalanceHeader />
+			<BalanceTable /> */}
 		</Layout>
 	)
 }

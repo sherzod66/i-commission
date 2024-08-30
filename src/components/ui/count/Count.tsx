@@ -50,10 +50,10 @@ const CountQuantity: FC<TCountProps> = ({ count, setCount, index }) => {
 						changeBoolean<TCountQuantity>(index, !count[index].isFocus, count, 'isFocus', setCount)
 					}
 					onBlur={onBlur}
-				/>{' '}
+				/>
 				<button onClick={() => minusCount(count, index, setCount)} type='button'>
 					<Minus />
-				</button>{' '}
+				</button>
 			</div>
 			{count[index].quantity > 6 ? (
 				<p className='text-text-12 text-black-300 mt-1 text-right'>В наличии: Много</p>

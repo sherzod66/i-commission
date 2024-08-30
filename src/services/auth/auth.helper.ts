@@ -5,6 +5,11 @@ export const getAccessToken = () => {
 	return accessToken || null
 }
 
+export const getRefreshToken = () => {
+	const accessToken = Cookies.get(EnumTokens.REFRESH_TOKEN)
+	return accessToken || null
+}
+
 export const saveTokenStorage = (accessToken: string, refreshToken: string) => {
 	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
 		domain: 'localhost',
@@ -20,4 +25,5 @@ export const saveTokenStorage = (accessToken: string, refreshToken: string) => {
 
 export const removeFromStorage = () => {
 	Cookies.remove(EnumTokens.ACCESS_TOKEN)
+	Cookies.remove(EnumTokens.REFRESH_TOKEN)
 }

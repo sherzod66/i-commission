@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '/src/assets/fonts/icomoon';
 * {
 	padding: 0;
 	margin: 0;
@@ -87,7 +88,7 @@ body {
 }
 
 [class*='__container'] {
-	max-width: 1520px;
+	max-width: 1710px;
 	margin: 0px auto;
 }
 input[type='number'] {

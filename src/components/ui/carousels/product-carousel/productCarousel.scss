@@ -1,5 +1,13 @@
 .product__carousel {
 	min-width: 0;
+	@apply bg-white rounded-6xl p-4 my-5;
+	.discount__title {
+		@apply text-text-xl mb-4;
+		& svg {
+			display: inline-block;
+			margin-right: 12px;
+		}
+	}
 	.mySwiper {
 		width: 100%;
 		overflow: hidden;
@@ -7,14 +15,6 @@
 		.pr-slide {
 			&:last-child {
 				margin-right: 0px;
-			}
-
-			.add__basket {
-				@apply absolute left-3 top-3 bg-orange-900 bg-opacity-80
-					p-[12px] rounded-12xl z-1 scale-0 invisible transition-all;
-				&:hover {
-					@apply bg-opacity-100;
-				}
 			}
 			&:hover .add__basket {
 				@apply scale-100 visible;

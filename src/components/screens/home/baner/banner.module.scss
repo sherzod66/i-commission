@@ -1,0 +1,17 @@
+.banner {
+	margin-top: 60px;
+	height: 555px;
+	width: 100%;
+	padding: 126px 0px 0px 0px;
+	.banner__item {
+		@apply flex flex-col w-full items-center
+		h-full;
+		.title {
+			@apply text-64px font-semibold text-white leading-normal;
+		}
+		.description {
+			@apply font-medium text-black-450 leading-normal;
+			font-size: 15px;
+		}
+	}
+}

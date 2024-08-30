@@ -36,7 +36,7 @@ instance.interceptors.response.use(
 	config => config,
 	async error => {
 		const originalRequest = error.config
-
+		console.log('Status code:', error)
 		if (
 			(error?.response?.status === 401 ||
 				errorCatch(error) === 'jwt expired' ||
@@ -44,6 +44,7 @@ instance.interceptors.response.use(
 			error.config &&
 			!error.config._isRetry
 		) {
+			console.log('refresh Token')
 			originalRequest._isRetry = true
 			try {
 				await authService.getNewTokens()

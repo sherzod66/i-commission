@@ -8,7 +8,8 @@ export const metadata: Metadata = {
 export default function OrderPage() {
 	return (
 		<Layout isShop={null}>
-			<Order />
+			<h1></h1>
+			{/* <Order /> */}
 		</Layout>
 	)
 }

@@ -1,0 +1,20 @@
+.logo {
+	@apply flex justify-center mb-10;
+}
+.title {
+	@apply text-black-900 font-medium text-title text-center
+	w-full leading-normal tablet:text-text-xl;
+}
+.sub_title {
+	@apply text-text-default text-center text-black-300 mb-10 tablet:text-text-sm;
+}
+.reset {
+	@apply block text-orange-900 text-center text-text-default mb-6 hover:text-orange-300;
+}
+
+.button_login {
+	@apply btn-primary rounded-5xl transition-colors;
+}
+.button_register {
+	@apply btn-primary-opacity rounded-5xl transition-colors mt-2;
+}

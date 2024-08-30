@@ -3,8 +3,9 @@
 	&:hover {
 		box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
 	}
+
 	.item__top {
-		@apply px-11 py-[37px] rounded-6xl relative;
+		@apply px-[44px] py-[38px] rounded-6xl bg-white relative;
 		.item__image {
 			@apply w-full h-[163px] rounded-xl overflow-hidden relative transition-transform;
 			& img {
@@ -27,14 +28,43 @@
 			background: linear-gradient(180deg, #afafaf83 33.87%, #bed0db77 65.6%);
 			filter: blur(28.08px);
 		}
+		.discount {
+			@apply absolute left-[17px] top-[17px] rounded-2xl bg-orange-400 px-2 py-[8px] text-white
+			font-semibold text-20px z-1;
+		}
 	}
 	.item__info {
 		@apply p-4;
-		& h4 {
-			@apply text-text-lg font-semibold mb-[6px];
+		.item__price {
+			@apply mb-[6px];
+			.price {
+				@apply font-semibold text-22px;
+				&.old {
+					@apply font-normal line-through;
+				}
+			}
+			.price_discount {
+				@apply text-orange-400 font-semibold text-22px ml-[8px];
+			}
 		}
-		& p {
-			@apply text-text-lg font-normal text-black-300;
+		.item__description {
+			@apply text-20px font-semibold mb-[6px] overflow-hidden whitespace-nowrap text-ellipsis;
+		}
+		.item__rate {
+			@apply flex justify-between items-center w-full;
+			& p {
+				flex: 0 1 77%;
+				@apply leading-normal;
+				overflow: hidden;
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+			}
+			.rate {
+				flex: 0 1 18%;
+				border-radius: 20px;
+				@apply border-solid border-[2px] border-black-950 text-center py-[2px];
+			}
 		}
 	}
 }

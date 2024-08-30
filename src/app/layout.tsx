@@ -3,6 +3,7 @@ import { Onest, Inter } from 'next/font/google'
 import './globals.scss'
 import { ConfigProvider } from 'antd'
 import { antTheme } from '@/assets/theme/antTheme'
+import MessageWrapper from '@/components/ui/messages/MessageWrapper'
 import { Providers } from './Providers'
 
 const onest = Onest({
@@ -24,6 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body className={onest.variable}>
+				<MessageWrapper />
 				<ConfigProvider theme={antTheme}>
 					<Providers>
 						<div className='wrapper'>{children}</div>

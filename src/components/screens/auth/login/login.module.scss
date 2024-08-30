@@ -1,17 +1,32 @@
+.logo {
+	@apply flex justify-center mb-10;
+}
 .title {
 	@apply text-black-900 font-medium text-title text-center
 	w-full leading-normal tablet:text-text-xl;
 }
 .sub_title {
-	@apply text-text-default text-center text-black-300 mb-8 tablet:text-text-sm;
+	@apply text-text-default text-center text-black-300 mb-10 tablet:text-text-sm;
+}
+.input_wrapper {
+	@apply mb-4 last:mb-0;
+	.input_default {
+		@apply input-default block;
+		&.error {
+			border-bottom: 2px solid #ff2300;
+		}
+	}
+	.error__alert {
+		@apply text-orange-900 animate-fade text-text-default text-center mb-2;
+	}
 }
 .reset {
 	@apply block text-orange-900 text-center text-text-default mb-6 hover:text-orange-300;
 }
 
 .button_login {
-	@apply btn-primary rounded-12xl transition-colors;
+	@apply btn-primary rounded-5xl transition-colors;
 }
 .button_register {
-	@apply btn-primary-opacity rounded-12xl transition-colors mt-2;
+	@apply btn-primary-opacity rounded-5xl transition-colors mt-2;
 }

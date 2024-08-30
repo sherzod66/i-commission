@@ -4,7 +4,6 @@ import styles from './basket.module.scss'
 import cn from 'clsx'
 import { Checkbox, Popconfirm, Rate } from 'antd'
 import { IBasketHook, useBasket } from './useBasket'
-import { changeBoolean } from '@/components/ui/count/changeIvent'
 import CountQuantityBasket from '@/components/ui/count/CountQuantityBasket'
 import Link from 'next/link'
 import { countBasketPrice } from '@/utils/countBasketPrie'
@@ -41,7 +40,7 @@ const Basket: FC = () => {
 											setSelectAll({ isRadioClick: true, isSelect: !selectAll.isSelect })
 										}
 										className='mr-2'
-									/>{' '}
+									/>
 									<span>Выбрать все</span>
 								</div>
 								{selectAll.isSelect && (
@@ -83,10 +82,10 @@ const Basket: FC = () => {
 											/>
 											<div className={styles.basket__product_product}>
 												<div className={styles.basket__product_image}>
-													<img src={el.imagePath} alt='image' />
+													<img src={el.image.imageMin} alt='image' />
 												</div>
 												<div className={styles.basket__product_info}>
-													<h4>{el.name}</h4>
+													<h4>{el.displayName}</h4>
 													<p>Подписка на 1 год</p>
 												</div>
 											</div>
@@ -118,34 +117,51 @@ const Basket: FC = () => {
 					</div>
 					<div className={cn(styles.basket__column, styles.second)}>
 						<div className={styles.decor__item}>
-							<button
-								onClick={() => basket.length > 0 && navigate.push('/order')}
-								className={cn(styles.decor__bottom, { [styles.disabled]: basket.length < 1 })}
-							>
-								Перейти к оформлению
-							</button>
-							<div className={styles.decor__info}>
-								<p>Ваша корзина</p>
-								<p>{basket.length}</p>
+							<h4>Краткий итог</h4>
+							{basket.length > 0 && (
+								<>
+									<div className={styles.item__row}>
+										<div className={styles.item__row_info}>Предварительно:</div>
+										<div className={styles.item__row_value}>{countBasketPrice(basket)} ₽</div>
+									</div>
+									<div className={styles.item__row}>
+										<div className={styles.item__row_info}>Скидка:</div>
+										<div className={styles.item__row_discount}>-1, 030 ₽</div>
+									</div>
+								</>
+							)}
+							<div className={styles.item__row}>
+								<div className={styles.item__row_summary}>Всего:</div>
+								<div className={styles.item__row_summary_price}>{countBasketPrice(basket)} ₽</div>
 							</div>
-							<div className={styles.decor__info}>
-								<p>Продавцы</p>
-								<p>{basket.length}</p>
+							<button
+								disabled={basket.length === 0}
+								className={cn(styles.item__buy, { [styles.disabled]: basket.length === 0 })}
+								type='button'
+							>
+								Купить ({basket.length})
+							</button>
+						</div>
+						<div className={styles.decor__item}>
+							<div className={styles.seller__row}>
+								<h4>Продавцы</h4>
+								{/* TODO: сделать склонение продавцов */}
+								<p>5 продавцов</p>
 							</div>
 							<ul className={styles.decor__sellers}>
 								{basket.map(item => (
 									<li className={styles.decor__seller} key={item.id}>
 										<div className={styles.salesman_info}>
 											<div className={styles.salesman__image}>
-												<img draggable={false} src={item.imagePath} alt='salesman' />
+												<img draggable={false} src={item.image.imageMin} alt='salesman' />
 											</div>
-											<h6>{item.salesman.name}</h6>
+											<h6>{item.displayName}</h6>
 										</div>
 										<div className={styles.salesman__rate}>
 											<Rate
 												className='text-black-900 text-text-sm'
 												disabled
-												defaultValue={item.salesman.rate}
+												defaultValue={6}
 												allowHalf
 											/>
 											<div className={styles.salesman__reviews}>+2234</div>
@@ -154,13 +170,9 @@ const Basket: FC = () => {
 									</li>
 								))}
 							</ul>
-						</div>
-						<div className={styles.decor__check}>
-							<p></p>
-						</div>
-						<div className={styles.decor__price}>
-							<h3>Итого:</h3>
-							<h3>{countBasketPrice(basket)} ₽</h3>
+							<button className={styles.see__all} type='button'>
+								Посмотреть всех
+							</button>
 						</div>
 					</div>
 				</div>

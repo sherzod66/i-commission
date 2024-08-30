@@ -1,4 +1,25 @@
+import { ICategory } from './category.type'
+import { IEdges } from './edges.type'
 import { IProduct } from './product.type'
+
+export interface IShop {
+	createdAt: Date
+	updatedAt: Date
+	id: string
+	code: string
+	displayName: string
+	active: boolean
+	categories?: IEdges<ICategory>
+	products?: IEdges<IProduct>
+	owner: {
+		id: string
+		nickname: string
+	}
+}
+
+export interface IShops {
+	shops: IEdges<IShop>
+}
 
 export interface ISalesman {
 	id: string

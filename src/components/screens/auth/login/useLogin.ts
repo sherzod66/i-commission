@@ -5,7 +5,6 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 
 export type TLoginInput = {
 	email: string
-	password: string
 }
 export const useLogin = () => {
 	const {
@@ -18,12 +17,6 @@ export const useLogin = () => {
 	const [page, setPage] = useState<number>(0)
 	const onSubmit: SubmitHandler<TLoginInput> = async data => {
 		try {
-			await authService.main('login', {
-				email: data.email,
-				password: data.password
-			})
-			reset({ email: '', password: '' })
-			setPage(prev => prev + 1)
 		} catch (e) {
 			console.error('Error:', e)
 		}

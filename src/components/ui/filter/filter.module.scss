@@ -1,0 +1,181 @@
+.filter {
+	@apply w-full relative mt-10 pk:px-4;
+	.filter__container {
+		.filter__row {
+			@apply flex justify-between items-start laptop:flex-wrap;
+			.filter__column {
+				@apply min-w-0;
+				.filter__item {
+					@apply bg-white mb-8 shadow-box-default p-6 rounded-6xl  text-text-xl;
+					&:last-child {
+						@apply mb-0;
+					}
+				}
+				@apply flex-filter-first 
+				laptop:flex-auto;
+				&.second {
+					@apply flex-filter-second bg-white rounded-6xl shadow-box-default
+					py-6 px-4 text-text-xl laptop:mt-4 laptop:flex-auto;
+				}
+				.filter__sort {
+					@apply flex mt-6 w-full pk:flex-wrap justify-between;
+					& h6 {
+						@apply text-text-sm text-black-300 mb-2;
+					}
+					.sort__column {
+						@apply min-w-0 tablet:flex-full tablet:pr-0 tablet:mb-8;
+						&:last-child {
+							@apply pr-0 pk:flex-full tablet:mb-0;
+							flex: 0 1 21%;
+						}
+						&:first-child {
+							flex: 0 1 46%;
+						}
+						&:nth-child(2) {
+							flex: 0 1 20%;
+						}
+						.filter__from {
+							@apply flex;
+							& input {
+								display: block;
+								width: 100%;
+								font-size: 16px;
+								border: 2px solid #e3e3e3;
+								padding: 10px 16px;
+								border-radius: 60px;
+								margin-right: 5px;
+								transition: border 0.3s ease-in-out 0s;
+								&:last-child {
+									margin-left: 5px;
+								}
+								&:focus {
+									border-color: #fc5a40;
+								}
+							}
+							@media (max-width: 440px) {
+								& input {
+									width: 100%;
+								}
+							}
+						}
+						& input {
+							display: block;
+							width: 100%;
+							font-size: 16px;
+							border: 2px solid #e3e3e3;
+							padding: 10px 16px;
+							border-radius: 60px;
+							transition: border 0.3s ease-in-out 0s;
+							&:focus {
+								border-color: #fc5a40;
+							}
+						}
+					}
+				}
+				.filter__sellers {
+					@apply block bg-f4f4 py-2 px-[16px] font-light mt-4 rounded-12xl text-text-default hover:bg-line2 transition-colors text-center;
+				}
+
+				.filter__categories {
+					display: grid;
+					grid-template-columns: 1fr 1fr 2.4fr 1.2fr 0.9fr;
+					margin-top: 30px;
+					margin-bottom: 10px;
+					& li {
+						@apply text-text-sm text-black-300 flex-full;
+					}
+					& li:nth-child(3) {
+						@apply grid;
+					}
+					@media (max-width: 768px) {
+						display: none;
+					}
+				}
+				.product__body {
+					@apply h-[235px] overflow-x-hidden overflow-y-auto;
+					&::-webkit-scrollbar {
+						width: 5px;
+					}
+					&::-webkit-scrollbar-track {
+						background-color: transparent;
+					}
+
+					&::-webkit-scrollbar-thumb {
+						background-color: #dadada;
+						border-radius: 30px;
+					}
+
+					&::-webkit-scrollbar-thumb:hover {
+						background-color: #505050;
+					}
+					.product__column {
+						border-bottom: 2px solid #e5e5e5;
+						padding: 20px 0px;
+						display: grid;
+						grid-template-columns: 1fr 1fr 2.4fr 1.2fr 0.9fr;
+						align-items: center;
+						&:first-child {
+							border-top: 2px solid #e5e5e5;
+							@media (max-width: 768px) {
+								border-top: 0px solid transparent;
+							}
+						}
+						&:last-child {
+							border-bottom: 0px solid transparent;
+						}
+						.column__first {
+							@apply text-text-sm text-black-800;
+							@media (max-width: 768px) {
+								display: none;
+							}
+						}
+						.column__second {
+							@apply text-text-sm text-black-800;
+							@media (max-width: 768px) {
+								display: none;
+							}
+						}
+						.column__item {
+							@apply flex;
+							.item__image {
+								@apply w-9 h-9 mr-4;
+								& img {
+									@apply image-min;
+								}
+							}
+							.item__info {
+								& h5 {
+									@apply text-text-lg font-semibold mb-1;
+								}
+								& p {
+									@apply text-text-12 text-black-300;
+								}
+							}
+						}
+						.column__price {
+							@media (max-width: 768px) {
+								grid-row-start: 1;
+								grid-column-start: 2;
+								text-align: right;
+								padding-right: 10px;
+							}
+
+							& h5 {
+								@apply text-text-lg font-normal mb-1;
+							}
+							& p {
+								@apply text-text-12 text-black-300;
+							}
+						}
+						@media (max-width: 768px) {
+							grid-template-columns: 2fr 1fr;
+						}
+					}
+					@media (max-width: 768px) {
+						height: 412px;
+					}
+				}
+			}
+		}
+	}
+}

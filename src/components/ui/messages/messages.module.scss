@@ -1,0 +1,23 @@
+.fix_container {
+	@apply fixed left-0 top-0 z-50 w-full h-full pointer-events-none;
+	.message {
+		max-width: 380px;
+		margin: 10px auto;
+		@apply bg-white rounded-6xl p-4 shadow-message animate-message;
+		&.remove {
+			@apply animate-messageOut;
+		}
+		.message__row {
+			@apply flex items-center;
+			.message__type {
+				@apply mr-4;
+			}
+			& h4 {
+				@apply text-text-lg text-black-950;
+			}
+		}
+
+		.description {
+		}
+	}
+}

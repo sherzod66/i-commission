@@ -1,4 +1,7 @@
+import { useMessage } from '@/hooks/useMessage'
+import { categoriesServicer } from '@/services/categories/categories.service'
 import { IAddProduct, IProduct, defProduct } from '@/types/product.type'
+import { useQuery } from '@tanstack/react-query'
 import { message } from 'antd'
 import { ChangeEvent, DragEvent, useMemo, useState } from 'react'
 
@@ -6,6 +9,12 @@ export const useAddProduct = () => {
 	const [isDragger, setIsDragger] = useState<boolean>(false)
 	const [avatar, setAvatar] = useState<File | null>(null)
 	const [product, setProduct] = useState<IAddProduct>(defProduct)
+	const { handelAdd } = useMessage()
+	const { data: categories, isLoading: categoryLoading } = useQuery({
+		queryKey: ['categories'],
+		queryFn: categoriesServicer.getCategories,
+		select: response => response.data.data
+	})
 	const dragStarHandler = (e: DragEvent<HTMLDivElement>) => {
 		e.preventDefault()
 		setIsDragger(true)
@@ -21,7 +30,11 @@ export const useAddProduct = () => {
 			setAvatar(files[0])
 			setIsDragger(false)
 		} else {
-			message.error('Выберите изображения формата PNG или JPG')
+			handelAdd({
+				key: 'imageBaner',
+				title: 'Выберите изображения формата PNG или JPG',
+				type: 'error'
+			})
 		}
 	}
 	const inputImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +46,11 @@ export const useAddProduct = () => {
 				setAvatar(files[0])
 				setIsDragger(false)
 			} else {
-				message.error('Выберите изображения формата PNG или JPG')
+				handelAdd({
+					key: 'imageBaner',
+					title: 'Выберите изображения формата PNG или JPG',
+					type: 'error'
+				})
 			}
 		}
 	}
@@ -67,8 +84,10 @@ export const useAddProduct = () => {
 			isDragger,
 			product,
 			setProduct,
-			handleChange
+			handleChange,
+			categories,
+			categoryLoading
 		}),
-		[isDragger, avatar, product]
+		[isDragger, avatar, product, categories, categoryLoading]
 	)
 }

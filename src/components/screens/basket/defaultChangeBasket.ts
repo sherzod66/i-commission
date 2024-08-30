@@ -1,22 +1,25 @@
-import { IBasket } from '@/types/basket.type'
 import { IBasketHook } from './useBasket'
+import { IProduct } from '@/types/product.type'
 
 export const defaultChangeBasket = (
-	data: IBasket[],
+	data: IProduct[],
 	selected: boolean,
 	isFocus: boolean
 ): IBasketHook[] => {
 	const defaultV = data.map<IBasketHook>(el => ({
-		count: '2',
+		active: el.active,
+		count: '4',
+		createdAt: el.createdAt,
+		description: el.description,
+		displayName: el.displayName,
 		id: el.id,
-		category: el.category,
-		imagePath: el.imagePath,
-		name: el.name,
+		image: el.image,
+		isFocus,
 		price: el.price,
-		quantity: el.quantity,
-		salesman: el.salesman,
 		selected,
-		isFocus
+		shop: el.shop,
+		updatedAt: el.updatedAt,
+		category: el.category
 	}))
 	return defaultV
 }
@@ -26,13 +29,16 @@ export const defaultChangeChoice = (data: IBasketHook[], selected: boolean): IBa
 		count: '2',
 		id: el.id,
 		category: el.category,
-		imagePath: el.imagePath,
-		name: el.name,
 		price: el.price,
-		quantity: el.quantity,
-		salesman: el.salesman,
 		selected,
-		isFocus: el.isFocus
+		isFocus: el.isFocus,
+		active: el.active,
+		createdAt: el.createdAt,
+		description: el.description,
+		displayName: el.displayName,
+		image: el.image,
+		shop: el.shop,
+		updatedAt: el.updatedAt
 	}))
 	return defaultV
 }

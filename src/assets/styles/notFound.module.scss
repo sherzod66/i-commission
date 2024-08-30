@@ -13,16 +13,19 @@
 			font-weight: 900;
 			font-size: 186px;
 			line-height: 225px;
+
 			color: #ffffff;
-			text-shadow: 2px 2px 0px #fc5a40, 4px 4px 0px #fc5a40, 6px 6px 0px #fc5a40,
-				8px 8px 0px #fc5a40, 10px 10px 0px #fc5a40, 12px 12px 0px #fc5a40, 14px 14px 0px #fc5a40,
-				16px 16px 0px #fc5a40;
+
+			text-shadow: 2px 2px 0px #191919, 4px 4px 0px #191919, 6px 6px 0px #191919,
+				8px 8px 0px #191919, 10px 10px 0px #191919, 12px 12px 0px #191919, 14px 14px 0px #191919,
+				16px 16px 0px #191919;
+
 			@media (max-width: 440px) {
 				font-size: 128px;
 			}
 		}
 		& p {
-			@apply text-text-24 text-black-300 text-center;
+			@apply text-text-24 text-black-950 text-center;
 		}
 		& a {
 			@apply mt-[43px] rounded-12xl border border-orange-900 border-solid py-2 px-4

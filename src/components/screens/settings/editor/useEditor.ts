@@ -1,9 +1,9 @@
-import { IProduct } from '@/types/product.type'
+import { IProduct, IProductTest } from '@/types/product.type'
 import { useMemo, useState } from 'react'
 
 export type TIsEdit = {
 	isShow: boolean
-	product: IProduct | null
+	product: IProductTest | null
 }
 
 export const useEditor = () => {

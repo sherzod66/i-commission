@@ -1,20 +1,21 @@
-import { FakeBasket } from '@/fake-data/fakeBasket'
-import { IBasket } from '@/types/basket.type'
 import { useEffect, useMemo, useState } from 'react'
 import { defaultChangeBasket, defaultChangeChoice } from './defaultChangeBasket'
 import { PopconfirmProps, message } from 'antd'
 import { changeBoolean } from '@/components/ui/count/changeIvent'
 import { useRouter } from 'next/navigation'
+import { useBasketStore } from '@/store/basketStore/useBasketStore'
+import { IProduct } from '@/types/product.type'
+import { setLocal } from '@/utils/localStorage.helper'
 
-export interface IBasketHook extends IBasket {
+export interface IBasketHook extends IProduct {
 	count: string
 	selected: boolean
 	isFocus: boolean
 }
 export const useBasket = () => {
-	const [basket, setBasket] = useState<IBasketHook[]>([
-		...defaultChangeBasket(FakeBasket, false, false)
-	])
+	const globalBasket = useBasketStore(store => store.basket)
+	const setGlobalBasket = useBasketStore(store => store.setBasket)
+	const [basket, setBasket] = useState<IBasketHook[]>([])
 	const [selectAll, setSelectAll] = useState<{ isSelect: boolean; isRadioClick: boolean }>({
 		isRadioClick: false,
 		isSelect: false
@@ -27,25 +28,47 @@ export const useBasket = () => {
 			if (selectAll.isRadioClick) setBasket([...defaultChangeChoice(basket, false)])
 		}
 	}, [selectAll])
+	useEffect(() => {
+		setLocal('basket', JSON.stringify(globalBasket))
+		setBasket(defaultChangeBasket(globalBasket, false, false))
+	}, [globalBasket])
 
 	const changeCheckBox = (index: number) => {
 		changeBoolean<IBasketHook>(index, !basket[index].selected, basket, 'selected', setBasket)
+		const bas = basket.some(item => item.selected === false)
+		if (!bas) {
+			setSelectAll({ isRadioClick: true, isSelect: false })
+		}
 		setSelectAll({ isRadioClick: false, isSelect: false })
 	}
 
 	const confirm: PopconfirmProps['onConfirm'] = e => {
-		setBasket([])
 		setSelectAll({ isRadioClick: false, isSelect: false })
-		message.success('Успешно удаленно!')
+		updateGlobalBasket()
 	}
 	const confirmSelect: PopconfirmProps['onConfirm'] = e => {
-		setBasket([
-			...basket.filter(el => {
-				if (!el.selected) {
-					return { ...el }
+		updateGlobalBasket()
+	}
+
+	const updateGlobalBasket = () => {
+		const changeData: IProduct[] = basket.filter(item => {
+			if (!item.selected) {
+				return {
+					active: item.active,
+					count: '4',
+					createdAt: item.createdAt,
+					description: item.description,
+					displayName: item.displayName,
+					id: item.id,
+					image: item.image,
+					price: item.price,
+					shop: item.shop,
+					updatedAt: item.updatedAt,
+					category: item.category
 				}
-			})
-		])
+			}
+		})
+		setGlobalBasket(changeData)
 		message.success('Успешно удаленно!')
 	}
 

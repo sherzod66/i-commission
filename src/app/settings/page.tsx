@@ -9,7 +9,8 @@ export const metadata: Metadata = {
 export default function SettingsPage() {
 	return (
 		<Layout isShop={null}>
-			<Settings />
+			<h1>hi</h1>
+			{/* <Settings /> */}
 		</Layout>
 	)
 }

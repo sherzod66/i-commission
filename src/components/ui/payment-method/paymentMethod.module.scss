@@ -1,0 +1,14 @@
+.item {
+	@apply bg-white py-2 px-4 rounded-5xl overflow-hidden;
+	.item__info {
+		.item__title {
+			@apply pt-2 text-text-24 font-medium;
+		}
+		.item__description {
+			@apply pt-2 text-text-default font-medium;
+		}
+	}
+	.item__images {
+		@apply h-[90px] relative animate-scaleIn;
+	}
+}

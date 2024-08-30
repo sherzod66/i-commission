@@ -1,6 +1,6 @@
-import { IProduct } from '@/types/product.type'
+import { IProductTest } from '@/types/product.type'
 
-export const defaultProducts: IProduct[] = [
+export const defaultProducts: IProductTest[] = [
 	{
 		category: 'ffff',
 		id: '855',

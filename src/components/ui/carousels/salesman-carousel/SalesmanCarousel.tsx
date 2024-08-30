@@ -26,7 +26,7 @@ export default function SalesmanCarousel({ sellers }: ProductSwProps) {
 						spaceBetween: 26
 					},
 					1440: {
-						slidesPerView: 4.2,
+						slidesPerView: 4.1,
 						spaceBetween: 26
 					}
 				}}

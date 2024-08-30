@@ -1,47 +1,36 @@
 'use client'
-import { Dispatch, FC, SetStateAction } from 'react'
+import { FC } from 'react'
 import styles from './register.module.scss'
 
 import { useRouter } from 'next/navigation'
-import { useActivate } from './useActivate'
 
-type TAuthActivate = {
-	setPage: Dispatch<SetStateAction<number>>
-}
-const AuthActivate: FC<TAuthActivate> = ({ setPage }) => {
-	const { errors, handleSubmit, onSubmit, register, reset, watch } = useActivate()
+import Image from 'next/image'
+
+const AuthActivate: FC = () => {
 	const router = useRouter()
 	return (
 		<>
-			<h1 className={styles.title}>Введите код</h1>
-			<p className={styles.sub_title}>Мы выслали проверочный код на указанную вами почту</p>
-			<form className='w-full' onSubmit={handleSubmit(onSubmit)}>
-				<div className={styles.input_wrapper}>
-					<input
-						type='number'
-						className={styles.input_default}
-						{...register('key', { required: true /*maxLength: 6*/ })}
-						placeholder={'Введите код из письма'}
-						name='key'
-						aria-invalid={errors.key ? 'true' : 'false'}
+			<div className={styles.wrapper}>
+				<div className={styles.logo}>
+					<Image
+						draggable={false}
+						src={'/icon/notification_success.png'}
+						alt='Logo'
+						width={117.25}
+						height={98}
 					/>
-					{errors.key && (
-						<p className={styles.error} role='alert'>
-							Введите код из письма
-						</p>
-					)}
 				</div>
-				<button className={styles.button_login} type='submit'>
-					Далее
-				</button>
-				<button
-					className={styles.button_register}
-					type='button'
-					onClick={() => setPage(prev => prev - 1)}
-				>
-					Назад
-				</button>
-			</form>
+				<h1 className={styles.title}>Проверьте почту</h1>
+				<p className={styles.sub_title}>
+					Мы отправили вам письмо, перейдите по ссылке в письме чтобы войти в аккаунт
+				</p>
+				<div className={styles.info}>
+					<p>
+						Не пришло письмо? <button type='button'>Отправить ещё раз</button>
+					</p>
+				</div>
+			</div>
+			<img draggable={false} className={styles.image_bg} src='/image/popupBg.png' alt='bg' />
 		</>
 	)
 }

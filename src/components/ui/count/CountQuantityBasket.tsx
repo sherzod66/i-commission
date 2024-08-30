@@ -51,10 +51,10 @@ const CountQuantityBasket: FC<TCountProps> = ({ count, setCount, index }) => {
 						changeBoolean<IBasketHook>(index, !count[index].isFocus, count, 'isFocus', setCount)
 					}
 					onBlur={onBlur}
-				/>{' '}
+				/>
 				<button onClick={() => minusCountBasket(count, index, setCount)} type='button'>
 					<Minus />
-				</button>{' '}
+				</button>
 			</div>
 			{count[index].quantity > 6 ? (
 				<p className='text-text-12 text-black-300 mt-1 text-right'>В наличии: Много</p>

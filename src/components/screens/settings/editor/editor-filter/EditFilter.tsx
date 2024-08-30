@@ -2,8 +2,8 @@
 import { Dispatch, FC, SetStateAction, useState } from 'react'
 import styles from './editFilter.module.scss'
 import { Select } from 'antd'
-import { options } from '@/components/screens/home/filter/selectOptions'
 import { PlusOutlined, LeftOutlined } from '@ant-design/icons'
+import { options } from '@/components/ui/filter/selectOptions'
 
 type TEditFilterProps = {
 	setIsAdd: Dispatch<SetStateAction<boolean>>

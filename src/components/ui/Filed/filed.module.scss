@@ -1,9 +1,19 @@
-.input_wrapper {
+.input {
 	@apply mb-4 last:mb-0;
-	.input_default {
-		@apply input-default block;
+	.input_wrapper {
+		@apply relative;
+		.input_default {
+			@apply input-default block;
+			&.error {
+				border-bottom: 2px solid #ff2300;
+			}
+		}
+		.pass {
+			@apply absolute top-[14px] right-[16px];
+		}
 	}
-	.error {
-		@apply text-orange-900 my-1 animate-fade;
+
+	.error__alert {
+		@apply text-orange-900 animate-fade text-text-default text-center mb-2;
 	}
 }

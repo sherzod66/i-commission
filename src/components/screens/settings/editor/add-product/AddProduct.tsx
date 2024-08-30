@@ -3,7 +3,7 @@ import { ChangeEvent, Dispatch, DragEvent, FC, SetStateAction, useState } from '
 import styles from './addProduct.module.scss'
 import { LeftOutlined } from '@ant-design/icons'
 import cn from 'clsx'
-import { Select, message } from 'antd'
+import { Select, SelectProps, message } from 'antd'
 import { fileReader } from '@/utils/fileReader'
 import Dragger from '@/components/ui/dragger/Dragger'
 import { useAddProduct } from './useAddProduct'
@@ -24,8 +24,17 @@ const AddProduct: FC<TAddProductProps> = ({ setIsAdd }) => {
 		isDragger,
 		product,
 		setProduct,
-		handleChange
+		handleChange,
+		categories,
+		categoryLoading
 	} = useAddProduct()
+
+	const categoriesOption = (): SelectProps['options'] =>
+		categories?.categories.edges.map(elem => ({
+			label: elem.node.displayName,
+			value: elem.node.id
+		}))
+
 	return (
 		<div className={styles.add}>
 			<div className={styles.add__column}>
@@ -40,34 +49,35 @@ const AddProduct: FC<TAddProductProps> = ({ setIsAdd }) => {
 						<div className={styles.add__input_column}>
 							<p>Категория</p>
 							<Select
-								onChange={v => handleChange<string>('category', v)}
+								onChange={v => handleChange<string>('categoryId', v)}
 								style={{ width: '100%' }}
+								options={categoriesOption()}
 							/>
 						</div>
 						<div className={styles.add__input_column}>
 							<p>Вид</p>
-							<Select onChange={v => handleChange<string>('type', v)} style={{ width: '100%' }} />
+							<Select disabled style={{ width: '100%' }} />
 						</div>
 					</div>
 					<h2 className='text-text-xl mt-11 mb-6'>Что получит покупатель</h2>
 					<div className={styles.add__row}>
 						<div className={styles.add__input_column}>
-							<p>Логин</p>
+							{/* <p>Логин</p>
 							<input
-								value={product.login}
+								value={product.}
 								onChange={e => handleChange<string>('login', e.target.value)}
 								type='text'
 								placeholder='Укажите логин'
-							/>
+							/> */}
 						</div>
 						<div className={styles.add__input_column}>
-							<p>Пароль</p>
+							{/* <p>Пароль</p>
 							<input
 								value={product.password}
 								onChange={e => handleChange<string>('password', e.target.value)}
 								type='text'
 								placeholder='Укажите пароль'
-							/>
+							/> */}
 						</div>
 					</div>
 					<h2 className='text-text-xl mt-11 mb-6'>Информация о товаре</h2>
@@ -75,8 +85,8 @@ const AddProduct: FC<TAddProductProps> = ({ setIsAdd }) => {
 						<div className={styles.add__input_column}>
 							<p>Заголовок</p>
 							<input
-								value={product.name}
-								onChange={e => handleChange<string>('name', e.target.value)}
+								value={product.displayName}
+								onChange={e => handleChange<string>('displayName', e.target.value)}
 								type='text'
 								placeholder='Название товара'
 							/>
@@ -91,13 +101,13 @@ const AddProduct: FC<TAddProductProps> = ({ setIsAdd }) => {
 							/>
 						</div>
 						<div className={styles.add__input_column}>
-							<p>Количество</p>
+							{/* <p>Количество</p>
 							<input
 								value={product.quantity}
 								onChange={e => handleChange<string>('quantity', e.target.value)}
 								type='number'
 								placeholder='Количество товара'
-							/>
+							/> */}
 						</div>
 						<div className={styles.add__input_column}>
 							<p>Стоимость</p>
@@ -105,7 +115,7 @@ const AddProduct: FC<TAddProductProps> = ({ setIsAdd }) => {
 								value={product.price}
 								onChange={e => handleChange<string>('price', e.target.value)}
 								type='number'
-								placeholder='За 1 единицу'
+								placeholder='Стоимость за еденицу'
 							/>
 						</div>
 					</div>
