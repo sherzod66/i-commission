@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
-import SearchSvg from '@/assets/icon/search.svg'
 import styles from './chatSearch.module.scss'
 import Loader from '@/components/ui/loader/Loader'
+import SearchIcon from '@/assets/icon/SearchIcon'
 
 const ChatSearch: FC = () => {
 	return (
@@ -9,7 +9,7 @@ const ChatSearch: FC = () => {
 			<div className={styles.search}>
 				<div className='relative'>
 					{/* <Loader /> */}
-					<SearchSvg />
+					<SearchIcon />
 				</div>
 				<input type='text' placeholder='Поиск по сообщениям' />
 			</div>

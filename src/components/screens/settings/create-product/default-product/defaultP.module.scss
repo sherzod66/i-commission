@@ -1,0 +1,101 @@
+.first__column {
+	flex: 0 1 64%;
+	@apply mr-4 bg-white rounded-6xl p-6 overflow-y-auto animate-scaleIn;
+	.title {
+		@apply text-text-24 font-medium mb-4 leading-normal;
+	}
+	& label {
+		@apply text-text-sm text-black-300 mb-2;
+	}
+	& input {
+		@apply input-lk;
+	}
+	.input__wrapper {
+		@apply w-full leading-normal mb-4;
+		&.min {
+			@apply max-w-[221px] relative;
+			& input {
+				padding: 12px 30px 12px 16px;
+			}
+		}
+		& textarea {
+			@apply input-default;
+		}
+	}
+	.error__alert {
+		@apply text-orange-900 animate-fade text-text-default text-center mb-2;
+	}
+	.select__wrapper {
+		@apply flex w-full leading-normal mb-4;
+		& label {
+			@apply text-text-sm text-black-300 mb-2;
+		}
+		.select__column {
+			flex: 0 1 33.333%;
+		}
+	}
+
+	.add__configuration {
+		@apply w-full border-dashed border-2 border-line rounded-2xl p-4 flex flex-col mb-[87px] transition-colors;
+		&:hover {
+			@apply border-orange-900;
+		}
+		.configuration__icon {
+			@apply bg-dark-white rounded-circle px-[12px] py-2 text-text-xl;
+			align-self: center;
+		}
+		.configuration__text {
+			@apply mt-4 text-text-default font-light;
+		}
+	}
+	.configurations {
+		.configuration__item {
+			@apply my-4;
+			.configuration__title {
+				@apply text-text-sm mb-4 text-black-300;
+			}
+			.configuration__head {
+				@apply flex gap-2;
+				.had__input {
+					flex: 0 1 50%;
+				}
+				.head__type {
+					flex: 0 1 50%;
+				}
+			}
+		}
+	}
+
+	.buttons__actions {
+		@apply w-full flex justify-end;
+		.cancel {
+			@apply px-[28px] py-3 rounded-12xl font-semibold text-text-default bg-primary mr-3;
+		}
+		.create__button {
+			@apply relative bg-orange-900 text-white rounded-12xl min-h-9 min-w-52;
+			.create {
+				@apply px-[28px] py-3 font-semibold text-text-default block;
+			}
+		}
+	}
+}
+.second__column {
+	flex: 0 1 35%;
+	display: flex;
+	flex-direction: column;
+	.product__image {
+		@apply bg-white  rounded-6xl p-4 mb-4 animate-scaleIn;
+	}
+	.product__info {
+		@apply bg-white  rounded-6xl p-4 animate-scaleIn overflow-y-auto;
+		.title {
+			@apply text-text-24 font-medium mb-4 leading-normal;
+		}
+		.text {
+			@apply text-text-default leading-normal mb-2;
+			&.subtitle {
+				@apply font-medium;
+			}
+		}
+	}
+}

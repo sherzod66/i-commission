@@ -2,8 +2,6 @@ import { FC } from 'react'
 import styles from './review.module.scss'
 import cn from 'clsx'
 import { Rate, Select } from 'antd'
-import ArrowSort from '@/assets/icon/arrowSort.svg'
-import StarSvh from '@/assets/icon/star.svg'
 
 const Reviews: FC = () => {
 	return (
@@ -102,9 +100,7 @@ const Reviews: FC = () => {
 						defaultValue={'positive'}
 						className='w-[273px] mobile:w-[240px]'
 					/>
-					<button type='button'>
-						По дате <ArrowSort />
-					</button>
+					<button type='button'>По дате</button>
 				</div>
 				<ul className={styles.reviews__list}>
 					<li className={styles.review__list_item}>

@@ -1,7 +1,7 @@
 import { ChangeEvent, DragEvent, FC } from 'react'
 import styles from './dragger.module.scss'
 import cn from 'clsx'
-import DownloadSvg from '@/assets/icon/download.svg'
+import UploadIcon from '@/assets/icon/UploadIcon'
 
 type TDragger = {
 	dragStarHandler: (e: DragEvent<HTMLDivElement>) => void
@@ -40,12 +40,12 @@ const Dragger: FC<TDragger> = ({
 				multiple={false}
 			/>
 			<div className={styles.dragger__download}>
-				<p>
-					<DownloadSvg />
+				<p className={styles.icon}>
+					<UploadIcon />
 				</p>
-				<p>Нажмите для загрузки или перетащите фото</p>
-				<p>PNG или JPG</p>
-				<p>{description}</p>
+				<p className={styles.role}>Нажмите для загрузки или перетащите фото</p>
+				<p className={styles.type}>PNG или JPG</p>
+				<p className={styles.description}>{description}</p>
 			</div>
 		</div>
 	)

@@ -1,0 +1,16 @@
+.nav__list {
+	.item {
+		@apply mb-4;
+		& a {
+			@apply font-semibold text-20px text-black-300 transition-colors;
+		}
+		&.active {
+			& a {
+				@apply text-black-950;
+			}
+		}
+	}
+	.list__line {
+		@apply block w-full h-[2px] bg-bar-line mb-4;
+	}
+}

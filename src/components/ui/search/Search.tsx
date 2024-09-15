@@ -10,14 +10,14 @@ import {
 	useState
 } from 'react'
 import styles from './search.module.scss'
-import SearchMin from '@/assets/icon/searchMin.svg'
-import SearchBig from '@/assets/icon/searchBig.svg'
 import { IEdges } from '@/types/edges.type'
 import { IProduct } from '@/types/product.type'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import cn from 'clsx'
 import Loader from '../loader/Loader'
+import SearchIcon from '@/assets/icon/SearchIcon'
+import SearchBig from '@/assets/icon/SearchBig.svg'
 
 type TSearchProduct = {
 	data: { products: IEdges<IProduct> } | undefined
@@ -92,7 +92,7 @@ const SearchProduct: FC<TSearchProduct> = ({ data, searchValue, setSearchValue, 
 		<div ref={ref} className={styles.search}>
 			<div className={styles.search__field}>
 				<label htmlFor='search'>
-					<SearchMin />
+					<SearchIcon />
 				</label>
 				<input
 					className={styles.search__input}
@@ -130,7 +130,7 @@ const SearchProduct: FC<TSearchProduct> = ({ data, searchValue, setSearchValue, 
 										<Link
 											href={`/search/?displayName=${data?.products.edges[index].node.displayName}&category=${data?.products.edges[index].node.category?.code}`}
 										>
-											<SearchMin /> <span>{item.node.displayName}</span>
+											<SearchIcon /> <span>{item.node.displayName}</span>
 										</Link>
 									</li>
 								))

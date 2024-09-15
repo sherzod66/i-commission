@@ -3,11 +3,9 @@ import styles from './hamburgerList.module.scss'
 import Search from '../search/Search'
 import { headerHamburgerList } from '../header-profile/headerList'
 import Link from 'next/link'
-import HelpIcon from '@/assets/icon/help.svg'
-import Cart from '@/assets/icon/cart.svg'
-import Exit from '@/assets/icon/exit.svg'
-import TgOpacity from '@/assets/icon/tg-opacity.svg'
 import cn from 'clsx'
+import TgOpacityIcon from '@/assets/icon/TgOpacityIcon'
+import BasketIcon from '@/assets/icon/BasketIcon'
 
 type THamburgerListProps = {
 	active: boolean
@@ -43,17 +41,23 @@ const HamburgerList: FC<THamburgerListProps> = ({ active, setBurger }) => {
 					<li className='w-full h-[2px] bg-line my-1'></li>
 					<li className={styles.list_el}>
 						<Link href='/basket'>
-							<span>{<Cart />}</span> Корзина
+							<span>{<BasketIcon />}</span> Корзина
 						</Link>
 					</li>
 					<li className={styles.list_el}>
 						<Link href='/faq'>
-							<span>{<HelpIcon />}</span> Помощь
+							<span>
+								<i className='icon-help'></i>
+							</span>{' '}
+							Помощь
 						</Link>
 					</li>
 					<li className='w-full h-[2px] bg-line my-1'></li>
 					<li className={styles.list_ex}>
-						<span>{<Exit />}</span> Выйти
+						<span>
+							<i className='icon-exit'></i>
+						</span>{' '}
+						Выйти
 					</li>
 				</ul>
 				<Link className={styles.header__open} href={'/'}>
@@ -62,7 +66,7 @@ const HamburgerList: FC<THamburgerListProps> = ({ active, setBurger }) => {
 
 				<div className={styles.header__social}>
 					<a href='#'>
-						<TgOpacity /> <span>Чат-Бот поддержка в telegram</span>
+						<TgOpacityIcon /> <span>Чат-Бот поддержка в telegram</span>
 					</a>
 				</div>
 			</div>

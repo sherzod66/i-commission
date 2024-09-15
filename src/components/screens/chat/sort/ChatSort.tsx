@@ -3,7 +3,6 @@ import { FC, useState } from 'react'
 import styles from './chatSort.module.scss'
 import { Select } from 'antd'
 import cn from 'clsx'
-import CalendarSvg from '@/assets/icon/calendar.svg'
 import Switch from '@/components/ui/switch/Switch'
 
 const ChatSort: FC = () => {
@@ -32,9 +31,7 @@ const ChatSort: FC = () => {
 							type='date'
 							name='date'
 						/>
-						<div className={styles.icon}>
-							<CalendarSvg />
-						</div>
+						<div className={styles.icon}>{/* <Calendar /> */}</div>
 					</div>
 				</div>
 			</div>

@@ -7,7 +7,7 @@ import { IBasketHook, useBasket } from './useBasket'
 import CountQuantityBasket from '@/components/ui/count/CountQuantityBasket'
 import Link from 'next/link'
 import { countBasketPrice } from '@/utils/countBasketPrie'
-import BasketBig from '@/assets/icon/basketBig.svg'
+import BasketIcon from '@/assets/icon/BasketIcon'
 
 const Basket: FC = () => {
 	const {
@@ -104,7 +104,7 @@ const Basket: FC = () => {
 								) : (
 									<div className={styles.basket__empty}>
 										<div className={styles.empty_svg}>
-											<BasketBig />
+											<BasketIcon />
 										</div>
 										<h6 className='text-text-lg text-black-300'>Корзина пуста</h6>
 										<Link className={styles.empty_home} href={'/'}>

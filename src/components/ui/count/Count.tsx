@@ -3,10 +3,10 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import styles from './count.module.scss'
 import cn from 'clsx'
 import { minusCount, plusCount } from '@/utils/countQuantity'
-import { TCountQuantity } from '@/components/screens/home/filter/Filter'
 import { changeBoolean, changeEvent } from './changeIvent'
-import Minus from '@/assets/icon/minus.svg'
-import Plus from '@/assets/icon/plus.svg'
+import { TCountQuantity } from '../filter/Filter'
+import PlusIcon from '@/assets/icon/PlusIcon'
+import MinusIcon from '@/assets/icon/MinusIcon'
 
 type TCountProps = {
 	count: TCountQuantity[]
@@ -37,7 +37,7 @@ const CountQuantity: FC<TCountProps> = ({ count, setCount, index }) => {
 					onClick={() => plusCount(count, setCount, index, count[index].quantity)}
 					type='button'
 				>
-					<Plus />
+					<PlusIcon />
 				</button>
 				<input
 					onChange={e => changeEvent(index, e, count, 'count', setCount)}
@@ -52,7 +52,7 @@ const CountQuantity: FC<TCountProps> = ({ count, setCount, index }) => {
 					onBlur={onBlur}
 				/>
 				<button onClick={() => minusCount(count, index, setCount)} type='button'>
-					<Minus />
+					<MinusIcon />
 				</button>
 			</div>
 			{count[index].quantity > 6 ? (

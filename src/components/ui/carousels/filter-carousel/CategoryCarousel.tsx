@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/scrollbar'
-import AppleSvg from '@/assets/icon/AppleSvg'
 import { FreeMode, Navigation } from 'swiper/modules'
 
 import './carousel.scss'
@@ -14,6 +13,7 @@ import { ICategory } from '@/types/category.type'
 import Loader from '../../loader/Loader'
 import { IEdges } from '@/types/edges.type'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import AppleIcon from '@/assets/icon/AppleIcon'
 
 type TCategoryCarouselProps = {
 	categories: IEdges<ICategory> | undefined
@@ -59,7 +59,7 @@ export default function CategoryCarousel({ categories, isLoading }: TCategoryCar
 									elem.node.code === queryParams.get('category') && 'sel'
 								}`}
 							>
-								<AppleSvg />
+								<AppleIcon />
 								<p className='mt-[16px]'>{elem.node.displayName}</p>
 							</div>
 						</SwiperSlide>

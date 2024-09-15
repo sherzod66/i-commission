@@ -1,11 +1,13 @@
 .settings {
-	@apply w-full mt-[130px] pk:px-4;
+	@apply w-full mt-[100px] pk:px-4;
 	.settings__container {
-		& h1 {
-			@apply text-sub-title mb-4;
-		}
-		.settings__switch {
+		.settings__dashboard {
 			@apply flex;
+			height: calc(100vh - 120px);
+			.nav__bar {
+				flex: 0 1 14%;
+				@apply mr-4 rounded-6xl bg-white;
+			}
 		}
 	}
 }

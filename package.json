@@ -14,6 +14,8 @@
 	},
 	"dependencies": {
 		"@apollo/client": "^3.11.4",
+		"@graphql-codegen/cli": "^5.0.2",
+		"@parcel/watcher": "^2.4.1",
 		"antd": "^5.17.3",
 		"apollo-link": "^1.2.14",
 		"axios": "^1.7.2",
@@ -22,7 +24,7 @@
 		"fast-average-color": "^9.4.0",
 		"graphql": "^15.9.0",
 		"js-cookie": "^3.0.5",
-		"next": "14.2.3",
+		"next": "^14.2.7",
 		"react": "^18",
 		"react-dom": "^18",
 		"react-hook-form": "^7.51.4",
@@ -36,9 +38,10 @@
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
+		"@types/uuid": "^10.0.0",
 		"postcss": "^8",
 		"sass": "^1.77.1",
 		"tailwindcss": "^3.4.1",
-		"typescript": "^5"
+		"typescript": "^5.6.2"
 	}
 }

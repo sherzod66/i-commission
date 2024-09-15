@@ -44,7 +44,6 @@ const errorLink = onError(({ graphQLErrors, operation, forward, response, networ
 				refreshToken()
 					.then(newToken => {
 						accessToken = newToken // Обновляем токен
-
 						// Повторяем запрос с новым токеном
 						operation.setContext(({ headers = {} }) => ({
 							headers: {

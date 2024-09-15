@@ -9,8 +9,8 @@ type TOption = {
 	before: number | null
 	after: number | null
 }
-export const GET_SHOP = gql`
-	query GetShop {
+export const GET_SHOPS = gql`
+	query GetShops {
 		shops {
 			edges {
 				node {
@@ -32,6 +32,21 @@ export const GET_SHOP_QUANTITY = gql`
 	}
 `
 export const GET_SHOP_BY_SERVER = gql`
+	query GetShopByServer($id: UUID!) {
+		shop(id: $id) {
+			id
+			createdAt
+			updatedAt
+			code
+			active
+			displayName
+			createdAt
+			availablePermissions
+		}
+	}
+`
+
+export const GET_SHOP_PRODUCTS = gql`
 	query GetShopByServer($shopId: ID!) {
 		shop(id: $shopId) {
 			id
@@ -40,7 +55,30 @@ export const GET_SHOP_BY_SERVER = gql`
 			code
 			active
 			displayName
-
+			products {
+				edges {
+					node {
+						id
+						createdAt
+						updatedAt
+						displayName
+						id
+						displayName
+						description
+						price
+						oldPrice
+						active
+						category {
+							id
+							displayName
+						}
+						image {
+							url
+							imageMin: resize(size: 512)
+						}
+					}
+				}
+			}
 			createdAt
 			availablePermissions
 		}

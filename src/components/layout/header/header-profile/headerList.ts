@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import User from '@/assets/icon/user.svg'
-import MyBasket from '@/assets/icon/myBasket.svg'
-import Setting from '@/assets/icon/settings.svg'
-import MessageBg from '@/assets/icon/messageBg.svg'
+import UserIcon from '@/assets/icon/UserIcon'
+import SettingIcon from '@/assets/icon/SettingIcon'
+import BasketIcon from '@/assets/icon/BasketIcon'
+import MailIcon from '@/assets/icon/MailIcon'
 type THeaderList = {
 	id: string
 	name: string
@@ -11,19 +11,19 @@ type THeaderList = {
 }
 export const headerList: THeaderList[] = [
 	{
-		icon: User,
+		icon: UserIcon,
 		name: 'Профиль',
 		id: 'user',
 		path: '/settings'
 	},
 	{
-		icon: MyBasket,
+		icon: BasketIcon,
 		id: 'myBasket',
 		name: 'Мои покупки',
 		path: '/basket'
 	},
 	{
-		icon: Setting,
+		icon: SettingIcon,
 		id: 'setting',
 		name: 'Настройки',
 		path: '/settings'
@@ -32,19 +32,19 @@ export const headerList: THeaderList[] = [
 
 export const headerHamburgerList: THeaderList[] = [
 	{
-		icon: User,
+		icon: UserIcon,
 		name: 'Профиль',
 		id: 'user',
 		path: '/settings'
 	},
 	{
-		icon: MessageBg,
+		icon: MailIcon,
 		id: 'message',
 		name: 'Сообщения',
 		path: '/chat'
 	},
 	{
-		icon: Setting,
+		icon: SettingIcon,
 		id: 'setting',
 		name: 'Настройки',
 		path: '/settings'

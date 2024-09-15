@@ -1,0 +1,8 @@
+.product {
+	flex: 1 1 100%;
+	height: 100%;
+	@apply flex;
+	& label {
+		@apply mb-2 text-text-sm text-black-300 block;
+	}
+}

@@ -45,6 +45,7 @@ const config: Config = {
 			line: '#E3E3E3',
 			line2: '#E5E5E5',
 			line3: '#cecece',
+			'bar-line': '#D9D9D9',
 			'basket-round': '#EBEBEC',
 			black: {
 				'0.5': 'rgba(25, 27, 29, 0.4)',
@@ -229,6 +230,19 @@ const config: Config = {
 					backgroundColor: theme('colors.dark-white'),
 					borderRadius: '16px',
 					padding: '14px 20px',
+					fontSize: '16px',
+					border: '2px solid transparent',
+					transition: 'border 0.3s ease-in-out 0s',
+					'&:focus': {
+						borderColor: theme('colors.orange.900')
+					}
+				},
+				'.input-lk': {
+					width: '100%',
+					color: theme('colors.black.300'),
+					backgroundColor: theme('colors.dark-white'),
+					borderRadius: '16px',
+					padding: '12px 16px',
 					fontSize: '16px',
 					border: '2px solid transparent',
 					transition: 'border 0.3s ease-in-out 0s',

@@ -2,10 +2,10 @@
 import { FC } from 'react'
 import styles from './footer.module.scss'
 import Link from 'next/link'
-import SearchSvg from '@/assets/icon/search.svg'
 import { footerList } from './footerList'
 import { useAuth } from '@/hooks/useAuth'
-import TgOpacity from '@/assets/icon/tg-opacity.svg'
+import SearchIcon from '@/assets/icon/SearchIcon'
+import TgOpacityIcon from '@/assets/icon/TgOpacityIcon'
 
 const Footer: FC = () => {
 	const { auth } = useAuth()
@@ -19,7 +19,7 @@ const Footer: FC = () => {
 						</Link>
 						<div className={styles.search}>
 							<div>
-								<SearchSvg />
+								<SearchIcon />
 							</div>
 							<input type='text' placeholder='Поиск товара' />
 						</div>
@@ -63,7 +63,7 @@ const Footer: FC = () => {
 					<div className={styles.row2__column}>
 						<div className={styles.header__social}>
 							<a href='#'>
-								<TgOpacity /> <span>Чат-Бот поддержка в telegram</span>
+								<TgOpacityIcon /> <span>Чат-Бот поддержка в telegram</span>
 							</a>
 						</div>
 					</div>

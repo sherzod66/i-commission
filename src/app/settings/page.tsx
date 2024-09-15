@@ -1,5 +1,4 @@
-import Layout from '@/components/layout/Layout'
-import Settings from '@/components/screens/settings/Settings'
+import MainSetting from '@/components/screens/settings/main/MainSetting'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -7,10 +6,5 @@ export const metadata: Metadata = {
 }
 
 export default function SettingsPage() {
-	return (
-		<Layout isShop={null}>
-			<h1>hi</h1>
-			{/* <Settings /> */}
-		</Layout>
-	)
+	return <MainSetting />
 }

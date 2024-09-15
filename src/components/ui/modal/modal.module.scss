@@ -1,0 +1,24 @@
+.dialog {
+	@apply fixed left-0 top-0 w-full h-full z-5 flex
+	flex-col items-center justify-center tablet:px-4;
+	background-color: #9c9c9c23;
+	backdrop-filter: blur(5px);
+	.dialog__body {
+		@apply w-[500px] bg-white p-6 rounded-10xl tablet:w-full tablet:p-4;
+		.body__head {
+			@apply flex justify-center;
+			&.close {
+				@apply justify-between;
+			}
+			.head__title {
+				@apply font-medium;
+			}
+			.head__button {
+				@apply text-text-24;
+			}
+		}
+		.head__description {
+			@apply text-text-sm text-black-300 text-center leading-normal;
+		}
+	}
+}

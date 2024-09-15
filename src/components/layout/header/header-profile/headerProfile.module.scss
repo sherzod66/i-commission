@@ -11,7 +11,7 @@
 		&:hover {
 			@apply animate-fade;
 		}
-		@apply mr-3 block relative;
+		@apply mr-3 block relative text-[20px];
 		& span {
 			@apply block absolute -right-1 top-[2px] text-[11px]
 			bg-orange-900 text-white py-[2px] px-[3px] rounded-circle font-semibold;

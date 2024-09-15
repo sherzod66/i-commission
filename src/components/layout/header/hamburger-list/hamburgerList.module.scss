@@ -34,7 +34,7 @@
 			@apply mt-4;
 			.list_el {
 				& a {
-					@apply py-2 rounded-[6px] flex text-text-default font-normal transition-colors hover:text-black-900 text-black-300 hover:bg-f4f4;
+					@apply py-2 rounded-[6px] flex font-normal transition-colors hover:text-black-900 text-black-300 hover:bg-f4f4;
 				}
 				& span {
 					margin-right: 10px;

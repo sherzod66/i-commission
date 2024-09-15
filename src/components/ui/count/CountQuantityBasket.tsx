@@ -3,11 +3,10 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import styles from './count.module.scss'
 import cn from 'clsx'
 import { minusCount, minusCountBasket, plusCount, plusCountBasket } from '@/utils/countQuantity'
-import { TCountQuantity } from '@/components/screens/home/filter/Filter'
 import { changeBoolean, changeEvent } from './changeIvent'
-import Minus from '@/assets/icon/minus.svg'
-import Plus from '@/assets/icon/plus.svg'
 import { IBasketHook } from '@/components/screens/basket/useBasket'
+import PlusIcon from '@/assets/icon/PlusIcon'
+import MinusIcon from '@/assets/icon/MinusIcon'
 
 type TCountProps = {
 	count: IBasketHook[]
@@ -38,7 +37,7 @@ const CountQuantityBasket: FC<TCountProps> = ({ count, setCount, index }) => {
 					onClick={() => plusCountBasket(count, setCount, index, count[index].quantity)}
 					type='button'
 				>
-					<Plus />
+					<PlusIcon />
 				</button>
 				<input
 					onChange={e => changeEvent(index, e, count, 'count', setCount)}
@@ -53,7 +52,7 @@ const CountQuantityBasket: FC<TCountProps> = ({ count, setCount, index }) => {
 					onBlur={onBlur}
 				/>
 				<button onClick={() => minusCountBasket(count, index, setCount)} type='button'>
-					<Minus />
+					<MinusIcon />
 				</button>
 			</div>
 			{count[index].quantity > 6 ? (

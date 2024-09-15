@@ -11,10 +11,10 @@ import Link from 'next/link'
 import Loader from '../../loader/Loader'
 import { useQuery } from '@apollo/client'
 import { IShops } from '@/types/shop.type'
-import { GET_SHOP } from '@/services/shop/shop.service'
+import { GET_SHOPS } from '@/services/shop/shop.service'
 
 const VerticalCarousel: FC = () => {
-	const { data, loading } = useQuery<IShops>(GET_SHOP)
+	const { data, loading } = useQuery<IShops>(GET_SHOPS)
 	console.log('Shop:', data)
 	return (
 		<Swiper

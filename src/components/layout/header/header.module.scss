@@ -28,9 +28,8 @@
 					& a {
 						@apply text-black-300 font-normal transition-colors hover:text-black-800;
 					}
-					& svg {
-						display: inline-block;
-						margin-right: 7px;
+					& i {
+						@apply text-text-xl mr-2;
 					}
 				}
 				@apply flex items-center;

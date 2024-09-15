@@ -2,7 +2,6 @@
 import { Dispatch, FC, SetStateAction, useState } from 'react'
 import styles from './datePiker.module.scss'
 import cn from 'clsx'
-import CalendarSvg from '@/assets/icon/calendar.svg'
 import { TBalanceFilter } from '@/components/screens/balance/balance-table/useBalanceTable'
 
 type TDatePikerProps = {
@@ -29,9 +28,7 @@ const DatePiker: FC<TDatePikerProps> = ({ placeHolder, setDate, change, data }) 
 					type='date'
 					name='date'
 				/>
-				<div className={styles.icon}>
-					<CalendarSvg />
-				</div>
+				<div className={styles.icon}>{/* TODO: CalenarIcon{} */}</div>
 			</div>
 		</div>
 	)

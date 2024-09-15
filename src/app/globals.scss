@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '/src/assets/fonts/icomoon';
+@import '/src/assets/platform-icons/palatform';
+
 * {
 	padding: 0;
 	margin: 0;
@@ -88,7 +89,7 @@ body {
 }
 
 [class*='__container'] {
-	max-width: 1710px;
+	max-width: 1520px;
 	margin: 0px auto;
 }
 input[type='number'] {

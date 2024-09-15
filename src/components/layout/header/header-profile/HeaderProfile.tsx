@@ -2,13 +2,11 @@
 import { FC } from 'react'
 import styles from './headerProfile.module.scss'
 import Link from 'next/link'
-import Basket from '@/assets/icon/basket.svg'
-import Chat from '@/assets/icon/message.svg'
 import { headerList } from './headerList'
-import HelpIcon from '@/assets/icon/help.svg'
-import Exit from '@/assets/icon/exit.svg'
 import { removeFromStorage } from '@/services/auth/auth.helper'
 import { useBasketStore } from '@/store/basketStore/useBasketStore'
+import BasketIcon from '@/assets/icon/BasketIcon'
+import MailIcon from '@/assets/icon/MailIcon'
 
 const HeaderProfile: FC = () => {
 	// const queryClient = useQueryClient()
@@ -23,10 +21,10 @@ const HeaderProfile: FC = () => {
 				1700 <span>₽</span>
 			</Link>
 			<Link className={styles.header__icon} href={'/basket'}>
-				<Basket /> <span>{basket.length}</span>
+				<BasketIcon /> <span>{basket.length}</span>
 			</Link>
 			<Link className={styles.header__icon} href={'/chat'}>
-				<Chat />
+				<MailIcon />
 				<span>0</span>
 			</Link>
 			<div className={styles.avatar}>
@@ -43,12 +41,18 @@ const HeaderProfile: FC = () => {
 						<li className='w-full h-[2px] bg-f4f4 my-1'></li>
 						<li className={styles.list_el}>
 							<Link href='/faq'>
-								<span>{<HelpIcon />}</span> Помощь
+								<span>
+									<i className='icon-help'></i>
+								</span>{' '}
+								Помощь
 							</Link>
 						</li>
 						<li className='w-full h-[2px] bg-f4f4 my-1'></li>
 						<li onClick={logout} className={styles.list_ex}>
-							<span>{<Exit />}</span> Выйти
+							<span>
+								<i className='icon-exit'></i>
+							</span>{' '}
+							Выйти
 						</li>
 					</ul>
 				</div>

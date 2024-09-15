@@ -17,9 +17,9 @@ export async function generateMetadata(
 	const id = params.id
 	const url = process.env.NEXT_PUBLIC_API_URL
 	const apolloClient = client
-	const { data } = await apolloClient.query<{ shop: IShop }>({
+	const { data } = await apolloClient.query<{ shop: IShop }, { id: string }>({
 		query: GET_SHOP_BY_SERVER,
-		variables: { shopId: id }
+		variables: { id: id }
 	})
 
 	const previousImages = (await parent).openGraph?.images || []
@@ -45,7 +45,7 @@ export default async function salesmanPage({ params }: Props) {
 	const apolloClient = client
 	const { data } = await apolloClient.query<{ shop: IShop }>({
 		query: GET_SHOP_BY_SERVER,
-		variables: { shopId: params.id }
+		variables: { id: params.id }
 	})
 	return (
 		<>

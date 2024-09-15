@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import styles from './chatHeader.module.scss'
-import SearchSvg from '@/assets/icon/search.svg'
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import Link from 'next/link'
+import SearchIcon from '@/assets/icon/SearchIcon'
 
 const ChatHeader: FC = () => {
 	return (
@@ -27,7 +27,7 @@ const ChatHeader: FC = () => {
 						Предыдущие покупки
 					</button>
 					<div className={styles.room__search}>
-						<SearchSvg />
+						<SearchIcon />
 					</div>
 					<button type='button' className={styles.room__arbitration}>
 						Пригласить арбитраж

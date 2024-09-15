@@ -1,13 +1,11 @@
 'use client'
 import { FC, useEffect } from 'react'
 import styles from './messages.module.scss'
-import cn from 'clsx'
 import { useMessagesStore } from '@/store/messageStore/messageStore'
 import Success from '@/assets/messages/Success.svg'
 import Info from '@/assets/messages/Info.svg'
 import Warning from '@/assets/messages/Warning.svg'
 import Error from '@/assets/messages/Error.svg'
-import Error2 from '@/assets/messages/Error2.svg'
 
 const MessageWrapper: FC = () => {
 	const messages = useMessagesStore(state => state.messages)
@@ -29,17 +27,17 @@ const MessageWrapper: FC = () => {
 			return () => clearTimeout(timeOut)
 		}, 4000)
 
-		// if (messages.length > 0) {
-		// 	messages.forEach((item, index) => {
-		// 		if (item.life) {
-		// 			console.log('dddddd')
-		// 			const dateLife = Date.now() - item.life
-		// 			if (dateLife > 3500) {
-		// 				removeMessage(index)
-		// 			}
-		// 		}
-		// 	})
-		// }
+		if (messages.length > 0) {
+			messages.forEach((item, index) => {
+				if (item.life) {
+					console.log('dddddd')
+					const dateLife = Date.now() - item.life
+					if (dateLife > 3500) {
+						removeMessage(index)
+					}
+				}
+			})
+		}
 	}, [messages])
 	return (
 		<div className={styles.fix_container}>

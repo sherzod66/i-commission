@@ -22,6 +22,10 @@ export const getShopCreate = (d: Date | string): string => {
 	).getFullYear()}, ${getHours(d)}:${getMin(d)}`
 }
 
+export const getProductCreate = (d: Date | string): string => {
+	return `${GetDate(d)}.${GetMonth(d)}.${new Date(d).getFullYear()}`
+}
+
 const AllMonthRu: string[] = [
 	'Января',
 	'Февраля',

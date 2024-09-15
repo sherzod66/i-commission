@@ -1,0 +1,46 @@
+.main {
+	flex: 0 1 100%;
+	.main__actions {
+		@apply flex flex-wrap -my-2 -mx-2 items-stretch;
+		.actions__column {
+			flex: 0 1 25%;
+			padding: 10px 10px;
+			&.big {
+				flex: 0 1 50%;
+			}
+			.action__item {
+				@apply bg-white rounded-6xl overflow-hidden px-8 py-6 relative h-full animate-scaleIn;
+				& img {
+					@apply absolute left-0 top-0 w-full h-full object-contain object-right;
+				}
+				.item__info {
+					@apply relative;
+					.title {
+						@apply text-text-24 font-medium mb-8;
+					}
+					.action {
+						& p {
+							@apply text-64px font-semibold inline-block leading-normal;
+						}
+						& span {
+							@apply text-sub-title;
+						}
+					}
+					.subtitle {
+						@apply text-text-24 font-medium;
+					}
+				}
+				.offers {
+					@apply flex flex-col justify-end px-8 py-6 absolute left-0 top-0 z-1 w-full h-full text-white
+					text-mob-title font-semibold leading-normal;
+					&.black {
+						@apply bg-black-850;
+					}
+					&.orange {
+						@apply bg-orange-900;
+					}
+				}
+			}
+		}
+	}
+}

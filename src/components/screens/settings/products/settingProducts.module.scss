@@ -1,0 +1,81 @@
+.main {
+	@apply bg-white rounded-6xl p-6 animate-scaleIn overflow-hidden;
+	flex: 1 1 100%;
+	.main__head {
+		@apply flex justify-between;
+		.head__title {
+			@apply text-text-24 font-medium relative;
+			& span {
+				@apply absolute -right-4 top-0 text-text-default text-black-300;
+			}
+		}
+		.head__group {
+			@apply flex;
+			.head__create {
+				@apply block mr-4 rounded-10xl text-white bg-orange-900 text-text-default px-3 py-1;
+				& i::before {
+					@apply text-white text-text-lg;
+				}
+			}
+		}
+	}
+	.main__table_head {
+		display: grid;
+		grid-template-columns: 5% 23% 9% 9% 14% 11% 15% 6%;
+		gap: 10px;
+		@apply mt-8 pb-2 border-solid border-b-[2px] border-line2 text-text-sm text-black-300 px-2;
+	}
+	.main__table {
+		@apply w-full overflow-y-auto;
+		height: calc(100vh - 270px);
+		.table__column {
+			display: grid;
+			grid-template-columns: 5% 23% 9% 9% 14% 11% 15% 6%;
+			gap: 10px;
+			@apply p-2;
+			.table__item_image {
+				@apply w-10 h-10 rounded-lg overflow-hidden;
+				.product__image {
+					@apply image-min;
+				}
+			}
+			.table__item {
+				@apply leading-normal;
+				.product__name {
+					@apply text-text-default font-semibold;
+				}
+				.product__category {
+					@apply text-text-sm font-medium;
+				}
+				& i {
+					font-size: 28px;
+				}
+				.product__created {
+					@apply text-text-default font-medium;
+				}
+				.price {
+					@apply text-text-default font-medium text-black-950;
+					&.sale {
+						@apply text-orange-900;
+					}
+				}
+				.old__price {
+					@apply line-through text-[11px];
+					margin-inline-start: 6px;
+				}
+				.edit__price {
+					margin-inline-start: 10px;
+					& i {
+						@apply text-20px;
+					}
+				}
+			}
+			.table__options {
+				display: flex;
+				.option__button {
+					@apply text-text-xl block mr-2;
+				}
+			}
+		}
+	}
+}

@@ -1,12 +1,9 @@
-import { userService } from '@/services/user/user.service'
-// import { useQuery } from '@tanstack/react-query'
+import { ME } from '@/services/user/user.service'
+import { IUser } from '@/types/user.type'
+import { useQuery } from '@apollo/client'
 import { useMemo } from 'react'
 
 export const useMe = () => {
-	// const { data, isError, error } = useQuery({
-	// 	queryKey: ['user'],
-	// 	queryFn: userService.me,
-	// 	select: data => data.data
-	// })
-	// return useMemo(() => ({ data, isError, error }), [data, isError, error])
+	const { data, loading, error } = useQuery<IUser>(ME)
+	return useMemo(() => ({ data, error, loading }), [data, error, loading])
 }

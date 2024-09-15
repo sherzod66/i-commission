@@ -3,13 +3,13 @@ import styles from './layout.module.scss'
 import Header from './header/Header'
 import Footer from './footer/Footer'
 import { IShop } from '@/types/shop.type'
-import ActivateSvg from '@/assets/icon/activate.svg'
-import ArrowUp from '@/assets/icon/arrowUp.svg'
 import { Rate } from 'antd'
 import Link from 'next/link'
 import cn from 'clsx'
 import InfoSalesman from './InfoSalesman'
 import { getShopCreate } from '@/utils/Date.helper'
+import VerifiedIcon from '@/assets/icon/VerifiedIcon'
+import LeftIcon from '@/assets/icon/LeftIcon'
 type TLayout = {
 	children: JSX.Element[] | JSX.Element | React.ReactElement | React.ReactElement[] | string
 	image?: string
@@ -37,7 +37,7 @@ const Layout: FC<TLayout> = ({ children, image, title, isShop, description }) =>
 									<div className={styles.title_title}>
 										<h1>
 											{isShop?.displayName ? isShop.displayName : title}
-											<span>{isShop?.active && <ActivateSvg />}</span>
+											<span>{isShop?.active && <VerifiedIcon />}</span>
 										</h1>
 										{isShop && <p>Описание магазиан</p>}
 										{description && (
@@ -79,7 +79,7 @@ const Layout: FC<TLayout> = ({ children, image, title, isShop, description }) =>
 												<div className={styles.catalog__title}>
 													<h3>Каталог</h3>
 													<Link href={'/catalogs'}>
-														<ArrowUp />
+														<LeftIcon />
 													</Link>
 												</div>
 												<p>Каталог товаров от других продавцов</p>
