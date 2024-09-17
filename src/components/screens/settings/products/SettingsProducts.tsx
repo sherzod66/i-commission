@@ -11,9 +11,14 @@ import { formatPrice } from '@/utils/formatPrice'
 import PenTransparentIcon from '@/assets/icon/PenTransparentIcon'
 import BoxEditIcon from '@/assets/icon/BoxEditIcon'
 import DeleteIcon from '@/assets/icon/DeleteIcon'
+import { Skeleton } from 'antd'
+import dynamic from 'next/dynamic'
+import Modal from '@/components/ui/modal/Modal'
+import AddRemoveDiscount from '@/components/ui/modal-content/add-remove-discount/AddRemoveDiscount'
+import { EnumProductTypeName } from '@/types/product.type'
 
 const SettingsProducts: FC = () => {
-	const { data, loading, navigate, shopId } = useSettingProducts()
+	const { data, loading, navigate, shopId, isOpenDiscount, onClose, onOpen } = useSettingProducts()
 	return (
 		<main className={styles.main}>
 			<div className={styles.main__head}>
@@ -42,6 +47,7 @@ const SettingsProducts: FC = () => {
 				<div className={styles.table_head_column}>Опции</div>
 			</section>
 			<section className={styles.main__table}>
+				<Skeleton loading={loading} active paragraph={{ rows: 20, width: '100%' }} title={false} />
 				{data && data.shop.products
 					? data.shop.products.edges.map(item => (
 							<div className={styles.table__column} key={item.node.id}>
@@ -56,7 +62,7 @@ const SettingsProducts: FC = () => {
 									<p className={styles.product__name}>{item.node.displayName}</p>
 									<p className={styles.product__category}>{item.node.category?.displayName}</p>
 								</div>
-								<div className={styles.table__item}>Вид</div>
+								<div className={styles.table__item}>{item.node.__typename}</div>
 								<div className={styles.table__item}>
 									<CheckIcon />
 								</div>
@@ -71,12 +77,28 @@ const SettingsProducts: FC = () => {
 									{item.node.oldPrice && (
 										<span className={styles.old__price}>{formatPrice(item.node.oldPrice)}</span>
 									)}
-									<button className={styles.edit__price} type='button'>
+									<button
+										onClick={() => onOpen(item.node)}
+										className={styles.edit__price}
+										type='button'
+									>
 										<PenTransparentIcon />
 									</button>
 								</div>
 								<div className={styles.table__options}>
-									<button type='button' className={styles.option__button}>
+									<button
+										onClick={() =>
+											navigate.push(
+												`/settings/${
+													item.node.__typename === EnumProductTypeName.ActivationCodeProduct
+														? 'update-activation-product'
+														: 'update-configurable-product'
+												}?shopId=${shopId}&productId=${item.node.id}`
+											)
+										}
+										type='button'
+										className={styles.option__button}
+									>
 										<BoxEditIcon />
 									</button>
 									<button type='button' className={styles.option__button}>
@@ -85,7 +107,18 @@ const SettingsProducts: FC = () => {
 								</div>
 							</div>
 					  ))
-					: 'product not found'}
+					: ''}
+				<Modal
+					title='Сделать скидку'
+					onClose={onClose}
+					isOpen={isOpenDiscount.isOpen}
+					close={true}
+					titleStyle={{ fontSize: '24px', fontWeight: '500' }}
+				>
+					{isOpenDiscount.product && (
+						<AddRemoveDiscount close={onClose} product={isOpenDiscount.product} />
+					)}
+				</Modal>
 			</section>
 		</main>
 	)

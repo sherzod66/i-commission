@@ -30,7 +30,6 @@ const MessageWrapper: FC = () => {
 		if (messages.length > 0) {
 			messages.forEach((item, index) => {
 				if (item.life) {
-					console.log('dddddd')
 					const dateLife = Date.now() - item.life
 					if (dateLife > 3500) {
 						removeMessage(index)

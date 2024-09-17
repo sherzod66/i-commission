@@ -4,9 +4,9 @@
 	background-color: #9c9c9c23;
 	backdrop-filter: blur(5px);
 	.dialog__body {
-		@apply w-[500px] bg-white p-6 rounded-10xl tablet:w-full tablet:p-4;
+		@apply w-[500px] bg-white p-6 rounded-10xl tablet:w-full tablet:p-4 animate-scaleIn;
 		.body__head {
-			@apply flex justify-center;
+			@apply flex justify-center mb-3;
 			&.close {
 				@apply justify-between;
 			}

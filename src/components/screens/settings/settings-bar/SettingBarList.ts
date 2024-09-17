@@ -10,6 +10,8 @@ import UsersIcon from '@/assets/icon/UsersIcon'
 import SettingsProducts from '../products/SettingsProducts'
 import CreateProduct from '../create-product/CreateProduct'
 import StarLk from '@/assets/icon/StarLk'
+import DefaultProductUpdate from '../update-product/DefaultProductUpdate'
+import ConfigurableProductUpdate from '../update-product/configurable-update/ConfigurableProductUpdate'
 
 type TSettingsBarList = {
 	path: string
@@ -42,5 +44,19 @@ export const settingBarSellerList: TSettingsBarList[] = [
 		path: 'create-product',
 		isShow: false,
 		component: CreateProduct
+	},
+	{
+		label: 'Обновление обычного товара',
+		icon: UsersIcon,
+		path: 'update-activation-product',
+		isShow: false,
+		component: DefaultProductUpdate
+	},
+	{
+		label: 'Обновление товара с конфигурациями',
+		icon: UsersIcon,
+		path: 'update-configurable-product',
+		isShow: false,
+		component: ConfigurableProductUpdate
 	}
 ]

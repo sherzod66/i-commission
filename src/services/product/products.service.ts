@@ -1,6 +1,7 @@
 import { uploadAxios } from '@/api/axios'
 import { IResponse } from '@/types/response.type'
 import { gql } from '@apollo/client'
+import { PRODUCT_CONFIGURATION } from './product.fragments'
 
 // export const productsService = {
 // 	async getProductQuantity() {
@@ -19,6 +20,29 @@ import { gql } from '@apollo/client'
 // 		})
 // 	}
 // }
+
+export const UPDATE_DISCOUNT_CONFIGURABLE = gql`
+	mutation UpdateDiscountConfigurable($id: ID!, $oldPrice: Int, $price: Int) {
+		updateConfigurableProduct(id: $id, input: { oldPrice: $oldPrice, price: $price }) {
+			id
+			displayName
+			active
+			oldPrice
+			price
+		}
+	}
+`
+export const UPDATE_DISCOUNT_ACTIVE_CODE = gql`
+	mutation UpdateDiscountActiveCode($id: ID!, $oldPrice: Int, $price: Int) {
+		updateActivationCodeProduct(id: $id, input: { oldPrice: $oldPrice, price: $price }) {
+			id
+			displayName
+			active
+			oldPrice
+			price
+		}
+	}
+`
 
 export const PRODUCT_SEARCH = gql`
 	query ProductSearch($value: String) {
@@ -43,6 +67,101 @@ export const PRODUCT_SEARCH = gql`
 	}
 `
 
+export const UPDATE_CONFIGURABLE_PRODUCT = gql`
+	mutation UpdateDiscountConfigurable(
+		$id: ID!
+		$displayName: String!
+		$description: String!
+		$categoryId: ID!
+		$price: Int!
+		$imageId: ID
+		$usageInstruction: String
+		$groupOrder: [String!]
+		$checkboxes: [ProductConfigurationCheckboxGroupInput!]
+		$selects: [ProductConfigurationSelectGroupInput!]
+		$numbers: [ProductConfigurationInputNumberGroupInput!]
+		$texts: [ProductConfigurationInputTextGroupInput!]
+	) {
+		updateConfigurableProduct(
+			id: $id
+			input: {
+				displayName: $displayName
+				description: $description
+				categoryId: $categoryId
+				price: $price
+				imageId: $imageId
+				usageInstruction: $usageInstruction
+				configuration: {
+					groupOrder: $groupOrder
+					checkboxes: $checkboxes
+					selects: $selects
+					numbers: $numbers
+					texts: $texts
+				}
+			}
+		) {
+			id
+			displayName
+			active
+			oldPrice
+			price
+		}
+	}
+`
+export const UPDATE_ACTIVATION_CODE_PRODUCT = gql`
+	mutation UpdateActivationCodeProduct(
+		$id: ID!
+		$displayName: String!
+		$description: String!
+		$categoryId: ID!
+		$price: Int!
+		$imageId: ID
+		$usageInstruction: String
+	) {
+		updateActivationCodeProduct(
+			id: $id
+			input: {
+				displayName: $displayName
+				description: $description
+				categoryId: $categoryId
+				price: $price
+				imageId: $imageId
+				usageInstruction: $usageInstruction
+			}
+		) {
+			id
+			displayName
+			active
+			oldPrice
+			price
+		}
+	}
+`
+export const PRODUCT = gql`
+	${PRODUCT_CONFIGURATION}
+	query getProduct($id: ID!) {
+		product(id: $id) {
+			id
+			createdAt
+			updatedAt
+			active
+			displayName
+			description
+			usageInstruction
+			category {
+				id
+			}
+			image {
+				id
+				url
+				imageMin: resize(size: 512)
+			}
+			price
+			...ConfigurableInfo
+		}
+	}
+`
+
 export const CREATE_ACTIVATION_CODE_PRODUCT = gql`
 	mutation CreateActivationCodeProduct(
 		$displayName: String!
@@ -51,7 +170,7 @@ export const CREATE_ACTIVATION_CODE_PRODUCT = gql`
 		$shopId: ID!
 		$price: Int!
 		$imageId: ID
-		$usageInstruction: String!
+		$usageInstruction: String
 	) {
 		createActivationCodeProduct(
 			input: {
@@ -79,7 +198,7 @@ export const CREATE_CONFIGURABLE_PRODUCT = gql`
 		$shopId: ID!
 		$price: Int!
 		$imageId: ID
-		$usageInstruction: String!
+		$usageInstruction: String
 		$groupOrder: [String!]
 		$checkboxes: [ProductConfigurationCheckboxGroupInput!]
 		$selects: [ProductConfigurationSelectGroupInput!]

@@ -46,7 +46,7 @@ export default function ProductCarousel({ products }: ProductSwProps) {
 							const isDiscount = item.node.oldPrice ? item.node.oldPrice - item.node.price : null
 							const percent =
 								item.node.oldPrice && isDiscount ? (isDiscount / item.node.oldPrice) * 100 : null
-							if (percent && percent >= 50)
+							if (percent && percent >= 31)
 								return (
 									<SwiperSlide className='pr-slide' key={item.node.id}>
 										<ProductDiscountItem product={item.node} />

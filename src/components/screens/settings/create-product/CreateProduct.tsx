@@ -12,10 +12,10 @@ const CreateProduct: FC = () => {
 	return (
 		<main className={styles.product}>
 			{productType === null && <ProductTypeSelect setType={setProductType} />}
-			{productType === EnumProductTypeName.createActivationCodeProduct && (
+			{productType === EnumProductTypeName.ActivationCodeProduct && (
 				<DefaultProduct setType={setProductType} />
 			)}
-			{productType === EnumProductTypeName.createConfigurableProduct && (
+			{productType === EnumProductTypeName.ConfigurableProduct && (
 				<ConfigurableProduct setType={setProductType} />
 			)}
 		</main>

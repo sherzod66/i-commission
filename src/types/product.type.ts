@@ -1,5 +1,6 @@
 import {
 	InputMaybe,
+	ProductConfiguration,
 	ProductConfigurationCheckboxGroupInput,
 	ProductConfigurationInputNumberGroupInput,
 	ProductConfigurationInputTextGroupInput,
@@ -23,8 +24,19 @@ export interface IProduct {
 	oldPrice: number | null
 	createdAt: Date
 	updatedAt: Date
+	usageInstruction: string
+	configuration: {
+		__typename: 'ProductConfiguration'
+		groups: (
+			| Required<IProductConfigurationCheckboxGroup>
+			| Required<IConfigurationSelectGroup>
+			| Required<IConfigurationNumberGroup>
+			| Required<IConfigurationTextGroup>
+		)[]
+	}
 }
 //-------
+
 export interface IProductConfiguration {
 	groupOrder: string[]
 	checkboxes: IProductConfigurationCheckboxGroup[]
@@ -39,6 +51,7 @@ export interface IProductConfigurationCheckboxGroup {
 	id: string
 	displayName: string
 	list: IConfigurationCheckbox[]
+	__typename?: EnumConfigurationGroupType.ProductConfigurationCheckboxGroup
 }
 
 export interface IConfigurationCheckbox {
@@ -52,6 +65,7 @@ export interface IConfigurationSelectGroup {
 	displayName: string
 	defaultSelect: string
 	list: IConfigurationCheckbox[]
+	__typename?: EnumConfigurationGroupType.ProductConfigurationSelectGroup
 }
 
 export interface IConfigurationNumberGroup {
@@ -63,6 +77,7 @@ export interface IConfigurationNumberGroup {
 
 	min: number
 	max: number
+	__typename?: EnumConfigurationGroupType.ProductConfigurationInputNumberGroup
 }
 
 export interface IConfigurationTextGroup {
@@ -70,6 +85,7 @@ export interface IConfigurationTextGroup {
 	displayName: string
 	regex: string
 	errorMessage: string
+	__typename?: EnumConfigurationGroupType.ProductConfigurationInputTextGroup
 }
 //------------
 export interface IRequestActivationCodeProduct {
@@ -80,6 +96,11 @@ export interface IRequestActivationCodeProduct {
 	price: number
 	imageId: string
 	usageInstruction: string
+}
+
+export interface IRequestUpdateActivationCodeProduct
+	extends Omit<IRequestActivationCodeProduct, 'shopId'> {
+	id: string
 }
 
 export interface IInputActivationCodeProduct {
@@ -106,6 +127,11 @@ export interface IRequestConfigurableProduct {
 	texts?: InputMaybe<Array<ProductConfigurationInputTextGroupInput>>
 }
 
+export interface IRequestConfigurableProductUpdate
+	extends Omit<IRequestConfigurableProduct, 'shopId'> {
+	id: string
+}
+
 export interface IInputConfigurableProduct {
 	displayName: string
 	description: string
@@ -118,8 +144,15 @@ export interface IInputConfigurableProduct {
 export interface IHybridConfigurable {}
 
 export enum EnumProductTypeName {
-	createActivationCodeProduct = 'createActivationCodeProduct',
-	createConfigurableProduct = 'createConfigurableProduct'
+	ActivationCodeProduct = 'ActivationCodeProduct',
+	ConfigurableProduct = 'ConfigurableProduct'
+}
+
+export enum EnumConfigurationGroupType {
+	ProductConfigurationSelectGroup = 'ProductConfigurationSelectGroup',
+	ProductConfigurationCheckboxGroup = 'ProductConfigurationCheckboxGroup',
+	ProductConfigurationInputTextGroup = 'ProductConfigurationInputTextGroup',
+	ProductConfigurationInputNumberGroup = 'ProductConfigurationInputNumberGroup'
 }
 
 //TODO: delete

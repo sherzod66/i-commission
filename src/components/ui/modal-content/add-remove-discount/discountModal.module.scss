@@ -1,0 +1,42 @@
+.input__wrapper {
+	@apply flex;
+	gap: 14px;
+	.input__column {
+		flex: 0 1 50%;
+		position: relative;
+		margin: 0px 0px 14px 0px;
+		& label {
+			@apply text-text-sm text-black-300 mb-2 block;
+		}
+		& input {
+			@apply input-lk;
+		}
+	}
+}
+.row__info {
+	@apply flex justify-between text-text-default;
+	margin-bottom: 14px;
+	&:last-child {
+		margin-bottom: 32px;
+	}
+	.default__info {
+	}
+	.discount__info {
+		@apply text-orange-900 font-medium;
+	}
+	.final__price {
+		@apply text-20px font-medium;
+	}
+}
+.buttons__actions {
+	@apply w-full flex justify-end;
+	.cancel {
+		@apply px-[28px] py-3 rounded-12xl font-semibold text-text-default bg-primary mr-3;
+	}
+	.create__button {
+		@apply relative bg-orange-900 text-white rounded-12xl min-h-9 min-w-52;
+		.create {
+			@apply px-[28px] py-3 font-semibold text-text-default block;
+		}
+	}
+}

@@ -55,7 +55,7 @@ export const GET_SHOP_PRODUCTS = gql`
 			code
 			active
 			displayName
-			products {
+			products(order: { createdAt: ASC }) {
 				edges {
 					node {
 						id
@@ -67,6 +67,7 @@ export const GET_SHOP_PRODUCTS = gql`
 						description
 						price
 						oldPrice
+						__typename
 						active
 						category {
 							id

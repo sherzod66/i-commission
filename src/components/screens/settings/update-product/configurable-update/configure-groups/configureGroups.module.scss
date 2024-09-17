@@ -1,0 +1,61 @@
+.configuration__item {
+	@apply my-4;
+	.configuration__title {
+		@apply text-text-sm mb-4 text-black-300;
+	}
+	.configuration__head {
+		@apply flex gap-2;
+		.had__input {
+			flex: 0 1 50%;
+		}
+		.head__type {
+			flex: 0 1 50%;
+		}
+	}
+	.options {
+		.options__title {
+			@apply text-text-sm mt-4 text-black-300;
+		}
+		.option__row {
+			@apply flex gap-4 items-center mt-4 animate-fade;
+			.column__first {
+				flex: 0 1 70%;
+			}
+			.column__second {
+				flex: 0 1 27%;
+				position: relative;
+				& input {
+					padding-right: 50px;
+				}
+			}
+			.delete__option {
+				flex: 0 0 40px;
+				@apply bg-white rounded-circle text-[28px] py-1 px-[7px];
+				box-shadow: 0px 2.96296px 5.92593px rgba(0, 0, 0, 0.15);
+			}
+		}
+	}
+	.number__options {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		margin-top: 20px;
+		align-items: end;
+		.column {
+		}
+	}
+	.add__option {
+		@apply w-full border-dashed border-2 border-line rounded-2xl p-4 flex 
+		mt-4 transition-colors items-start justify-center;
+		&:hover {
+			@apply border-orange-900;
+		}
+		.option__icon {
+			@apply bg-dark-white rounded-circle px-[12px] py-2 text-text-xl mr-4;
+			align-self: center;
+		}
+		.option__text {
+			@apply mt-4 text-text-default font-light;
+		}
+	}
+}

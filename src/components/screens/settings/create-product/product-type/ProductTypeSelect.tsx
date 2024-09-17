@@ -24,9 +24,9 @@ const ProductTypeSelect: FC<TProductTypeSelectProps> = ({ setType }) => {
 				<div className={styles.type__row}>
 					<div
 						className={cn(styles.type__column, {
-							[styles.select]: productType === EnumProductTypeName.createActivationCodeProduct
+							[styles.select]: productType === EnumProductTypeName.ActivationCodeProduct
 						})}
-						onClick={() => setProductType(EnumProductTypeName.createActivationCodeProduct)}
+						onClick={() => setProductType(EnumProductTypeName.ActivationCodeProduct)}
 					>
 						<div className={styles.type__image}>
 							<img src='/image/createActivationCodeProduct.png' alt='image' />
@@ -39,9 +39,9 @@ const ProductTypeSelect: FC<TProductTypeSelectProps> = ({ setType }) => {
 						</div>
 					</div>
 					<div
-						onClick={() => setProductType(EnumProductTypeName.createConfigurableProduct)}
+						onClick={() => setProductType(EnumProductTypeName.ConfigurableProduct)}
 						className={cn(styles.type__column, {
-							[styles.select]: productType === EnumProductTypeName.createConfigurableProduct
+							[styles.select]: productType === EnumProductTypeName.ConfigurableProduct
 						})}
 					>
 						<div className={styles.type__image}>

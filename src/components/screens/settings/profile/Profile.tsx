@@ -12,7 +12,6 @@ import CheckIcon from '@/assets/icon/CheckIcon'
 const Profile: FC = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const { data } = useMe()
-	console.log(isOpen)
 	const onClose = () => {
 		setIsOpen(false)
 	}
