@@ -1,0 +1,109 @@
+.product {
+	@apply mt-28;
+	.product__container {
+		.head {
+			@apply flex justify-between text-black-300;
+			.head__column {
+				@apply flex;
+				.column__article {
+					@apply mr-2;
+					& svg {
+						display: inline-block;
+					}
+				}
+				.column__complain {
+					@apply cursor-pointer relative;
+
+					.menu {
+						@apply absolute top-6 right-0 bg-white z-2 shadow-xl px-2 pt-4 pb-2 rounded-2xl w-[207px] scale-0 opacity-0 invisible transition-all;
+						.list {
+							.list_title {
+								@apply text-black-300 text-text-default font-normal px-[14px] pb-2 flex justify-between;
+								& i {
+									@apply transition-colors;
+								}
+								& button:hover i::before {
+									@apply text-black-800;
+								}
+							}
+							.list_el {
+								& button {
+									@apply w-full py-2 rounded-[6px] flex text-text-default font-normal transition-colors hover:text-black-900 text-black-300 hover:bg-f4f4 px-[14px];
+								}
+								& span {
+									margin-right: 10px;
+								}
+							}
+							.list_ex {
+								@apply py-2 rounded-[6px] flex text-text-default font-normal transition-colors hover:text-black-900 text-black-300 hover:bg-f4f4 px-[14px];
+								& span {
+									margin-right: 10px;
+								}
+							}
+						}
+						&.show {
+							@apply opacity-100 visible scale-100;
+						}
+					}
+				}
+			}
+		}
+		.product__name {
+			@apply text-title font-medium mt-[28px] leading-normal;
+		}
+		.product__info {
+			@apply flex gap-2 mt-2 items-center;
+			.info__rate {
+				@apply rounded-6xl border border-solid border-black-950 px-2 leading-normal;
+				& i {
+					@apply text-orange-900;
+				}
+			}
+			.info__text {
+				@apply text-text-default font-medium text-black-500;
+				& i {
+					margin-inline-end: 5px;
+				}
+			}
+		}
+		.product__row {
+			@apply flex;
+			margin: 18px -10px 0px -10px;
+			.first__column {
+				flex: 0 1 50%;
+				padding: 0px 10px;
+				.product__preview {
+					@apply bg-white px-[164px] py-[122px] relative rounded-6xl;
+					.product__favorite {
+						@apply absolute left-5 top-5 bg-primary rounded-circle px-3 py-2 text-[17px] hover:bg-line3 transition-colors;
+					}
+					.product__image_wrapper {
+						@apply w-full h-[261px] rounded-6xl overflow-hidden relative;
+						& img {
+							@apply image-min;
+						}
+						.product__price {
+							@apply block absolute top-[17px] left-[17px] text-[29px] font-medium;
+						}
+						.product__name {
+							@apply block absolute right-[18px] bottom-[17px] text-[21px];
+						}
+					}
+				}
+				.product__description {
+					@apply bg-white rounded-6xl p-4 mt-4;
+					& h4 {
+						@apply text-text-24 font-medium mb-4;
+					}
+					& p {
+						@apply text-text-default leading-normal;
+					}
+				}
+			}
+			.second__column {
+				flex: 0 1 50%;
+				padding: 0px 10px;
+			}
+		}
+	}
+}

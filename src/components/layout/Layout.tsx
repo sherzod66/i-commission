@@ -31,15 +31,18 @@ const Layout: FC<TLayout> = ({ children, image, title, isShop, description }) =>
 								<div className={styles.tittle__column}>
 									{isShop && (
 										<div className={styles.title__image}>
-											<img src='/image/shopCover.png' alt='Shop image' />
+											<img
+												src={isShop.image ? isShop.image.url : '/image/selesmanImage.png'}
+												alt='Shop image'
+											/>
 										</div>
 									)}
 									<div className={styles.title_title}>
 										<h1>
-											{isShop?.displayName ? isShop.displayName : title}
+											{isShop?.code ? isShop.code : title}
 											<span>{isShop?.active && <VerifiedIcon />}</span>
 										</h1>
-										{isShop && <p>Описание магазиан</p>}
+										{isShop && <p>{isShop.displayName}</p>}
 										{description && (
 											<p>
 												По запросу “Аккаунт ВК с голосами” с фильтром “Для работы” начиная от 10руб

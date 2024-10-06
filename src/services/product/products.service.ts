@@ -147,19 +147,43 @@ export const PRODUCT = gql`
 			active
 			displayName
 			description
+			oldPrice
 			usageInstruction
 			category {
 				id
+				displayName
 			}
 			image {
 				id
 				url
 				imageMin: resize(size: 512)
 			}
+			shop {
+				id
+				displayName
+				code
+				image {
+					url
+				}
+			}
 			price
 			...ConfigurableInfo
 		}
 	}
+`
+export const PRODUCT_BY_SERVER = `
+query getProduct($id: ID!) {
+  product(id: $id) {
+    id
+    active
+    displayName
+    description
+    image {
+      imageMin: resize(size: 512)
+    }
+    price
+  }
+}
 `
 
 export const CREATE_ACTIVATION_CODE_PRODUCT = gql`

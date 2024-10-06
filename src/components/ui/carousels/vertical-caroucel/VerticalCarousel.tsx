@@ -36,7 +36,7 @@ const VerticalCarousel: FC = () => {
 								<img src='/image/selesmanImage.png' alt='shop image' />
 							</div>
 							<div className='vertical__shop'>
-								<h3>{el.node.displayName}</h3>
+								<h3>{el.node.code}</h3>
 								<p>Продавец</p>
 							</div>
 						</Link>

@@ -1,5 +1,5 @@
 .favorites__row {
-	@apply w-full flex rounded-5xl p-2;
+	@apply w-full flex rounded-5xl py-2;
 	background-color: #ffffff;
 	.favorites__product {
 		@apply flex;
@@ -52,18 +52,27 @@
 	}
 	.favorites__actions {
 		flex: 0 1 27%;
-		@apply py-2;
+		@apply py-2 flex items-center gap-2 justify-end;
 		.actions__button {
-			@apply py-[19px] px-[26px] rounded-12xl bg-primary text-20px font-medium
-			block w-full mb-2 transition-colors;
+			flex: 0 1 50%;
+			@apply py-[14px] rounded-12xl bg-white text-20px font-medium block
+				w-full transition-colors;
+			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+
 			&.disabled {
-				@apply text-black-100;
+				@apply text-black-250 bg-primary;
+				& i:before {
+					@apply text-black-250;
+				}
 			}
 			&:hover {
 				@apply bg-dark-white;
 			}
 			&:last-child {
-				@apply mb-0;
+				flex: 0 0 54px;
+				height: 54px;
+				border-radius: 50%;
+				font-size: 28px;
 			}
 		}
 	}

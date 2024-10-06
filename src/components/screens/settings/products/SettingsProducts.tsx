@@ -12,40 +12,45 @@ import PenTransparentIcon from '@/assets/icon/PenTransparentIcon'
 import BoxEditIcon from '@/assets/icon/BoxEditIcon'
 import DeleteIcon from '@/assets/icon/DeleteIcon'
 import { Skeleton } from 'antd'
-import dynamic from 'next/dynamic'
 import Modal from '@/components/ui/modal/Modal'
 import AddRemoveDiscount from '@/components/ui/modal-content/add-remove-discount/AddRemoveDiscount'
 import { EnumProductTypeName } from '@/types/product.type'
+import DraftIcon from '@/assets/icon/DraftIcon'
+import FolderDataIcon from '@/assets/icon/FolderDataIcon'
 
 const SettingsProducts: FC = () => {
 	const { data, loading, navigate, shopId, isOpenDiscount, onClose, onOpen } = useSettingProducts()
 	return (
 		<main className={styles.main}>
 			<div className={styles.main__head}>
-				<h2 className={styles.head__title}>
-					Список всех товаров <span>{data?.shop.products?.edges.length}</span>
-				</h2>
-				<div className={styles.head__group}>
-					<button
-						onClick={() => navigate.push(`/settings/create-product?shopId=${shopId}`)}
-						type='button'
-						className={styles.head__create}
-					>
-						<BoxAdd /> Добавить
-					</button>
-					<Search show={true} />
+				<div className={styles.head__row}>
+					<h2 className={styles.head__title}>
+						Список всех товаров <span>{data?.shop.products?.edges.length}</span>
+					</h2>
+					<div className={styles.head__group}>
+						<button
+							onClick={() => navigate.push(`/settings/create-product?shopId=${shopId}`)}
+							type='button'
+							className={styles.head__create}
+						>
+							<BoxAdd /> Добавить
+						</button>
+						<Search show={true} placeholder='Поиск товаров' />
+					</div>
 				</div>
+
+				<section className={styles.main__table_head}>
+					<div className={styles.table_head_column}>Обл.</div>
+					<div className={styles.table_head_column}>Название Категория</div>
+					<div className={styles.table_head_column}>Вид</div>
+					<div className={styles.table_head_column}>Статус</div>
+					<div className={styles.table_head_column}>Дата</div>
+					<div className={styles.table_head_column}>Осталось товара</div>
+					<div className={styles.table_head_column}>Стоимость</div>
+					<div className={styles.table_head_column}>Опции</div>
+				</section>
 			</div>
-			<section className={styles.main__table_head}>
-				<div className={styles.table_head_column}>Обл.</div>
-				<div className={styles.table_head_column}>Название Категория</div>
-				<div className={styles.table_head_column}>Вид</div>
-				<div className={styles.table_head_column}>Статус</div>
-				<div className={styles.table_head_column}>Дата</div>
-				<div className={styles.table_head_column}>Осталось товара</div>
-				<div className={styles.table_head_column}>Стоимость</div>
-				<div className={styles.table_head_column}>Опции</div>
-			</section>
+
 			<section className={styles.main__table}>
 				<Skeleton loading={loading} active paragraph={{ rows: 20, width: '100%' }} title={false} />
 				{data && data.shop.products
@@ -62,7 +67,13 @@ const SettingsProducts: FC = () => {
 									<p className={styles.product__name}>{item.node.displayName}</p>
 									<p className={styles.product__category}>{item.node.category?.displayName}</p>
 								</div>
-								<div className={styles.table__item}>{item.node.__typename}</div>
+								<div className={styles.table__item}>
+									{item.node.__typename === EnumProductTypeName.ActivationCodeProduct ? (
+										<DraftIcon />
+									) : (
+										<FolderDataIcon />
+									)}
+								</div>
 								<div className={styles.table__item}>
 									<CheckIcon />
 								</div>

@@ -14,11 +14,11 @@
 			}
 		}
 		.product__row {
-			/* @apply flex flex-wrap w-full; */
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			gap: 26px;
+			@apply flex flex-wrap w-full;
+			margin: -13px;
 			.product__column {
+				padding: 13px;
+				flex: 0 1 25%;
 			}
 		}
 	}

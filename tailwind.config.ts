@@ -19,7 +19,7 @@ const config: Config = {
 			'mobile-sm': { max: '376px' }
 		},
 		fontSize: {
-			title: '46px',
+			title: '48px',
 			'mob-title': '36px',
 			'sub-title': '32px',
 			'20px': '20px',
@@ -30,6 +30,7 @@ const config: Config = {
 			'text-sm': '14px',
 			'text-12': '12px',
 			'text-24': '24px',
+			'product-price': '62px',
 			'64px': '64px'
 		},
 		colors: {
@@ -37,6 +38,7 @@ const config: Config = {
 			primary,
 			white: '#FFFFFF',
 			blue: {
+				50: '#6C7685',
 				'200': '#49A3F2'
 			},
 			error: '#FF0000',
@@ -47,15 +49,22 @@ const config: Config = {
 			line3: '#cecece',
 			'bar-line': '#D9D9D9',
 			'basket-round': '#EBEBEC',
+			green: {
+				100: '#26A577'
+			},
 			black: {
 				'0.5': 'rgba(25, 27, 29, 0.4)',
 				100: '#969696',
 				150: '#F5F5F5',
 				200: '#767676',
+				250: '#AEAEAE',
 				300: '#707070',
+				350: '#8b8b8b',
 				400: '#e8e8e8',
 				450: '#898989',
 				500: '#454545',
+				550: '#949494',
+				600: '#9B9B9B',
 				800: '#21222A',
 				850: '#3B3B3B',
 				900: '#131313',

@@ -19,8 +19,20 @@
 				@apply text-orange-900 text-text-sm;
 			}
 		}
+		.head__buttons {
+			@apply flex;
+			.action {
+				@apply mr-2 text-text-sm text-black-300;
+				&.orange {
+					@apply text-orange-900 mr-0;
+				}
+			}
+		}
 	}
 }
 .drag__wrapper {
 	@apply h-[292px];
+	&.shop {
+		@apply h-[337px];
+	}
 }

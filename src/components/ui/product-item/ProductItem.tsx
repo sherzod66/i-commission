@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { FastAverageColor } from 'fast-average-color'
 import { StarFilled } from '@ant-design/icons'
 import cn from 'clsx'
+import { hexToRgba } from '@/utils/hexToRgba'
+import { formatPrice } from '@/utils/formatPrice'
 type TProductItemProps = {
 	product: IProduct
 }
@@ -16,10 +18,12 @@ const ProductItem: FC<TProductItemProps> = ({ product }) => {
 			.getColorAsync(product.image.imageMin, { algorithm: 'simple' })
 			.then(color => {
 				const getElem = document.getElementById(`bg-${product.id}`)
-				if (getElem) {
+				const getBlurItem = document.getElementById(`blur-${product.id}`)
+				if (getElem && getBlurItem) {
 					//Цвет фона
 					// getElem.style.backgroundColor = color.hex
-					getElem.style.color = color.isDark ? '#fff' : '#000'
+					getBlurItem.style.backgroundColor = `${hexToRgba(color.hex, 0.3)}`
+					getElem.style.color = color.isDark ? '#ffffff' : '#000000'
 				}
 			})
 			.catch(e => {
@@ -37,11 +41,11 @@ const ProductItem: FC<TProductItemProps> = ({ product }) => {
 					</div>
 				)}
 				<div className={styles.item__image}>
-					<p className={styles.item__price}>{product.price} ₽</p>
+					<p className={styles.item__price}>{formatPrice(product.price)}</p>
 					<img draggable={false} src={product.image.imageMin} alt='product' />
 					<p className={styles.item__category}>{product.displayName}</p>
 				</div>
-				<div className={styles.blur}></div>
+				<div id={`blur-${product.id}`} className={styles.blur}></div>
 			</div>
 			<div className={styles.item__info}>
 				<div className={styles.item__price}>

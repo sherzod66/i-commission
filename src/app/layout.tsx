@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Onest, Inter } from 'next/font/google'
+import { Onest } from 'next/font/google'
 import './globals.scss'
 import { ConfigProvider } from 'antd'
 import { antTheme } from '@/assets/theme/antTheme'
@@ -27,9 +27,7 @@ export default function RootLayout({
 			<body className={onest.variable}>
 				<MessageWrapper />
 				<ConfigProvider theme={antTheme}>
-					<Providers>
-						<div className='wrapper'>{children}</div>
-					</Providers>
+					<Providers>{children}</Providers>
 				</ConfigProvider>
 			</body>
 		</html>

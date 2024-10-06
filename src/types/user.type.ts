@@ -8,7 +8,7 @@ export interface IUser {
 			nickname: string
 			createdAt: string
 			updatedAt: string
-			shops?: IEdges<IShop>
+			shops: IEdges<IShop>
 		}
 		permissions: TPermissions
 	}

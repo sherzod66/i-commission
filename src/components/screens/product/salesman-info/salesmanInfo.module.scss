@@ -1,0 +1,43 @@
+.salesman {
+	@apply bg-white p-4 rounded-6xl mt-4 flex items-center;
+	.salesman__item {
+		&:nth-child(1) {
+			margin-right: 24px;
+		}
+		.salesman__logo {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			overflow: hidden;
+			& img {
+				@apply w-full h-full object-contain;
+			}
+		}
+		&:nth-child(2) {
+			margin-right: 24px;
+			flex: 0 1 31%;
+			border-right: 2px solid #dadada;
+			& p {
+				@apply text-blue-50 text-text-default font-medium mb-1;
+			}
+			& h4 {
+				@apply text-20px font-medium leading-normal;
+			}
+			& a {
+				@apply text-orange-900 text-text-default font-medium;
+			}
+		}
+		&:nth-child(3) {
+			flex: 0 1 32%;
+			.salesman__pay {
+				@apply text-text-default font-medium mb-2 leading-normal;
+				&:last-child {
+					@apply mb-0;
+				}
+			}
+			& i {
+				margin-inline-end: 8px;
+			}
+		}
+	}
+}

@@ -62,6 +62,7 @@ const DefaultProductUpdate: FC = () => {
 									{...register('description', {
 										required: 'Вы забыли написать описание товара',
 										maxLength: 250
+										// TODO: решить вывод ошипки
 									})}
 									id='product-description'
 								/>

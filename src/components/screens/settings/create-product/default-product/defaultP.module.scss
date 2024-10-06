@@ -5,7 +5,7 @@
 		@apply text-text-24 font-medium mb-4 leading-normal;
 	}
 	& label {
-		@apply text-text-sm text-black-300 mb-2;
+		@apply text-text-sm text-black-300 mb-2 block;
 	}
 	& input {
 		@apply input-lk;

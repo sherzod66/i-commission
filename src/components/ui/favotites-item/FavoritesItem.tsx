@@ -2,6 +2,8 @@ import { FC } from 'react'
 import styles from './favoritesItem.module.scss'
 import Image from 'next/image'
 import cn from 'clsx'
+import DeleteIcon from '@/assets/icon/DeleteIcon'
+import BasketAddIcon from '@/assets/icon/BasketAddIcon'
 
 const FavoritesItem: FC = () => {
 	return (
@@ -29,11 +31,11 @@ const FavoritesItem: FC = () => {
 				<p className={styles.sellers__value}>104 шт</p>
 			</div>
 			<div className={styles.favorites__actions}>
-				<button type='button' className={cn(styles.actions__button, { [styles.disabled]: true })}>
-					Добавить в корзину
+				<button type='button' className={cn(styles.actions__button, { [styles.disabled]: false })}>
+					<BasketAddIcon /> В корзину
 				</button>
 				<button type='button' className={styles.actions__button}>
-					Удалить
+					<DeleteIcon />
 				</button>
 			</div>
 		</div>

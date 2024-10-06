@@ -1,13 +1,42 @@
-.faq {
-	margin-top: 130px;
-	@media (max-width: 768px) {
-		padding: 0px 20px;
+.faq__row {
+	@apply flex;
+	.first__column {
+		flex: 0 1 75%;
+		@apply text-text-default text-black-950 font-light pb-6 mr-8;
+		.tg__support {
+			background: url('/image/suppor_cover.png') 0 0 / cover no-repeat;
+			@apply mt-6 bg-white rounded-6xl py-[36px] pl-[210px];
+			.link__wrapper {
+				@apply flex;
+				& i {
+					margin-right: 20px;
+					font-size: 46px;
+					&::before {
+						color: #1d87d4;
+					}
+				}
+				.have__question {
+					h5 {
+						@apply text-20px font-medium mb-[12px];
+					}
+					p {
+						@apply text-text-sm text-black-300;
+					}
+				}
+			}
+		}
 	}
-	.faq__min {
-		max-width: 760px;
-		margin: 0px auto;
-		.content_text {
-			@apply text-text-default text-black-950 font-light py-6;
+	.second__bar {
+		@apply bg-white rounded-6xl p-6;
+		.bar__list {
+			position: sticky;
+			top: 30px;
+			.bar__li {
+				&.black {
+					@apply text-black-950;
+				}
+				@apply mb-5 text-20px font-semibold text-black-300 cursor-pointer;
+			}
 		}
 	}
 }

@@ -31,8 +31,8 @@ export const GET_SHOP_QUANTITY = gql`
 		}
 	}
 `
-export const GET_SHOP_BY_SERVER = gql`
-	query GetShopByServer($id: UUID!) {
+export const GET_SHOP_BY_SERVER = `
+	query GetShopByServer($id: ID!) {
 		shop(id: $id) {
 			id
 			createdAt
@@ -42,6 +42,45 @@ export const GET_SHOP_BY_SERVER = gql`
 			displayName
 			createdAt
 			availablePermissions
+			image {
+				url
+			}
+			cover {
+				url
+			}
+		}
+	}
+`
+
+export const UPDATE_SHOP_COVER_IMAGE = gql`
+	mutation UpdateShopCoverImage($coverId: ID, $id: ID!) {
+		updateShop(id: $id, input: { coverId: $coverId }) {
+			id
+			code
+			displayName
+			active
+		}
+	}
+`
+
+export const UPDATE_SHOP_AVATAR_IMAGE = gql`
+	mutation UpdateShopAvatarImage($imageId: ID, $id: ID!) {
+		updateShop(id: $id, input: { imageId: $imageId }) {
+			id
+			code
+			displayName
+			active
+		}
+	}
+`
+
+export const UPDATE_SHOP = gql`
+	mutation UpdateShop($id: ID!, $displayName: String!, $code: String!) {
+		updateShop(id: $id, input: { displayName: $displayName, code: $code }) {
+			id
+			code
+			displayName
+			active
 		}
 	}
 `

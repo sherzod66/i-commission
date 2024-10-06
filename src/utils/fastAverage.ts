@@ -1,18 +1,16 @@
 import { FastAverageColor } from 'fast-average-color'
 
-export const getColor = async (imagePath: string): Promise<string> => {
+export const getColorIsDark = async (imagePath: string): Promise<boolean> => {
 	const fac = new FastAverageColor()
-	let colorBg = ''
+	let isDark: boolean = false
 	await fac
 		.getColorAsync(imagePath)
 		.then(color => {
-			//color.isDark ? '#fff' : '#000';
-			console.log('Average color', color.hex)
-			colorBg = color.hex
+			isDark = color.isDark
 		})
 		.catch(e => {
 			console.log(e)
 		})
 
-	return colorBg
+	return isDark
 }

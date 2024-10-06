@@ -1,0 +1,12 @@
+.faq {
+	margin-top: 130px;
+	@media (max-width: 768px) {
+		padding: 0px 20px;
+	}
+	.faq__container {
+		.segmented__wrapper {
+			max-width: 604px;
+			margin-bottom: 34px;
+		}
+	}
+}

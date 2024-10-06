@@ -1,0 +1,19 @@
+.product__discount {
+	@apply bg-white flex w-full justify-between rounded-6xl p-4 items-center mb-4;
+	.discount__title {
+		@apply text-text-24 font-medium leading-normal;
+		& svg {
+			display: inline-block;
+			margin-inline-end: 10px;
+		}
+	}
+	.discount__info {
+		@apply flex bg-[#eaeaea] rounded-2xl items-center;
+		.discount__time {
+			@apply text-20px font-medium px-4 mr-2;
+		}
+		.discount__percent {
+			@apply bg-orange-900 text-white text-20px font-semibold px-2 rounded-2xl py-3;
+		}
+	}
+}

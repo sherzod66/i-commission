@@ -1,4 +1,6 @@
 .nav__list {
+	position: sticky;
+	top: 30px;
 	.item {
 		@apply mb-4;
 		& a {

@@ -1,0 +1,30 @@
+.buy {
+	@apply bg-white p-4 rounded-6xl;
+	.buy__row {
+		@apply flex items-center;
+		.buy__price {
+			@apply mr-6;
+			.price {
+				@apply text-product-price font-medium;
+			}
+			.oldPrice {
+				@apply text-sub-title line-through text-black-300;
+			}
+		}
+		.product__count {
+			flex: 1 1 100%;
+			@apply leading-normal text-20px font-medium;
+			.left {
+			}
+			.quantity {
+				@apply text-green-100;
+			}
+		}
+	}
+	.buy__buy {
+		@apply btn-primary rounded-5xl mb-[12px] py-[19px] text-20px font-semibold mt-[18px];
+	}
+	.buy__basket {
+		@apply btn-primary-opacity transition-colors rounded-5xl py-[19px] text-20px font-semibold;
+	}
+}

@@ -3,10 +3,10 @@
 	.settings__container {
 		.row__wrapper {
 			@apply flex;
-			height: calc(100vh - 100px);
+			min-height: calc(100vh - 100px);
 			.nav__bar {
 				flex: 0 0 14%;
-				@apply mr-4 rounded-6xl bg-white pt-6 pl-6 pr-[24px] leading-normal overflow-y-auto;
+				@apply mr-4 rounded-6xl bg-white pt-6 pl-6 pr-[24px] leading-normal;
 			}
 		}
 	}

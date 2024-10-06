@@ -1,0 +1,32 @@
+@import '/src/assets/styles/variable';
+.count__wrapper {
+	flex: 1 1 50%;
+	&.min {
+		flex: 1 1 70%;
+	}
+	@media (max-width: 768px) {
+		margin-top: 20px;
+		padding: 0px 10px;
+	}
+	.card__quantity_input {
+		display: flex;
+		width: 100%;
+		transition: border 0.5s ease-in-out 0s;
+		border: 2px solid #eaeaea;
+		border-radius: 50px;
+		align-items: center;
+		padding: 5px 15px;
+		&.error {
+			& input {
+				@apply text-error;
+			}
+		}
+		& input {
+			@apply inline-block w-full
+		text-black-900 font-medium text-center text-text-24 bg-transparent;
+		}
+		& button {
+			@apply p-2 rounded-circle block text-text-default;
+		}
+	}
+}

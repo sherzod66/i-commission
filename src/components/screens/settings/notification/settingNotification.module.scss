@@ -1,0 +1,58 @@
+.main {
+	@apply bg-white rounded-6xl p-6 animate-scaleIn overflow-hidden;
+	flex: 1 1 100%;
+	.head__title {
+		@apply text-text-24 font-medium relative;
+		& span {
+			@apply absolute -right-4 top-0 text-text-default text-black-300;
+		}
+	}
+	.notification__wrapper {
+		@apply h-full overflow-y-auto;
+		.notification {
+			@apply mt-8 py-4 pr-2 flex justify-between border-b border-solid border-black-150;
+			.notification__info {
+				flex: 0 1 46%;
+				.notification__title {
+					@apply mb-4 text-text-24 font-medium;
+				}
+				.notification__description {
+					@apply mb-4 text-20px leading-normal;
+				}
+				.notification__time {
+					@apply text-20px text-black-350;
+				}
+			}
+			.notification__actions {
+				@apply flex items-center;
+				.notification__category_body {
+					@apply mr-8 relative;
+					&:hover .notification__title_popup {
+						@apply opacity-100 -top-6 visible;
+					}
+					.notification__title_popup {
+						@apply absolute left-[50%] w-[105px] -top-2 px-2 py-1 text-text-sm font-medium bg-dark-white -translate-x-[50%] rounded-md opacity-0 invisible transition-all;
+					}
+					.notification__category {
+						@apply bg-primary text-text-xl rounded-circle w-[56px] h-[56px] flex items-center justify-center transition-colors;
+						&:hover {
+							@apply bg-dark-white;
+						}
+					}
+				}
+				.notification__read {
+					@apply w-4 h-4 bg-orange-900 rounded-circle;
+				}
+			}
+		}
+		.empty {
+			@apply flex flex-col items-center justify-center h-full;
+			& i {
+				@apply text-title text-black-550;
+			}
+			& p {
+				@apply w-[266px] text-text-24 font-medium leading-normal text-center text-black-550;
+			}
+		}
+	}
+}

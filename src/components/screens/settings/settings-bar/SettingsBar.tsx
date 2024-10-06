@@ -7,6 +7,7 @@ import { Skeleton } from 'antd'
 import { usePathname } from 'next/navigation'
 import cn from 'clsx'
 import { settingBarSellerList, settingBarUserList } from './SettingBarList'
+import MenuItem from './MenuItem'
 
 const SettingsBar: FC = () => {
 	const pathName = usePathname()
@@ -35,6 +36,9 @@ const SettingsBar: FC = () => {
 						<>
 							<li className={styles.list__line}></li>
 							{settingBarSellerList.map(item => {
+								if (item.path === 'shop') {
+									return <MenuItem key={item.path} pathname={pathName} />
+								}
 								return (
 									item.isShow && (
 										<li

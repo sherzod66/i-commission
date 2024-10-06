@@ -28,9 +28,24 @@ export const antTheme: ThemeConfig = {
 		},
 		Collapse: {
 			headerBg: '#ffffff',
-			headerPadding: '20px 16px',
-			fontSize: 18,
-			fontFamily: 'var(--var-onest-sans)'
+			paddingXXS: 20,
+			contentPadding: '20px 40px 20px 40px',
+			headerPadding: '16px 40px 16px 70px',
+			fontSize: 20,
+			fontFamily: 'var(--var-onest-sans)',
+			borderRadiusLG: 20,
+			colorTextHeading: '#191919'
+		},
+		Breadcrumb: {
+			itemColor: '#707070'
+		},
+		Segmented: {
+			trackBg: 'linear-gradient(90deg, #F6F6F6 38.91%, #F0F0F0 53.23%)',
+			borderRadiusSM: 16,
+			borderRadius: 16,
+			fontFamily: 'var(--var-onest-sans)',
+			fontSize: 20,
+			controlHeight: 50
 		}
 	}
 }

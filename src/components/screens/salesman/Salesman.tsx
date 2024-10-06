@@ -6,7 +6,6 @@ import Reviews from './reviews/Reviews'
 import Filter from '@/components/ui/filter/Filter'
 const Salesman: FC = () => {
 	const { data, filterValue, setFilterV, categories, categoryLoading } = useSalesman()
-	console.log(data)
 	return (
 		<>
 			<Filter
@@ -27,7 +26,7 @@ const Salesman: FC = () => {
 						/>
 				  ))
 				: ''}
-			<Reviews />
+			<Reviews title='Отзывы о продавце' />
 		</>
 	)
 }

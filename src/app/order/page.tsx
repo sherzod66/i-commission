@@ -9,7 +9,7 @@ export default function OrderPage() {
 	return (
 		<Layout isShop={null}>
 			<h1></h1>
-			{/* <Order /> */}
+			<Order />
 		</Layout>
 	)
 }

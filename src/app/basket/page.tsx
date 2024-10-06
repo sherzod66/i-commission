@@ -8,8 +8,7 @@ export const metadata: Metadata = {
 export default function BasketPage() {
 	return (
 		<Layout isShop={null}>
-			<h1>Hi</h1>
-			{/* <Basket /> */}
+			<Basket />
 		</Layout>
 	)
 }

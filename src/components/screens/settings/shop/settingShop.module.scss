@@ -1,0 +1,65 @@
+.shop {
+	@apply flex flex-wrap w-full;
+	.title {
+		@apply text-text-24 leading-normal font-medium mb-4;
+	}
+	.shop__first {
+		flex: 0 1 63%;
+		@apply bg-white mr-4 rounded-6xl mb-4 p-4 animate-scaleIn;
+	}
+	.shop__second {
+		@apply bg-white rounded-6xl mb-4 p-4 animate-scaleIn;
+		flex: 0 1 35%;
+	}
+	.shop__third {
+		flex: 0 1 63%;
+		@apply bg-white mr-4 rounded-6xl p-4 animate-scaleIn;
+
+		.from {
+			@apply block max-w-[446px];
+			.input__wrapper {
+				@apply mb-4;
+				& label {
+					@apply text-text-sm text-black-300 mb-2 block;
+				}
+				.input__row {
+					@apply relative;
+					.input__input {
+						@apply input-lk pr-4;
+						&.error {
+							border-bottom: 2px solid #ff2300;
+						}
+					}
+					& i {
+						position: absolute;
+						right: 14px;
+						top: 50%;
+						transform: translate(0px, -50%);
+						font-size: 18px;
+						color: #2fc00a;
+					}
+				}
+				& textarea {
+					@apply input-lk;
+				}
+				.error__alert {
+					@apply text-orange-900 animate-fade text-text-default text-center my-2;
+				}
+			}
+			.action_btn {
+				@apply btn-primary-opacity rounded-5xl transition-colors;
+			}
+		}
+	}
+	.shop__fourth {
+		flex: 0 1 35%;
+		@apply bg-white  rounded-6xl p-4 animate-scaleIn;
+		.profile__info_info {
+			@apply leading-normal text-text-default;
+
+			& i {
+				color: #2fc00a;
+			}
+		}
+	}
+}

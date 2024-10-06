@@ -13,6 +13,16 @@ export const ME = gql`
 					edges {
 						node {
 							id
+							code
+							displayName
+							availablePermissions
+							active
+							image {
+								url
+							}
+							cover {
+								url
+							}
 						}
 					}
 				}

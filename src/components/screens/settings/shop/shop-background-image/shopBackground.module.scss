@@ -1,0 +1,25 @@
+.head {
+	@apply flex justify-between;
+	.head__title {
+		@apply text-text-24 font-medium mb-2;
+	}
+	.head__buttons {
+		@apply flex;
+		.action {
+			@apply mr-2 text-text-sm text-black-300;
+			&.orange {
+				@apply text-orange-900 mr-0;
+			}
+		}
+	}
+}
+.shop__background {
+	@apply w-full h-[160px] rounded-lg overflow-hidden;
+	& img {
+		@apply w-full h-full object-cover object-center;
+	}
+}
+
+.drag__wrapper {
+	@apply h-[196px];
+}

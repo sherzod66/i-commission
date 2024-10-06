@@ -3,11 +3,14 @@ import styles from './review.module.scss'
 import cn from 'clsx'
 import { Rate, Select } from 'antd'
 
-const Reviews: FC = () => {
+type TReviewsProps = {
+	title: string
+}
+const Reviews: FC<TReviewsProps> = ({ title }) => {
 	return (
 		<section className={styles.reviews}>
 			<div className={styles.reviews__container}>
-				<h3>Отзывы о продавце</h3>
+				<h3>{title}</h3>
 				<div className={styles.reviews__indicators}>
 					<div className={styles.reviews__column}>
 						<div className={styles.reviews__grade}>4.8</div>

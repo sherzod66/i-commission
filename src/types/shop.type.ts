@@ -11,6 +11,13 @@ export interface IShop {
 	active: boolean
 	categories?: IEdges<ICategory>
 	products?: IEdges<IProduct>
+	availablePermissions: TAviablePermissions
+	image: {
+		url: string
+	} | null
+	cover: {
+		url: string
+	} | null
 	owner: {
 		id: string
 		nickname: string
@@ -30,6 +37,17 @@ export interface ISalesman {
 	description: string
 	rate: number
 }
+
+type TAviablePermissions = [
+	'product.create',
+	'shop.create',
+	'shop.list',
+	'shop.list.active',
+	'shop.list.self',
+	'shop.read',
+	'shop.update',
+	'shop.update.active'
+]
 
 export const defaultSalesman: ISalesman[] = [
 	{

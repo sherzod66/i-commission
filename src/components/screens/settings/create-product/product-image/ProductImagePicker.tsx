@@ -20,11 +20,12 @@ const ProductImagePicker: FC<{
 	const PushMessage = useMessagesStore(state => state.pushMessages)
 
 	useEffect(() => {
-		if (avatar) {
-			//TODO:Решить
+		if (avatar || imageUrl) {
 			const fac = new FastAverageColor()
 			fac
-				.getColorAsync(fileReader(avatar), { algorithm: 'simple' })
+				.getColorAsync(avatar ? fileReader(avatar) : imageUrl ? imageUrl : '', {
+					algorithm: 'simple'
+				})
 				.then(color => {
 					const getElem = document.getElementById('product-image-wrapper-preview')
 					if (getElem) {

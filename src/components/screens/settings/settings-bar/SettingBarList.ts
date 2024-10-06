@@ -12,6 +12,11 @@ import CreateProduct from '../create-product/CreateProduct'
 import StarLk from '@/assets/icon/StarLk'
 import DefaultProductUpdate from '../update-product/DefaultProductUpdate'
 import ConfigurableProductUpdate from '../update-product/configurable-update/ConfigurableProductUpdate'
+import SettingShop from '../shop/SettingShop'
+import Participants from '../participants/Participants'
+import SettingFavorites from '../favorites/SettingFavorites'
+import SettingNotification from '../notification/SettingNotification'
+import MyPurchases from '../my-purshases/MyPurchases'
 
 type TSettingsBarList = {
 	path: string
@@ -21,14 +26,32 @@ type TSettingsBarList = {
 	isShow: boolean
 }
 export const settingBarUserList: TSettingsBarList[] = [
-	{ label: 'Уведомления', icon: NotificationIcon, path: 'notification', isShow: true },
-	{ label: 'Мои покупки', icon: PurchasesIcon, path: 'purchases', isShow: true },
-	{ label: 'Избранное', icon: StarLk, path: 'favorites', isShow: true },
+	{
+		label: 'Уведомления',
+		icon: NotificationIcon,
+		path: 'notification',
+		isShow: true,
+		component: SettingNotification
+	},
+	{
+		label: 'Мои покупки',
+		icon: PurchasesIcon,
+		path: 'purchases',
+		isShow: true,
+		component: MyPurchases
+	},
+	{
+		label: 'Избранное',
+		icon: StarLk,
+		path: 'favorites',
+		isShow: true,
+		component: SettingFavorites
+	},
 	{ label: 'Профиль', icon: UserIcon, path: 'profile', component: Profile, isShow: true }
 ]
 
 export const settingBarSellerList: TSettingsBarList[] = [
-	{ label: 'Магазин', icon: StoreIcon, path: 'shop', isShow: true },
+	{ label: 'Магазин', icon: StoreIcon, path: 'shop', isShow: true, component: SettingShop },
 	{ label: 'Заказы', icon: OrderIcon, path: 'orders', isShow: true },
 	{
 		label: 'Товары',
@@ -37,7 +60,13 @@ export const settingBarSellerList: TSettingsBarList[] = [
 		component: SettingsProducts,
 		isShow: true
 	},
-	{ label: 'Участники', icon: UsersIcon, path: 'participant', isShow: true },
+	{
+		label: 'Участники',
+		icon: UsersIcon,
+		path: 'participant',
+		isShow: true,
+		component: Participants
+	},
 	{
 		label: 'Создать товар',
 		icon: UsersIcon,
