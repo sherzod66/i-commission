@@ -5,13 +5,12 @@ import { keycloackUrl } from '@/utils/constans'
 import { ApolloClient, InMemoryCache, HttpLink, Observable, ApolloLink } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 
-let accessToken = `${getAccessToken()}` // Изначально установленный токен
-
 const authLink = new ApolloLink((operation, forward) => {
+	let token = `${getAccessToken()}`
 	operation.setContext(({ headers = {} }) => ({
 		headers: {
 			...headers,
-			authorization: accessToken ? `Bearer ${accessToken}` : ''
+			authorization: token ? `Bearer ${token}` : ''
 		}
 	}))
 
@@ -43,8 +42,6 @@ const errorLink = onError(({ graphQLErrors, operation, forward, response, networ
 			return new Observable(observer => {
 				refreshToken()
 					.then(newToken => {
-						accessToken = newToken // Обновляем токен
-						// Повторяем запрос с новым токеном
 						operation.setContext(({ headers = {} }) => ({
 							headers: {
 								...headers,

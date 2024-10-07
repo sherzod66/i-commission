@@ -7,13 +7,17 @@ import { removeFromStorage } from '@/services/auth/auth.helper'
 import { useBasketStore } from '@/store/basketStore/useBasketStore'
 import BasketIcon from '@/assets/icon/BasketIcon'
 import MailIcon from '@/assets/icon/MailIcon'
+import { useApolloClient } from '@apollo/client'
+import { ME } from '@/services/user/user.service'
 
 const HeaderProfile: FC = () => {
-	// const queryClient = useQueryClient()
+	const client = useApolloClient()
 	const basket = useBasketStore(store => store.basket)
 	const logout = () => {
 		removeFromStorage()
-		// queryClient.invalidateQueries({ queryKey: ['user'] })
+		client.refetchQueries({
+			include: [ME]
+		})
 	}
 	return (
 		<div className={styles.user__info}>
@@ -51,7 +55,7 @@ const HeaderProfile: FC = () => {
 						<li onClick={logout} className={styles.list_ex}>
 							<span>
 								<i className='icon-exit'></i>
-							</span>{' '}
+							</span>
 							Выйти
 						</li>
 					</ul>
