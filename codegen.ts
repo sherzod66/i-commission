@@ -12,3 +12,4 @@ const config: CodegenConfig = {
 }
 
 export default config
+//npx graphql-codegen

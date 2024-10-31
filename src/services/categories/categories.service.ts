@@ -47,7 +47,7 @@ export const GET_CATEGORY_AND_PRODUCTS =
 					node {
 						displayName
 						id
-						products(first: 50) {
+						activeProducts(first: 50) {
 							edges {
 								node {
 									id

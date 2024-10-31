@@ -31,7 +31,7 @@
 					}
 				}
 				.offers {
-					@apply flex flex-col justify-end px-8 py-6 absolute left-0 top-0 z-1 w-full h-full text-white
+					@apply flex flex-col justify-end pl-0 pr-7 py-6 absolute left-0 top-0 z-1 w-full h-full text-white
 					text-mob-title font-semibold leading-normal;
 					&.black {
 						@apply bg-black-850;

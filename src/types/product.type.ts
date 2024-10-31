@@ -5,6 +5,7 @@ import {
 	ProductConfigurationInputNumberGroupInput,
 	ProductConfigurationInputTextGroupInput,
 	ProductConfigurationSelectGroupInput,
+	ProductPathGroup,
 	Scalars
 } from '@/gql/graphql'
 import { ICategories, ICategory } from './category.type'
@@ -25,15 +26,18 @@ export interface IProduct {
 	createdAt: Date
 	updatedAt: Date
 	usageInstruction: string
-	configuration: {
-		__typename: 'ProductConfiguration'
-		groups: (
-			| Required<IProductConfigurationCheckboxGroup>
-			| Required<IConfigurationSelectGroup>
-			| Required<IConfigurationNumberGroup>
-			| Required<IConfigurationTextGroup>
-		)[]
-	}
+	configuration: IConfiguration
+	productPathGroup: ProductPathGroup
+}
+
+export interface IConfiguration {
+	__typename: 'ProductConfiguration'
+	groups: (
+		| Required<IProductConfigurationCheckboxGroup>
+		| Required<IConfigurationSelectGroup>
+		| Required<IConfigurationNumberGroup>
+		| Required<IConfigurationTextGroup>
+	)[]
 }
 //-------
 
@@ -72,7 +76,7 @@ export interface IConfigurationNumberGroup {
 	id: string
 	displayName: string
 	price: number
-
+	value?: string
 	defaultAmount: number
 
 	min: number
@@ -85,8 +89,18 @@ export interface IConfigurationTextGroup {
 	displayName: string
 	regex: string
 	errorMessage: string
+	value?: string
 	__typename?: EnumConfigurationGroupType.ProductConfigurationInputTextGroup
 }
+
+export interface IConfigurationTextGroupClient extends IConfigurationTextGroup {
+	value: string
+}
+
+export interface IConfigurationNumberGroupClient extends IConfigurationNumberGroup {
+	value: string
+}
+
 //------------
 export interface IRequestActivationCodeProduct {
 	displayName: string

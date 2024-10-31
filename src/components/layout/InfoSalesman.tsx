@@ -1,18 +1,26 @@
 'use client'
 import { FC } from 'react'
 import styles from './layout.module.scss'
-import { shopService } from '@/services/shop/shop.service'
-import { productsService } from '@/services/product/products.service'
+import { SALESMAN_TOTAL_COUNT } from '@/services/shop/shop.service'
+import { PRODUCT_TOTAL_COUNT } from '@/services/product/products.service'
+import { useQuery } from '@apollo/client'
 const InfoSalesman: FC = () => {
+	const { data: shopsTotalCount, loading: shopsTotalCountLoading } = useQuery<{
+		activeShops: { totalCount: number }
+	}>(SALESMAN_TOTAL_COUNT)
+	const { data: productTotalCount, loading: productTotalCountLoading } = useQuery<{
+		activeProducts: { totalCount: number }
+	}>(PRODUCT_TOTAL_COUNT)
+
 	return (
 		<>
 			<div className={styles.title__item}>
 				<p>Количество продавцов</p>
-				{/* <h5>{shopQuantity ? shopQuantity.data.shops.totalCount : '0'}</h5> */}
+				<h5>{shopsTotalCount ? shopsTotalCount.activeShops.totalCount : '0'}</h5>
 			</div>
 			<div className={styles.title__item}>
 				<p>Количество товаров</p>
-				{/* <h5>{productQuantity ? productQuantity.data.products.totalCount : '0'}</h5> */}
+				<h5>{productTotalCount ? productTotalCount.activeProducts.totalCount : '0'}</h5>
 			</div>
 		</>
 	)

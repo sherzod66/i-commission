@@ -13,6 +13,7 @@ export const ME = gql`
 					edges {
 						node {
 							id
+							createdAt
 							code
 							displayName
 							availablePermissions

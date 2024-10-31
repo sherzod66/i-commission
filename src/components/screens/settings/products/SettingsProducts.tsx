@@ -53,8 +53,8 @@ const SettingsProducts: FC = () => {
 
 			<section className={styles.main__table}>
 				<Skeleton loading={loading} active paragraph={{ rows: 20, width: '100%' }} title={false} />
-				{data && data.shop.products
-					? data.shop.products.edges.map(item => (
+				{data && data.shop.activeProducts
+					? data.shop.activeProducts.edges.map(item => (
 							<div className={styles.table__column} key={item.node.id}>
 								<div className={styles.table__item_image}>
 									<img

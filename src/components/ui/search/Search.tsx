@@ -20,7 +20,7 @@ import SearchIcon from '@/assets/icon/SearchIcon'
 import SearchBig from '@/assets/icon/SearchBig.svg'
 
 type TSearchProduct = {
-	data: { products: IEdges<IProduct> } | undefined
+	data: { activeProducts: IEdges<IProduct> } | undefined
 	searchValue: string
 	isLoading: boolean
 	setSearchValue: Dispatch<SetStateAction<string>>
@@ -51,8 +51,8 @@ const SearchProduct: FC<TSearchProduct> = ({ data, searchValue, setSearchValue, 
 		switch (event.key) {
 			case 'ArrowDown':
 				// Перемещаемся вниз по списку
-				if (data && data.products) {
-					if (selectedIndex < data.products.edges.length - 1) {
+				if (data && data.activeProducts) {
+					if (selectedIndex < data.activeProducts.edges.length - 1) {
 						setSelectIndex(selectedIndex + 1)
 					}
 				}
@@ -69,7 +69,7 @@ const SearchProduct: FC<TSearchProduct> = ({ data, searchValue, setSearchValue, 
 				// Подтверждаем выбор
 				if (selectedIndex >= 0) {
 					navigate.push(
-						`/search/?displayName=${data?.products.edges[selectedIndex].node.displayName}&category=${data?.products.edges[selectedIndex].node.category?.code}`
+						`/search/?displayName=${data?.activeProducts.edges[selectedIndex].node.displayName}&category=${data?.activeProducts.edges[selectedIndex].node.category?.code}`
 					)
 				} else {
 					navigate.push(`/search/?displayName=${searchValue}`)
@@ -118,9 +118,9 @@ const SearchProduct: FC<TSearchProduct> = ({ data, searchValue, setSearchValue, 
 
 				{isOpen && (
 					<ul className={styles.help__list}>
-						{data ? (
-							data.products.edges ? (
-								data.products.edges.map((item, index) => (
+						{data && data.activeProducts ? (
+							data?.activeProducts.edges ? (
+								data.activeProducts.edges.map((item, index) => (
 									<li
 										key={index}
 										className={cn(styles.list__li, {
@@ -128,7 +128,7 @@ const SearchProduct: FC<TSearchProduct> = ({ data, searchValue, setSearchValue, 
 										})}
 									>
 										<Link
-											href={`/search/?displayName=${data?.products.edges[index].node.displayName}&category=${data?.products.edges[index].node.category?.code}`}
+											href={`/search/?displayName=${data?.activeProducts.edges[index].node.displayName}&category=${data?.activeProducts.edges[index].node.category?.code}`}
 										>
 											<SearchIcon /> <span>{item.node.displayName}</span>
 										</Link>

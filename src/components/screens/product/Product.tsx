@@ -24,9 +24,24 @@ import ProductPrice from './product-price/ProductPrice'
 import Reviews from '../salesman/reviews/Reviews'
 
 const Product: FC = () => {
-	const { data, loading, copyText, count, setCount } = useProduct()
+	const {
+		data,
+		loading,
+		copyText,
+		count,
+		setCount,
+		checkboxValue,
+		numberValue,
+		onSelectValue,
+		onSetTextValue,
+		selectValue,
+		toggleCheckbox,
+		onToggleBasket,
+		textValue,
+		onSetNumberValue,
+		configureError
+	} = useProduct()
 	const { isShow, ref, setIsShow } = useOnClickOutside(false)
-	console.log(data?.product.oldPrice)
 	return (
 		<>
 			{loading && <Loading />}
@@ -115,8 +130,26 @@ const Product: FC = () => {
 							</div>
 							<div className={styles.second__column}>
 								{data.product.oldPrice && <ProductDiscount product={data.product} />}
-								<ProductPrice product={data.product} count={count} setCount={setCount} />
-								{data.product.configuration && <ProductConfiguration />}
+								<ProductPrice
+									onToggleBasket={onToggleBasket}
+									product={data.product}
+									count={count}
+									setCount={setCount}
+								/>
+								{data.product.configuration && (
+									<ProductConfiguration
+										configuration={data.product.configuration}
+										checkboxValue={checkboxValue}
+										numberValue={numberValue}
+										onSelectValue={onSelectValue}
+										onSetTextValue={onSetTextValue}
+										selectValue={selectValue}
+										toggleCheckbox={toggleCheckbox}
+										textValue={textValue}
+										onSetNumberValue={onSetNumberValue}
+										configureError={configureError}
+									/>
+								)}
 								{!data.product.configuration && <SalesmanInfo shop={data.product.shop} />}
 							</div>
 						</div>

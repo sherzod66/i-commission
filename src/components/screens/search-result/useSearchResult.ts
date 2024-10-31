@@ -17,7 +17,7 @@ export const useSearchResult = () => {
 		error,
 		refetch,
 		loading: searchLoading
-	} = useQuery<{ products: IEdges<IProduct> }, { value: string }>(PRODUCT_SEARCH, {
+	} = useQuery<{ activeProducts: IEdges<IProduct> }, { value: string }>(PRODUCT_SEARCH, {
 		variables: { value: '' }
 	})
 	useEffect(() => {

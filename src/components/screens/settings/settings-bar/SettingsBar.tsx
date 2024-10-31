@@ -32,7 +32,7 @@ const SettingsBar: FC = () => {
 							</Link>
 						</li>
 					))}
-					{data.me.permissions.includes('shop.create') && (
+					{data.me?.account.shops && data.me.permissions.includes('shop.read:active') && (
 						<>
 							<li className={styles.list__line}></li>
 							{settingBarSellerList.map(item => {

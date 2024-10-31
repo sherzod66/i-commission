@@ -1,9 +1,17 @@
+'use client'
 import { FC } from 'react'
 import styles from './mainSetting.module.scss'
 import cn from 'clsx'
-import Link from 'next/link'
+import { useMainSetting } from './useMainSetting'
+import Modal from '@/components/ui/modal/Modal'
+import dynamic from 'next/dynamic'
+
+const CreateShop = dynamic(() => import('@/components/ui/modal-content/create-shop/CreateShop'), {
+	ssr: false
+})
 
 const MainSetting: FC = () => {
+	const { isCreate, onToggleModal, data } = useMainSetting()
 	return (
 		<main className={styles.main}>
 			<div className={styles.main__actions}>
@@ -53,21 +61,37 @@ const MainSetting: FC = () => {
 						</div>
 					</div>
 				</div>
-				<div className={styles.actions__column}>
-					<div className={styles.action__item}>
-						<Link className={cn(styles.offers, styles.orange)} href={'/'}>
-							<span>Открыть Магазин</span>
-						</Link>
+				{!data?.me.account.shops && (
+					<div className={styles.actions__column}>
+						<div className={styles.action__item}>
+							<button
+								onClick={onToggleModal}
+								type='button'
+								className={cn(styles.offers, styles.orange)}
+							>
+								<span>Открыть Магазин</span>
+							</button>
+						</div>
 					</div>
-				</div>
+				)}
 				<div className={styles.actions__column}>
 					<div className={styles.action__item}>
-						<Link className={cn(styles.offers, styles.black)} href={'/'}>
+						<button type='button' className={cn(styles.offers, styles.black)}>
 							<span>Войти в Магазин</span>
-						</Link>
+						</button>
 					</div>
 				</div>
 			</div>
+			<Modal
+				isOpen={isCreate}
+				onClose={onToggleModal}
+				title='Открытие магазина'
+				titleStyle={{ fontSize: '32px' }}
+				close
+				contentWidth='720px'
+			>
+				<CreateShop onToggleModal={onToggleModal} />
+			</Modal>
 		</main>
 	)
 }

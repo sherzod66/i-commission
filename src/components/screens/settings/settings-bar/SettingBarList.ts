@@ -17,6 +17,7 @@ import Participants from '../participants/Participants'
 import SettingFavorites from '../favorites/SettingFavorites'
 import SettingNotification from '../notification/SettingNotification'
 import MyPurchases from '../my-purshases/MyPurchases'
+import SettingOrders from '../orders/SettingOrders'
 
 type TSettingsBarList = {
 	path: string
@@ -52,7 +53,7 @@ export const settingBarUserList: TSettingsBarList[] = [
 
 export const settingBarSellerList: TSettingsBarList[] = [
 	{ label: 'Магазин', icon: StoreIcon, path: 'shop', isShow: true, component: SettingShop },
-	{ label: 'Заказы', icon: OrderIcon, path: 'orders', isShow: true },
+	{ label: 'Заказы', icon: OrderIcon, path: 'orders', isShow: true, component: SettingOrders },
 	{
 		label: 'Товары',
 		icon: ProductsIcon,

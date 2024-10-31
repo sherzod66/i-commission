@@ -40,7 +40,7 @@ export const paymentMethodList: TPaymentMethod[] = [
 	{
 		id: 1,
 		imagePath: ['/payment-image/cryptocurrency.png'],
-		value: EnumPayment.BANK_CARD,
+		value: EnumPayment.CRYPTOCURRENCY,
 		description: 'Быстрая оплата удобной вам криптовалютой',
 		label: 'Криптоваютой',
 		size: '39%',
@@ -53,7 +53,7 @@ export const paymentMethodList: TPaymentMethod[] = [
 	{
 		id: 2,
 		imagePath: ['/payment-image/balanceCard.png'],
-		value: EnumPayment.BANK_CARD,
+		value: EnumPayment.BALANCE,
 		description: 'Оплата балансом',
 		label: 'С Баланса',
 		size: '18%',

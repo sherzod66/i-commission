@@ -1,5 +1,5 @@
 'use client'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import styles from './headerProfile.module.scss'
 import Link from 'next/link'
 import { headerList } from './headerList'
@@ -9,10 +9,18 @@ import BasketIcon from '@/assets/icon/BasketIcon'
 import MailIcon from '@/assets/icon/MailIcon'
 import { useApolloClient } from '@apollo/client'
 import { ME } from '@/services/user/user.service'
+import { readLocal } from '@/utils/localStorage.helper'
+import { IBasket } from '@/types/basket.type'
 
 const HeaderProfile: FC = () => {
 	const client = useApolloClient()
 	const basket = useBasketStore(store => store.basket)
+	const setGlobalBasket = useBasketStore(store => store.setBasket)
+	useEffect(() => {
+		const readBasket = readLocal('basket')
+		const conversion: IBasket[] | null = readBasket ? (JSON.parse(readBasket) as IBasket[]) : null
+		setGlobalBasket(conversion ? conversion : [])
+	}, [])
 	const logout = () => {
 		removeFromStorage()
 		client.refetchQueries({

@@ -1,5 +1,8 @@
 .item {
-	@apply bg-white py-2 px-4 rounded-5xl overflow-hidden;
+	@apply block bg-white pt-2 px-2 rounded-5xl overflow-hidden border-2 border-solid border-transparent transition-colors text-left;
+	&.active {
+		@apply border-orange-900;
+	}
 	.item__info {
 		.item__title {
 			@apply pt-2 text-text-24 font-medium;

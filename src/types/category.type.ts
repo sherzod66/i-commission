@@ -18,6 +18,7 @@ export interface ICategory {
 	parent: null
 	image: IImage
 	products?: IEdges<IProduct>
+	activeProducts?: IEdges<IProduct>
 }
 
 export type TCategoryFilter = {

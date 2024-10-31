@@ -11,6 +11,7 @@ type TModalProps = {
 	description?: string
 	close?: boolean
 	titleStyle: CSSProperties
+	contentWidth?: string
 }
 
 const Modal: FC<TModalProps> = ({
@@ -20,7 +21,8 @@ const Modal: FC<TModalProps> = ({
 	title,
 	close,
 	description,
-	titleStyle
+	titleStyle,
+	contentWidth = '500px'
 }) => {
 	return (
 		<>
@@ -30,7 +32,7 @@ const Modal: FC<TModalProps> = ({
 					open={true}
 					className={styles.dialog}
 				>
-					<div id='dialog-modal' className={styles.dialog__body}>
+					<div style={{ width: contentWidth }} id='dialog-modal' className={styles.dialog__body}>
 						<div className={cn(styles.body__head, { [styles.close]: close })}>
 							<h3 style={titleStyle} className={styles.head__title}>
 								{title}

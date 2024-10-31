@@ -1,5 +1,5 @@
 .dragger {
-	@apply py-4 px-4 border-dashed border-line border-[2px] mt-2 rounded-2xl
+	@apply py-4 px-1 border-dashed border-line border-[2px] mt-2 rounded-2xl
 	relative transition-colors h-full;
 	&.drag {
 		@apply border-orange-900;

@@ -40,6 +40,11 @@ export type Account = Entity & {
 };
 
 
+export type AccountAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+
 export type AccountShopsArgs = {
   filter?: InputMaybe<ShopFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
@@ -110,6 +115,11 @@ export type AccountWalletAccountWalletTransactionsArgs = {
   order?: InputMaybe<Array<AccountWalletTransactionOrder>>;
 };
 
+
+export type AccountWalletAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
 export type AccountWalletConnection = {
   __typename?: 'AccountWalletConnection';
   edges: Array<AccountWalletEdge>;
@@ -153,6 +163,11 @@ export type AccountWalletTransaction = Entity & PaymentItemData & PaymentMethodD
   updatedAt: Scalars['Instant']['output'];
 };
 
+
+export type AccountWalletTransactionAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
 export type AccountWalletTransactionConnection = {
   __typename?: 'AccountWalletTransactionConnection';
   edges: Array<AccountWalletTransactionEdge>;
@@ -184,7 +199,10 @@ export type AccountWalletTransactionOrder = {
   accountWallet?: InputMaybe<AccountWalletOrder>;
   createdAt?: InputMaybe<OrderDirection>;
   id?: InputMaybe<OrderDirection>;
+  itemType?: InputMaybe<OrderDirection>;
+  methodType?: InputMaybe<OrderDirection>;
   payment?: InputMaybe<PaymentOrder>;
+  type?: InputMaybe<OrderDirection>;
   updatedAt?: InputMaybe<OrderDirection>;
 };
 
@@ -218,6 +236,11 @@ export type ActivationCodeOrderProduct = ConversationSource & Entity & OrderProd
   updatedAt: Scalars['Instant']['output'];
 };
 
+
+export type ActivationCodeOrderProductAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
 export type ActivationCodeProduct = Entity & Product & {
   __typename?: 'ActivationCodeProduct';
   active: Scalars['Boolean']['output'];
@@ -230,6 +253,7 @@ export type ActivationCodeProduct = Entity & Product & {
   image?: Maybe<Image>;
   oldPrice?: Maybe<Scalars['Int']['output']>;
   price: Scalars['Int']['output'];
+  productPathGroup?: Maybe<ProductPathGroup>;
   productReviews?: Maybe<ProductReviewConnection>;
   /**  Округляет остаток до 10 */
   remainingCount?: Maybe<Scalars['Int']['output']>;
@@ -238,6 +262,11 @@ export type ActivationCodeProduct = Entity & Product & {
   shop: Shop;
   updatedAt: Scalars['Instant']['output'];
   usageInstruction?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ActivationCodeProductAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 
@@ -300,6 +329,11 @@ export type CardPaymentMethod = Entity & PaymentMethodData & {
   updatedAt: Scalars['Instant']['output'];
 };
 
+
+export type CardPaymentMethodAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
 export type CardPaymentMethodConnection = {
   __typename?: 'CardPaymentMethodConnection';
   edges: Array<CardPaymentMethodEdge>;
@@ -331,6 +365,7 @@ export type CardPaymentMethodOrder = {
   createdAt?: InputMaybe<OrderDirection>;
   extId?: InputMaybe<OrderDirection>;
   id?: InputMaybe<OrderDirection>;
+  methodType?: InputMaybe<OrderDirection>;
   payment?: InputMaybe<PaymentOrder>;
   updatedAt?: InputMaybe<OrderDirection>;
 };
@@ -347,6 +382,11 @@ export type Category = Entity & {
   parent?: Maybe<Category>;
   products?: Maybe<ProductConnection>;
   updatedAt: Scalars['Instant']['output'];
+};
+
+
+export type CategoryAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 
@@ -417,6 +457,11 @@ export type ConfigurableOrderProduct = ConversationSource & Entity & OrderProduc
   updatedAt: Scalars['Instant']['output'];
 };
 
+
+export type ConfigurableOrderProductAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
 export type ConfigurableProduct = Entity & Product & {
   __typename?: 'ConfigurableProduct';
   active: Scalars['Boolean']['output'];
@@ -430,12 +475,18 @@ export type ConfigurableProduct = Entity & Product & {
   image?: Maybe<Image>;
   oldPrice?: Maybe<Scalars['Int']['output']>;
   price: Scalars['Int']['output'];
+  productPathGroup?: Maybe<ProductPathGroup>;
   productReviews?: Maybe<ProductReviewConnection>;
   reviewAverage: Scalars['Float']['output'];
   reviewCount: Scalars['Int']['output'];
   shop: Shop;
   updatedAt: Scalars['Instant']['output'];
   usageInstruction?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ConfigurableProductAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 
@@ -497,6 +548,11 @@ export type Conversation = Entity & {
 };
 
 
+export type ConversationAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+
 export type ConversationConversationMessagesArgs = {
   filter?: InputMaybe<ConversationMessageFilter>;
   first?: InputMaybe<Scalars['Int']['input']>;
@@ -547,6 +603,11 @@ export type ConversationMessage = Entity & {
   updatedAt: Scalars['Instant']['output'];
 };
 
+
+export type ConversationMessageAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
 export type ConversationMessageConnection = {
   __typename?: 'ConversationMessageConnection';
   edges: Array<Maybe<ConversationMessageEdge>>;
@@ -587,6 +648,7 @@ export type ConversationMessageOrder = {
 export type ConversationOrder = {
   createdAt?: InputMaybe<OrderDirection>;
   id?: InputMaybe<OrderDirection>;
+  type?: InputMaybe<OrderDirection>;
   updatedAt?: InputMaybe<OrderDirection>;
 };
 
@@ -654,11 +716,6 @@ export type CreateProductReviewInput = {
   text: Scalars['String']['input'];
 };
 
-export type CreateShopInput = {
-  code: Scalars['String']['input'];
-  displayName: Scalars['String']['input'];
-};
-
 export type DepositAccountWalletInput = {
   amount: Scalars['Int']['input'];
   paymentMethodType: PaymentMethodType;
@@ -668,6 +725,21 @@ export type Entity = {
   createdAt: Scalars['Instant']['output'];
   id: Scalars['ID']['output'];
   updatedAt: Scalars['Instant']['output'];
+};
+
+export type FloatFilter = {
+  between?: InputMaybe<FloatRange>;
+  eq?: InputMaybe<Scalars['Float']['input']>;
+  ge?: InputMaybe<Scalars['Float']['input']>;
+  gt?: InputMaybe<Scalars['Float']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+  le?: InputMaybe<Scalars['Float']['input']>;
+  lt?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type FloatRange = {
+  max: Scalars['Float']['input'];
+  min: Scalars['Float']['input'];
 };
 
 export type GenericAggregate = {
@@ -695,6 +767,11 @@ export type Image = Entity & {
   updatedAt: Scalars['Instant']['output'];
   /**  NULL только в случае ошибки */
   url?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ImageAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 
@@ -833,9 +910,11 @@ export type Mutation = {
   createConfigurableProduct: ConfigurableProduct;
   createOrder?: Maybe<Order>;
   createOrderTransaction?: Maybe<OrderTransaction>;
+  createProductPathGroup?: Maybe<ProductPathGroup>;
   createProductReview?: Maybe<ProductReview>;
-  createShop: Shop;
+  createShop?: Maybe<Shop>;
   deleteAccountRole: Scalars['ID']['output'];
+  deleteProductPathGroup?: Maybe<Scalars['Boolean']['output']>;
   depositAccountWallet: AccountWalletTransaction;
   manualRecalculateAllProductIndexes?: Maybe<Scalars['Boolean']['output']>;
   manualRecalculateProductIndex?: Maybe<Scalars['Boolean']['output']>;
@@ -843,7 +922,9 @@ export type Mutation = {
   updateActivationCodeProduct: ActivationCodeProduct;
   updateCategory?: Maybe<Category>;
   updateConfigurableProduct: ConfigurableProduct;
-  updateShop: Shop;
+  updateProductPathGroup?: Maybe<ProductPathGroup>;
+  updateShop?: Maybe<Shop>;
+  updateShopActive?: Maybe<Shop>;
 };
 
 
@@ -897,18 +978,28 @@ export type MutationCreateOrderTransactionArgs = {
 };
 
 
+export type MutationCreateProductPathGroupArgs = {
+  input: ProductPathGroupInput;
+};
+
+
 export type MutationCreateProductReviewArgs = {
   input?: InputMaybe<CreateProductReviewInput>;
 };
 
 
 export type MutationCreateShopArgs = {
-  input?: InputMaybe<CreateShopInput>;
+  input?: InputMaybe<ShopInput>;
 };
 
 
 export type MutationDeleteAccountRoleArgs = {
   input?: InputMaybe<IdInput>;
+};
+
+
+export type MutationDeleteProductPathGroupArgs = {
+  input: IdInput;
 };
 
 
@@ -946,9 +1037,21 @@ export type MutationUpdateConfigurableProductArgs = {
 };
 
 
+export type MutationUpdateProductPathGroupArgs = {
+  id: Scalars['ID']['input'];
+  input: ProductPathGroupInput;
+};
+
+
 export type MutationUpdateShopArgs = {
   id: Scalars['ID']['input'];
-  input?: InputMaybe<UpdateShopInput>;
+  input?: InputMaybe<ShopInput>;
+};
+
+
+export type MutationUpdateShopActiveArgs = {
+  id: Scalars['ID']['input'];
+  input: ShopActiveInput;
 };
 
 export type NumberAggregate = {
@@ -972,6 +1075,11 @@ export type Order = Entity & {
   state?: Maybe<OrderState>;
   total?: Maybe<Scalars['Int']['output']>;
   updatedAt: Scalars['Instant']['output'];
+};
+
+
+export type OrderAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 
@@ -1027,11 +1135,13 @@ export type OrderOrder = {
   createdAt?: InputMaybe<OrderDirection>;
   customer?: InputMaybe<AccountOrder>;
   id?: InputMaybe<OrderDirection>;
+  state?: InputMaybe<OrderDirection>;
   total?: InputMaybe<OrderDirection>;
   updatedAt?: InputMaybe<OrderDirection>;
 };
 
 export type OrderProduct = {
+  availablePermissions?: Maybe<Array<Scalars['String']['output']>>;
   conversation?: Maybe<Conversation>;
   createdAt: Scalars['Instant']['output'];
   id: Scalars['ID']['output'];
@@ -1045,6 +1155,11 @@ export type OrderProduct = {
   total?: Maybe<Scalars['Int']['output']>;
   type: ConversationType;
   updatedAt: Scalars['Instant']['output'];
+};
+
+
+export type OrderProductAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 export type OrderProductConnection = {
@@ -1128,6 +1243,11 @@ export type OrderTransaction = Entity & PaymentItemData & {
   updatedAt: Scalars['Instant']['output'];
 };
 
+
+export type OrderTransactionAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
 export type OrderTransactionConnection = {
   __typename?: 'OrderTransactionConnection';
   edges: Array<OrderTransactionEdge>;
@@ -1156,6 +1276,7 @@ export type OrderTransactionFilter = {
 export type OrderTransactionOrder = {
   createdAt?: InputMaybe<OrderDirection>;
   id?: InputMaybe<OrderDirection>;
+  itemType?: InputMaybe<OrderDirection>;
   order?: InputMaybe<OrderOrder>;
   payment?: InputMaybe<PaymentOrder>;
   updatedAt?: InputMaybe<OrderDirection>;
@@ -1190,6 +1311,11 @@ export type Payment = Entity & {
   methodType: PaymentMethodType;
   state: TransactionState;
   updatedAt: Scalars['Instant']['output'];
+};
+
+
+export type PaymentAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 export type PaymentConnection = {
@@ -1263,11 +1389,15 @@ export type PaymentOrder = {
   createdAt?: InputMaybe<OrderDirection>;
   description?: InputMaybe<OrderDirection>;
   id?: InputMaybe<OrderDirection>;
+  itemType?: InputMaybe<OrderDirection>;
+  methodType?: InputMaybe<OrderDirection>;
+  state?: InputMaybe<OrderDirection>;
   updatedAt?: InputMaybe<OrderDirection>;
 };
 
 export type Product = {
   active: Scalars['Boolean']['output'];
+  availablePermissions?: Maybe<Array<Scalars['String']['output']>>;
   category: Category;
   createdAt: Scalars['Instant']['output'];
   description: Scalars['String']['output'];
@@ -1276,6 +1406,7 @@ export type Product = {
   image?: Maybe<Image>;
   oldPrice?: Maybe<Scalars['Int']['output']>;
   price: Scalars['Int']['output'];
+  productPathGroup?: Maybe<ProductPathGroup>;
   productReviews?: Maybe<ProductReviewConnection>;
   reviewAverage: Scalars['Float']['output'];
   /**  Индексы и вычисляемое */
@@ -1283,6 +1414,11 @@ export type Product = {
   shop: Shop;
   updatedAt: Scalars['Instant']['output'];
   usageInstruction?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ProductAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 
@@ -1301,6 +1437,11 @@ export type ProductCodeConsignment = Entity & {
   name: Scalars['String']['output'];
   product: Product;
   updatedAt: Scalars['Instant']['output'];
+};
+
+
+export type ProductCodeConsignmentAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 export type ProductCodeConsignmentConnection = {
@@ -1514,6 +1655,114 @@ export type ProductOrder = {
   usageInstruction?: InputMaybe<OrderDirection>;
 };
 
+export type ProductPath = {
+  __typename?: 'ProductPath';
+  /**  Вспомогательные поля */
+  category?: Maybe<ProductPathCategory>;
+  /**  Сделал с ID, чтобы на фронте не мапить лишний раз, при редактировании */
+  categoryId: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+  targetCategory?: Maybe<ProductPathCategory>;
+  targetCategoryId?: Maybe<Scalars['String']['output']>;
+  targetProduct?: Maybe<Product>;
+  targetProductId?: Maybe<Scalars['String']['output']>;
+};
+
+export type ProductPathCategory = {
+  __typename?: 'ProductPathCategory';
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+  /**  Вспомогательное поле */
+  paths?: Maybe<Array<ProductPath>>;
+};
+
+export type ProductPathCategoryInput = {
+  id: Scalars['ID']['input'];
+  name: Scalars['String']['input'];
+};
+
+export type ProductPathGraphInput = {
+  categories: Array<ProductPathCategoryInput>;
+  paths: Array<ProductPathInput>;
+};
+
+/** Все эти ограничения валидируются, так что создать и тем более получить некорректный граф невозможно(либо возможно если я где то проебланился, но вроде работает) */
+export type ProductPathGroup = Entity & {
+  __typename?: 'ProductPathGroup';
+  availablePermissions?: Maybe<Array<Scalars['String']['output']>>;
+  createdAt: Scalars['Instant']['output'];
+  graph?: Maybe<ProductPathGroupGraph>;
+  id: Scalars['ID']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  shop?: Maybe<Shop>;
+  updatedAt: Scalars['Instant']['output'];
+};
+
+
+/** Все эти ограничения валидируются, так что создать и тем более получить некорректный граф невозможно(либо возможно если я где то проебланился, но вроде работает) */
+export type ProductPathGroupAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type ProductPathGroupConnection = {
+  __typename?: 'ProductPathGroupConnection';
+  edges: Array<ProductPathGroupEdge>;
+  pageInfo: PageInfo;
+  totalCount: Scalars['Long']['output'];
+};
+
+export type ProductPathGroupEdge = {
+  __typename?: 'ProductPathGroupEdge';
+  cursor: Scalars['String']['output'];
+  node: ProductPathGroup;
+};
+
+export type ProductPathGroupFilter = {
+  and?: InputMaybe<Array<ProductPathGroupFilter>>;
+  createdAt?: InputMaybe<InstantFilter>;
+  id?: InputMaybe<IdFilter>;
+  name?: InputMaybe<StringFilter>;
+  not?: InputMaybe<ProductPathGroupFilter>;
+  or?: InputMaybe<Array<ProductPathGroupFilter>>;
+  shop?: InputMaybe<ShopFilter>;
+  updatedAt?: InputMaybe<InstantFilter>;
+};
+
+export type ProductPathGroupGraph = {
+  __typename?: 'ProductPathGroupGraph';
+  categories?: Maybe<Array<ProductPathCategory>>;
+  dump: Scalars['String']['output'];
+  paths?: Maybe<Array<ProductPath>>;
+};
+
+export type ProductPathGroupInput = {
+  graph?: InputMaybe<ProductPathGraphInput>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  /**  Только создание */
+  shopId?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type ProductPathGroupOrder = {
+  createdAt?: InputMaybe<OrderDirection>;
+  id?: InputMaybe<OrderDirection>;
+  name?: InputMaybe<OrderDirection>;
+  shop?: InputMaybe<ShopOrder>;
+  updatedAt?: InputMaybe<OrderDirection>;
+};
+
+export type ProductPathInput = {
+  categoryId: Scalars['ID']['input'];
+  id: Scalars['ID']['input'];
+  name: Scalars['String']['input'];
+  /**
+   *  Должен быть только один из них. Другой обязан быть null
+   *  Оба не должны быть null одновременно
+   */
+  targetCategoryId?: InputMaybe<Scalars['ID']['input']>;
+  targetProductId?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type ProductReview = Entity & {
   __typename?: 'ProductReview';
   availablePermissions?: Maybe<Array<Scalars['String']['output']>>;
@@ -1526,6 +1775,11 @@ export type ProductReview = Entity & {
   shopResponse?: Maybe<Scalars['String']['output']>;
   text: Scalars['String']['output'];
   updatedAt: Scalars['Instant']['output'];
+};
+
+
+export type ProductReviewAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 export type ProductReviewConnection = {
@@ -1578,6 +1832,11 @@ export type ProductSalePaymentMethod = Entity & PaymentMethodData & {
   updatedAt: Scalars['Instant']['output'];
 };
 
+
+export type ProductSalePaymentMethodAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
 export type ProductSalePaymentMethodConnection = {
   __typename?: 'ProductSalePaymentMethodConnection';
   edges: Array<ProductSalePaymentMethodEdge>;
@@ -1608,6 +1867,7 @@ export type ProductSalePaymentMethodOrder = {
   completeAt?: InputMaybe<OrderDirection>;
   createdAt?: InputMaybe<OrderDirection>;
   id?: InputMaybe<OrderDirection>;
+  methodType?: InputMaybe<OrderDirection>;
   orderProduct?: InputMaybe<OrderProductOrder>;
   payment?: InputMaybe<PaymentOrder>;
   updatedAt?: InputMaybe<OrderDirection>;
@@ -1759,6 +2019,7 @@ export type Query = {
   myOrderTransactions?: Maybe<OrderConnection>;
   myOrders?: Maybe<OrderConnection>;
   myPayments?: Maybe<PaymentConnection>;
+  myShops?: Maybe<ShopConnection>;
   order: Order;
   orderProduct: OrderProduct;
   orderProductMessages?: Maybe<ConversationMessageConnection>;
@@ -1771,6 +2032,8 @@ export type Query = {
   product: Product;
   productCodeConsignment: ProductCodeConsignment;
   productCodeConsignments: ProductCodeConsignmentConnection;
+  productPathGroup: ProductPathGroup;
+  productPathGroups: ProductPathGroupConnection;
   productReview: ProductReview;
   productReviews: ProductReviewConnection;
   productSalePaymentMethod: ProductSalePaymentMethod;
@@ -1963,6 +2226,16 @@ export type QueryMyPaymentsArgs = {
 };
 
 
+export type QueryMyShopsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ShopFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  order?: InputMaybe<Array<ShopOrder>>;
+};
+
+
 export type QueryOrderArgs = {
   id: Scalars['ID']['input'];
 };
@@ -2051,6 +2324,21 @@ export type QueryProductCodeConsignmentsArgs = {
 };
 
 
+export type QueryProductPathGroupArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type QueryProductPathGroupsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<ProductPathGroupFilter>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  order?: InputMaybe<Array<ProductPathGroupOrder>>;
+};
+
+
 export type QueryProductReviewArgs = {
   id: Scalars['ID']['input'];
 };
@@ -2131,13 +2419,20 @@ export type Shop = Entity & {
   availablePermissions?: Maybe<Array<Scalars['String']['output']>>;
   categories?: Maybe<CategoryConnection>;
   code: Scalars['String']['output'];
+  cover?: Maybe<Image>;
   createdAt: Scalars['Instant']['output'];
   displayName?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
+  image?: Maybe<Image>;
   owner?: Maybe<Account>;
   productReviews?: Maybe<ProductReviewConnection>;
   products?: Maybe<ProductConnection>;
   updatedAt: Scalars['Instant']['output'];
+};
+
+
+export type ShopAvailablePermissionsArgs = {
+  filter?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 
@@ -2161,6 +2456,10 @@ export type ShopProductsArgs = {
   order?: InputMaybe<Array<ProductOrder>>;
 };
 
+export type ShopActiveInput = {
+  active: Scalars['Boolean']['input'];
+};
+
 export type ShopConnection = {
   __typename?: 'ShopConnection';
   edges: Array<ShopEdge>;
@@ -2178,6 +2477,7 @@ export type ShopFilter = {
   active?: InputMaybe<Scalars['Boolean']['input']>;
   and?: InputMaybe<Array<ShopFilter>>;
   code?: InputMaybe<StringFilter>;
+  cover?: InputMaybe<ImageFilter>;
   createdAt?: InputMaybe<InstantFilter>;
   displayName?: InputMaybe<StringFilter>;
   id?: InputMaybe<IdFilter>;
@@ -2188,9 +2488,17 @@ export type ShopFilter = {
   updatedAt?: InputMaybe<InstantFilter>;
 };
 
+export type ShopInput = {
+  code?: InputMaybe<Scalars['String']['input']>;
+  coverId?: InputMaybe<Scalars['ID']['input']>;
+  displayName?: InputMaybe<Scalars['String']['input']>;
+  imageId?: InputMaybe<Scalars['ID']['input']>;
+};
+
 export type ShopOrder = {
   active?: InputMaybe<OrderDirection>;
   code?: InputMaybe<OrderDirection>;
+  cover?: InputMaybe<ImageOrder>;
   createdAt?: InputMaybe<OrderDirection>;
   displayName?: InputMaybe<OrderDirection>;
   id?: InputMaybe<OrderDirection>;
@@ -2284,12 +2592,6 @@ export type UpdateConfigurableProductInput = {
   oldPrice?: InputMaybe<Scalars['Int']['input']>;
   price?: InputMaybe<Scalars['Int']['input']>;
   usageInstruction?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type UpdateShopInput = {
-  active?: InputMaybe<Scalars['Boolean']['input']>;
-  code?: InputMaybe<Scalars['String']['input']>;
-  displayName?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UserInfo = {

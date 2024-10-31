@@ -29,7 +29,7 @@ const VerticalCarousel: FC = () => {
 			className='verticalSwiper'
 		>
 			{data ? (
-				data.shops.edges.map(el => (
+				data.activeShops.edges.map(el => (
 					<SwiperSlide key={el.node.id}>
 						<Link className='vertical__column' href={`/${el.node.id}`}>
 							<div className='vertical__image'>

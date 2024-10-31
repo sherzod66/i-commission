@@ -18,3 +18,7 @@ export const cleanNumber = (value: string): string => {
 export const containsLetters = (value: string): boolean => {
 	return /[a-zA-Z]/.test(value)
 }
+
+export const containsNumbers = (value: string): boolean => {
+	return /^[0-9]*\.?[0-9]*$/.test(value)
+}

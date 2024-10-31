@@ -47,6 +47,7 @@ const config: Config = {
 			line: '#E3E3E3',
 			line2: '#E5E5E5',
 			line3: '#cecece',
+			'product-category-border': '#DDDED8',
 			'bar-line': '#D9D9D9',
 			'basket-round': '#EBEBEC',
 			green: {

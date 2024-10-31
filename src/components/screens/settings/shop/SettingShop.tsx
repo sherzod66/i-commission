@@ -28,7 +28,8 @@ const SettingShop: FC = () => {
 		uploadLoading,
 		avatarLoading,
 		onImageReset,
-		user
+		user,
+		shop
 	} = useSettingsShop()
 	if (user?.me.account) {
 		return (
@@ -114,7 +115,7 @@ const SettingShop: FC = () => {
 					<h4 className={styles.title}>Дополнительно</h4>
 					<div className={styles.profile__info_info}>
 						<p>Дата создания магазина:</p>
-						<span className='inline-block mb-6'>{getShopCreate('')}</span>
+						<span className='inline-block mb-6'>{getShopCreate(shop ? shop.createdAt : '')}</span>
 						<p>Статус аккаунта:</p>
 						<span>
 							<CheckIcon /> Активен

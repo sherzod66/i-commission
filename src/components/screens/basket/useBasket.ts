@@ -5,7 +5,8 @@ import { changeBoolean } from '@/components/ui/count/changeIvent'
 import { useRouter } from 'next/navigation'
 import { useBasketStore } from '@/store/basketStore/useBasketStore'
 import { IProduct } from '@/types/product.type'
-import { setLocal } from '@/utils/localStorage.helper'
+import { readLocal, setLocal } from '@/utils/localStorage.helper'
+import { IBasket } from '@/types/basket.type'
 
 export interface IBasketHook extends IProduct {
 	count: string
@@ -29,7 +30,6 @@ export const useBasket = () => {
 		}
 	}, [selectAll])
 	useEffect(() => {
-		setLocal('basket', JSON.stringify(globalBasket))
 		setBasket(defaultChangeBasket(globalBasket, false, false))
 	}, [globalBasket])
 

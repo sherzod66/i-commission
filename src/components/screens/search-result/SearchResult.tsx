@@ -24,7 +24,7 @@ const SearchResult: FC = () => {
 				{searchData ? (
 					<section className={styles.card}>
 						<div className={styles.product__row}>
-							{searchData?.products.edges.map(item => (
+							{searchData?.activeProducts.edges.map(item => (
 								<div key={item.node.id} className={styles.product__column}>
 									<ProductItem product={item.node} />
 								</div>

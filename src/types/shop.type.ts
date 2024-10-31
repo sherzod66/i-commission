@@ -11,6 +11,7 @@ export interface IShop {
 	active: boolean
 	categories?: IEdges<ICategory>
 	products?: IEdges<IProduct>
+	activeProducts?: IEdges<IProduct>
 	availablePermissions: TAviablePermissions
 	image: {
 		url: string
@@ -26,6 +27,7 @@ export interface IShop {
 
 export interface IShops {
 	shops: IEdges<IShop>
+	activeShops: IEdges<IShop>
 }
 
 export interface ISalesman {
@@ -36,6 +38,13 @@ export interface ISalesman {
 	activate: boolean
 	description: string
 	rate: number
+}
+
+export interface IShopCreate {
+	code: string
+	displayName: string
+	cover: File
+	image: File
 }
 
 type TAviablePermissions = [

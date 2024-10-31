@@ -80,7 +80,7 @@ const DefaultProductUpdate: FC = () => {
 									rules={{
 										required: 'Вы забыли написать стоимость товара',
 										pattern: {
-											value: /^[0-9]+$/,
+											value: /^[0-9]*\.?[0-9]*$/,
 											message: 'Только числа'
 										}
 									}}

@@ -1,0 +1,48 @@
+.checkout {
+	margin-top: 130px;
+	.checkout__container {
+		.checkout__row {
+			@apply flex gap-4;
+			.checkout__first_column {
+				flex: 0 1 67%;
+				.first__title {
+					@apply bg-white rounded-6xl p-6 mb-4 text-text-24 font-medium;
+				}
+				.first__payment_method {
+					@apply flex gap-4;
+				}
+			}
+			.checkout__second_column {
+				@apply bg-white rounded-6xl p-6;
+				.second__title {
+					@apply text-text-24 font-medium mb-5;
+				}
+				.result__detail {
+					@apply flex flex-wrap gap-y-3 w-full;
+					.result__text {
+						flex: 0 1 50%;
+						@apply text-text-default;
+						&.discount {
+							@apply text-orange-900 font-medium;
+						}
+						&.bold {
+							@apply font-medium text-20px;
+						}
+						&:nth-child(2) {
+							text-align: right;
+						}
+						&:nth-child(4) {
+							text-align: right;
+						}
+						&:nth-child(6) {
+							text-align: right;
+						}
+					}
+				}
+				.btn_pay {
+					@apply btn-primary rounded-5xl text-20px font-semibold mt-3;
+				}
+			}
+		}
+	}
+}

@@ -20,7 +20,7 @@
 					@apply w-[100px] h-[100px] tablet:w-[70px] tablet:h-[70px] mr-4
 					tablet:mr-2 rounded-circle overflow-hidden;
 					& img {
-						@apply w-full h-full object-cover object-center;
+						@apply w-full h-full object-contain object-center;
 					}
 				}
 				.title_title {

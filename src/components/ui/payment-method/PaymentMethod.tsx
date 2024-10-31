@@ -1,6 +1,8 @@
-import { CSSProperties, FC, Fragment } from 'react'
+import { CSSProperties, FC } from 'react'
 import { EnumPayment } from './paymentMethods'
 import styles from './paymentMethod.module.scss'
+import cn from 'clsx'
+
 type TPaymentProps = {
 	value: EnumPayment
 	label: string
@@ -9,6 +11,8 @@ type TPaymentProps = {
 	size: string
 	design: CSSProperties
 	designSecond?: CSSProperties
+	selected: boolean
+	changeMethod: (v: EnumPayment) => void
 }
 const PaymentMethod: FC<TPaymentProps> = ({
 	description,
@@ -17,10 +21,17 @@ const PaymentMethod: FC<TPaymentProps> = ({
 	size,
 	value,
 	design,
-	designSecond
+	designSecond,
+	selected,
+	changeMethod
 }) => {
 	return (
-		<div className={styles.item} style={{ flex: `0 1 ${size}` }}>
+		<button
+			type='button'
+			onClick={() => changeMethod(value)}
+			className={cn(styles.item, { [styles.active]: selected })}
+			style={{ flex: `0 1 ${size}` }}
+		>
 			<div className={styles.item__info}>
 				<h4 className={styles.item__title}>{label}</h4>
 				<p className={styles.item__description}>{description}</p>
@@ -36,7 +47,7 @@ const PaymentMethod: FC<TPaymentProps> = ({
 					/>
 				))}
 			</div>
-		</div>
+		</button>
 	)
 }
 

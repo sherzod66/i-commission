@@ -23,6 +23,7 @@ type TShopInputs = {
 export const useSettingsShop = () => {
 	const searchParams = useSearchParams()
 	const shopId = searchParams.get('shopId')
+	const [shop, setShop] = useState<IShop | null>(null)
 	const { data: user, error, loading } = useMe()
 	const [coverImage, setCoverImage] = useState<File | null>(null)
 	const [avatarImage, setAvatarImage] = useState<File | null>(null)
@@ -66,17 +67,13 @@ export const useSettingsShop = () => {
 	} = useForm<TShopInputs>({ mode: 'onChange' })
 
 	const onSubmit: SubmitHandler<TShopInputs> = data => {
-		if (user && user.me.account) {
-			const findShop = user.me.account.shops.edges.findIndex(item => item.node.id === shopId)
-			if (
-				user.me.account.shops.edges[findShop].node.code !== data.code ||
-				user.me.account.shops.edges[findShop].node.displayName !== data.displayName
-			) {
+		if (user && user.me.account && shop) {
+			if (shop.code !== data.code || shop.displayName !== data.displayName) {
 				shopMutation({
 					variables: {
 						code: data.code,
 						displayName: data.displayName,
-						id: user.me.account.shops.edges[findShop].node.id
+						id: shop.id
 					}
 				})
 			}
@@ -85,6 +82,7 @@ export const useSettingsShop = () => {
 	useEffect(() => {
 		if (user && user.me.account) {
 			const findShop = user.me.account.shops.edges.findIndex(item => item.node.id === shopId)
+			setShop(user.me.account.shops.edges[findShop].node)
 			reset({
 				code: user.me.account.shops.edges[findShop].node.code,
 				displayName: user.me.account.shops.edges[findShop].node.displayName
@@ -94,9 +92,9 @@ export const useSettingsShop = () => {
 
 	const onCoverSubmit = () => {
 		if (!user) return
+		if (!shop) return
 
-		const findShop = user.me.account.shops.edges.findIndex(item => item.node.id === shopId)
-		if (!user.me.account.shops.edges[findShop].node.availablePermissions.includes('shop.update')) {
+		if (!shop.availablePermissions.includes('shop.update')) {
 			message.info('У вас нет прав на редактирование магазина!')
 			return
 		}
@@ -114,7 +112,7 @@ export const useSettingsShop = () => {
 					const uploadFile = await createFile(bodyFormData)
 					setUploadLoading(false)
 					coverMutation({
-						variables: { coverId: uploadFile, id: user.me.account.shops.edges[findShop].node.id }
+						variables: { coverId: uploadFile, id: shop.id }
 					})
 				} else {
 					message.error('Макс. размер 1920x427px')
@@ -125,26 +123,24 @@ export const useSettingsShop = () => {
 
 	const onCoverReset = () => {
 		if (!user) return
-
-		const findShop = user.me.account.shops.edges.findIndex(item => item.node.id === shopId)
+		if (!shop) return
 		coverMutation({
-			variables: { coverId: null, id: user.me.account.shops.edges[findShop].node.id }
+			variables: { coverId: null, id: shop.id }
 		})
 	}
 
 	const onImageReset = () => {
 		if (!user) return
-
-		const findShop = user.me.account.shops.edges.findIndex(item => item.node.id === shopId)
+		if (!shop) return
 		avatarMutation({
-			variables: { imageId: null, id: user.me.account.shops.edges[findShop].node.id }
+			variables: { imageId: null, id: shop.id }
 		})
 	}
 	const onImageSubmit = () => {
 		if (!user) return
+		if (!shop) return
 
-		const findShop = user.me.account.shops.edges.findIndex(item => item.node.id === shopId)
-		if (!user.me.account.shops.edges[findShop].node.availablePermissions.includes('shop.update')) {
+		if (!shop.availablePermissions.includes('shop.update')) {
 			message.info('У вас нет прав на редактирование магазина!')
 			return
 		}
@@ -162,7 +158,7 @@ export const useSettingsShop = () => {
 					const uploadFile = await createFile(bodyFormData)
 					setUploadLoading(false)
 					avatarMutation({
-						variables: { imageId: uploadFile, id: user.me.account.shops.edges[findShop].node.id }
+						variables: { imageId: uploadFile, id: shop.id }
 					})
 				} else {
 					message.error('Макс. размер 400x400px')
@@ -170,6 +166,8 @@ export const useSettingsShop = () => {
 			})
 			.catch(error => console.error('Ошибка загрузки изображения:', error))
 	}
+
+	console.log(shop)
 
 	return useMemo(
 		() => ({
@@ -190,8 +188,19 @@ export const useSettingsShop = () => {
 			uploadLoading,
 			avatarLoading,
 			user,
-			onImageReset
+			onImageReset,
+			shop
 		}),
-		[errors, coverImage, avatarImage, isEdit, coverLoading, uploadLoading, user, avatarLoading]
+		[
+			errors,
+			coverImage,
+			avatarImage,
+			isEdit,
+			coverLoading,
+			uploadLoading,
+			user,
+			avatarLoading,
+			shop
+		]
 	)
 }

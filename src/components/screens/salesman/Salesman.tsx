@@ -22,7 +22,7 @@ const Salesman: FC = () => {
 							key={item.node.id}
 							title={item.node.displayName}
 							isSellers={false}
-							productData={item.node.products}
+							productData={item.node.activeProducts}
 						/>
 				  ))
 				: ''}

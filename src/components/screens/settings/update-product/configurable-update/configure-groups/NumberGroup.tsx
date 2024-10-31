@@ -3,7 +3,12 @@ import styles from './configureGroups.module.scss'
 import { IConfigurationCheckbox, IConfigurationNumberGroup, TGroupType } from '@/types/product.type'
 import { configurationSelect } from '../useConfigurableUpdate'
 import { Select } from 'antd'
-import { cleanNumber, containsLetters, formatNumberForDisplay } from '@/utils/formatPrice'
+import {
+	cleanNumber,
+	containsLetters,
+	containsNumbers,
+	formatNumberForDisplay
+} from '@/utils/formatPrice'
 
 type NumberGroupProps = {
 	NumberGroup: IConfigurationNumberGroup
@@ -33,13 +38,19 @@ const NumberGroup: FC<NumberGroupProps> = ({
 	) => {
 		const editNumber = [...numberValues]
 		if (isNumber) {
-			if (!containsLetters(event.target.value)) {
-				const clearSpace = cleanNumber(event.target.value)
-				editNumber.splice(currentGroupIndex, 1, {
-					...numberValues[currentGroupIndex],
-					[name]: +clearSpace
-				})
-			}
+			const StringNumber = cleanNumber(event.target.value)
+			const isNumber = containsNumbers(StringNumber)
+			console.log(StringNumber)
+			if (!isNumber) return
+			editNumber.splice(currentGroupIndex, 1, {
+				...numberValues[currentGroupIndex],
+				[name]:
+					StringNumber[StringNumber.length - 1] === '.' ||
+					StringNumber === '0' ||
+					StringNumber === ''
+						? StringNumber
+						: parseFloat(StringNumber)
+			})
 		} else {
 			editNumber.splice(currentGroupIndex, 1, {
 				...numberValues[currentGroupIndex],
@@ -95,7 +106,7 @@ const NumberGroup: FC<NumberGroupProps> = ({
 						onChange={e => setNumberValue(e, 'defaultAmount', true)}
 						id={`number-defaultAmount-${NumberGroup.id}`}
 						placeholder='Количество по умолчанию'
-						type='number'
+						type='text'
 					/>
 				</div>
 				<div className={styles.column}>

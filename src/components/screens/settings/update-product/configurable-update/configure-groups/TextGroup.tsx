@@ -72,7 +72,7 @@ const TextGroup: FC<TextGroupProps> = ({
 						value={TextGroup.regex}
 						onChange={e => setTextValue(e, 'regex')}
 						id={`text-price-${TextGroup.id}`}
-						placeholder='/^[0-9]+$/'
+						placeholder='/^[0-9]*\.?[0-9]*$/'
 						type='text'
 					/>
 				</div>

@@ -11,7 +11,7 @@ type TOption = {
 }
 export const GET_SHOPS = gql`
 	query GetShops {
-		shops {
+		activeShops {
 			edges {
 				node {
 					id
@@ -26,7 +26,7 @@ export const GET_SHOPS = gql`
 
 export const GET_SHOP_QUANTITY = gql`
 	query GetShopQuantity {
-		shops {
+		activeShops {
 			totalCount
 		}
 	}
@@ -94,7 +94,7 @@ export const GET_SHOP_PRODUCTS = gql`
 			code
 			active
 			displayName
-			products(order: { createdAt: ASC }) {
+			activeProducts(order: { createdAt: ASC }) {
 				edges {
 					node {
 						id
@@ -125,6 +125,34 @@ export const GET_SHOP_PRODUCTS = gql`
 	}
 `
 
+export const SALESMAN_TOTAL_COUNT = gql`
+	query SalesmanTotalCount {
+		activeShops {
+			totalCount
+		}
+	}
+`
+
+export const FIND_SHOP_BY_CODE = gql`
+	query FindShopByCode($code: String) {
+		activeShops(filter: { code: { eq: $code } }) {
+			totalCount
+		}
+	}
+`
+
+export const CREATE_SHOP = gql`
+	mutation CreateShop($displayName: String, $code: String, $imageId: ID, $coverId: ID) {
+		createShop(
+			input: { displayName: $displayName, code: $code, imageId: $imageId, coverId: $coverId }
+		) {
+			id
+			code
+			displayName
+		}
+	}
+`
+
 //{ after, before, code, search, view, price, id }: TOption
 
 //          # first: 50 filter:{${search ? se : ''} ${before && after ? priceSort : ''}}
@@ -144,7 +172,7 @@ export const GET_SHOP_ONE = gql`
 						id
 						displayName
 						code
-						products {
+						activeProducts {
 							edges {
 								node {
 									id
@@ -165,7 +193,7 @@ export const GET_SHOP_ONE = gql`
 					}
 				}
 			}
-			products(first: 20) {
+			activeProducts(first: 20) {
 				edges {
 					node {
 						id

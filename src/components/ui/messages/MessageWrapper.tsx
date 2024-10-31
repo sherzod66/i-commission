@@ -10,7 +10,6 @@ import Error from '@/assets/messages/Error.svg'
 const MessageWrapper: FC = () => {
 	const messages = useMessagesStore(state => state.messages)
 	console.log(messages)
-	const PushMessage = useMessagesStore(state => state.pushMessages)
 	const removeMessage = useMessagesStore(state => state.removeMessage)
 	useEffect(() => {
 		const timeOut = setTimeout(() => {

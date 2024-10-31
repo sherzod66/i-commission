@@ -1,15 +1,20 @@
-import { Dispatch, FC, SetStateAction } from 'react'
+'use client'
+import { Dispatch, FC, SetStateAction, useMemo } from 'react'
 import styles from './productOrder.module.scss'
 import { IProduct } from '@/types/product.type'
 import CountProduct from '@/components/ui/count/CountProduct'
 import { TCountQuantity } from '@/components/ui/filter/Filter'
 import { formatPrice } from '@/utils/formatPrice'
+import { useBasketStore } from '@/store/basketStore/useBasketStore'
 
 const ProductPrice: FC<{
 	product: IProduct
 	count: TCountQuantity
 	setCount: Dispatch<SetStateAction<TCountQuantity>>
-}> = ({ product, count, setCount }) => {
+	onToggleBasket: () => void
+}> = ({ product, count, setCount, onToggleBasket }) => {
+	const basket = useBasketStore(store => store.basket)
+	const findProduct = useMemo(() => basket.find(item => item.id === product.id), [basket])
 	return (
 		<div className={styles.buy}>
 			<div className={styles.buy__row}>
@@ -26,8 +31,8 @@ const ProductPrice: FC<{
 			<button type='button' className={styles.buy__buy}>
 				Купить в один клик
 			</button>
-			<button type='button' className={styles.buy__basket}>
-				Добавить в корзину
+			<button onClick={() => onToggleBasket()} type='button' className={styles.buy__basket}>
+				{findProduct ? 'Удалить с корзины' : 'Добавить в корзину'}
 			</button>
 		</div>
 	)

@@ -1,0 +1,47 @@
+.path {
+	@apply bg-white mt-4 relative rounded-6xl p-4 border-2 border-solid border-transparent transition-colors;
+	&.error {
+		@apply border-orange-900;
+	}
+	.path__title {
+		@apply text-text-24 font-medium;
+	}
+	.path__subtitle {
+		@apply text-20px font-light mt-[18px];
+	}
+	.path__text {
+		@apply mt-2;
+		& input {
+			@apply block bg-dark-white w-full px-3 py-[12px] rounded-5xl text-text-default border border-solid border-transparent transition-colors;
+			&:focus {
+				@apply border-orange-900;
+			}
+		}
+	}
+	.number__group_row {
+		@apply flex w-full gap-4;
+
+		.number__group_column {
+			flex: 0 1 50%;
+			& label {
+				@apply block text-text-default my-2;
+			}
+			.number__input {
+				@apply block bg-dark-white w-full px-3 py-[12px] rounded-5xl text-text-default border border-solid border-transparent transition-colors;
+				&:focus {
+					@apply border-orange-900;
+				}
+			}
+		}
+	}
+	.path__categories {
+		@apply w-full flex flex-wrap gap-2 mt-4;
+		.categories__column {
+			flex: 0 1 12%;
+			@apply py-[8px] border border-solid border-product-category-border rounded-12xl text-text-default font-medium text-center transition-colors;
+			&.active {
+				@apply bg-black-950 border-black-950 text-white;
+			}
+		}
+	}
+}

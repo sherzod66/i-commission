@@ -1,25 +1,14 @@
 import { uploadAxios } from '@/api/axios'
-import { IResponse } from '@/types/response.type'
 import { gql } from '@apollo/client'
 import { PRODUCT_CONFIGURATION } from './product.fragments'
 
-// export const productsService = {
-// 	async getProductQuantity() {
-// 		return instance.post<
-// 			IResponse<{
-// 				products: {
-// 					totalCount: number
-// 				}
-// 			}>
-// 		>('/graphql', {
-// 			query: `query {
-//     products {
-//       totalCount
-//     }
-// }`
-// 		})
-// 	}
-// }
+export const PRODUCT_TOTAL_COUNT = gql`
+	query ProductTotalCount {
+		activeProducts {
+			totalCount
+		}
+	}
+`
 
 export const UPDATE_DISCOUNT_CONFIGURABLE = gql`
 	mutation UpdateDiscountConfigurable($id: ID!, $oldPrice: Int, $price: Int) {
@@ -46,7 +35,7 @@ export const UPDATE_DISCOUNT_ACTIVE_CODE = gql`
 
 export const PRODUCT_SEARCH = gql`
 	query ProductSearch($value: String) {
-		products(filter: { displayName: { search: $value } }) {
+		activeProducts(filter: { displayName: { search: $value } }) {
 			edges {
 				node {
 					id
@@ -165,6 +154,21 @@ export const PRODUCT = gql`
 				image {
 					url
 				}
+			}
+			productPathGroup {
+				id
+				name
+				graph {
+					categories {
+						id
+						name
+					}
+					paths {
+						name
+						categoryId
+					}
+				}
+				availablePermissions
 			}
 			price
 			...ConfigurableInfo
